@@ -1,2 +1,11 @@
 class Band < ApplicationRecord
+  has_many :band_members, dependent: :destroy
+  has_many :songs, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :notifications
+  has_many :chats
+  has_many :vacancies, dependent: :destroy
+  has_many :projects, dependent: :destroy
+  belongs_to :user
+  has_many :applications, through: :vacancies
 end
