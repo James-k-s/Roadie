@@ -1,4 +1,51 @@
-// Specific CSS for your home-page
 .banner {
-
+      background: url('assets/images/KarstenWinegeartRoadieTemporaryBanner.jpg') no-repeat center center;
+      background-blend-mode: multiply;
+      background-size: cover;
+      color: white;
+      padding: 100px 30px;
+      text-align: center;
+    }
+    .banner-buttons {
+      margin-top: 20px;
+    }
+    .banner-buttons .btn {
+      padding: 14px 32px;
+      font-size: 1.1rem;
+    }
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .footer {
+      background-color: #96320E;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.2rem;
+    }
+    .btn-find-bands {
+      background-color: #FFF9ED;
+      color: black;
+      border: none;
+    }
+    .btn-find-musicians {
+      background-color: #F18A60;
+      color: white;
+      border: none;
+    }
+     .why-roadie-title {
+      color: #96320E;
+      font-weight: bold;
+    }
+     .navbar-custom {
+      background-color: #96320E;
+    }
+.footer {
+  bottom: 0;
+  width: 100%;
 }
