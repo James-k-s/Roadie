@@ -37,8 +37,8 @@
     <div class="vacancies">
       <h3>Open Positions:</h3>
       <p>Join our musical journey...</p>
-      <div class="vacancy">
-        <% @band.vacancies.each do |vacancy| %>
+      <% @band.vacancies.each do |vacancy| %>
+        <div class="vacancy">
           <h4><%= vacancy.instrument %></h4>
           <p><%= vacancy.description %></p>
           <h5>Requirements:</h5>
@@ -47,9 +47,9 @@
             <li>Availability: <%= vacancy.availability %></li>
             <li><%= vacancy.confidence %></li>
           </ul>
-        <% end %>
-        <button>Apply</button>
-      </div>
+        </div>
+      <% end %>
+      <button>Apply</button>
     </div>
   </div>
 </div>

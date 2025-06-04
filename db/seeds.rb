@@ -74,6 +74,7 @@ User.create!(
 
 puts "Created #{User.count} users."
 
+
 puts "Creating bands..."
 
 Band.create!(
@@ -93,6 +94,78 @@ Band.create!(
 )
 
 puts "Created #{Band.count} bands."
+
+puts "Creating instruments..."
+
+Instrument.create!(
+  name: "Guitar",
+  experience: 3,
+  description: "I can play rock, jazz, and blues.",
+  user_id: User.find_by(first_name: "Milo").id
+)
+
+Instrument.create!(
+  name: "Drums",
+  experience: 4,
+  description: "I can play rock, jazz, and funk.",
+  user_id: User.find_by(first_name: "James").id
+)
+
+Instrument.create!(
+  name: "Bass",
+  experience: 5,
+  description: "I can play rock, jazz, and funk.",
+  user_id: User.find_by(first_name: "Admir").id
+)
+
+Instrument.create!(
+  name: "Vocals",
+  experience: 2,
+  description: "I can sing rock, pop, and jazz.",
+  user_id: User.find_by(first_name: "Jane").id
+)
+
+Instrument.create!(
+  name: "Keyboard",
+  experience: 4,
+  description: "I can play rock, jazz, and classical.",
+  user_id: User.find_by(first_name: "John").id
+)
+
+puts "Created #{Instrument.count} instruments."
+
+puts "Creating band members..."
+
+BandMember.create!(
+  band_leader: true,
+  band_id: Band.find_by(name: "The Rockers").id,
+  user_id: User.find_by(first_name: "Milo").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "Milo").id).id
+)
+
+BandMember.create!(
+  band_leader: false,
+  band_id: Band.find_by(name: "The Rockers").id,
+  user_id: User.find_by(first_name: "James").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "James").id).id
+)
+
+BandMember.create!(
+  band_leader: false,
+  band_id: Band.find_by(name: "The Rockers").id,
+  user_id: User.find_by(first_name: "Admir").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "Admir").id).id
+)
+
+BandMember.create!(
+  band_leader: true,
+  band_id: Band.find_by(name: "The Jazzers").id,
+  user_id: User.find_by(first_name: "John").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "John").id).id
+)
+
+puts "Created #{BandMember.count} band members."
+
 
 puts "Creating vacancies..."
 
