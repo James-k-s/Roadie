@@ -55,7 +55,6 @@ body {
 
 .band-about {
   width: 752px;
-  height: 224px;
   background-color: #FFF9ED;
   border: 2px solid #763117;
   border-radius: 8px;
@@ -63,19 +62,52 @@ body {
   margin-top: 2rem;
 }
 
+.band-about h3 {
+  color: #763117;
+  margin: 0 0 16px 0;
+  line-height: 32px;
+  font-size: 32px;
+}
+
+
 .band-members {
   width: 752px;
-  height: 416px;
   background-color: #FFF9ED;
   border: 2px solid #763117;
   border-radius: 8px;
   padding: 16px;
   margin-top: 2rem;
+}
+
+.band-members h3 {
+  color: #763117;
+  margin: 0 0 16px 0;
+  line-height: 32px;
+  font-size: 32px;
+}
+
+.band-members ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.band-members li {
+  background-color: white;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 8px;
+  margin-left: none;
+  list-style: none;
+  color: #763117;
+  display: flex;
+
 }
 
 .vacancies {
   width: 400px;
-  height: 720px;
+  height:fit-content;
   background-color: #FAD6C7;
   border: 2px solid #763117;
   border-radius: 8px;
