@@ -1,6 +1,5 @@
 .band-details {
   display: flex;
-  align-items: center;
   margin-bottom: 1rem;
   width: 400px;
 }
@@ -8,9 +7,41 @@
 .band-info {
   display: flex;
   margin-right: 1rem;
+  line-height: 16px;
 }
 
 .band-name {
   font-weight: 700;
   font-size: 48px;
+  color: #763117;
+}
+
+.band-info p {
+  color: #EB6937;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 208px;
+  height: 64px;
+  background-color: #FFF9ED;
+  font-size: 20px;
+  font-weight: 700;
+  color: #763117;
+  border: 2px solid #763117;
+  border-radius: 8px;
+}
+
+.contact-button p {
+  margin: 0 0 0 8px;
+}
+
+.band-details p {
+  margin-bottom: 0;
+}
+
+body {
+  background-color: #FFF9ED;
 }
