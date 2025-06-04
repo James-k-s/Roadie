@@ -100,7 +100,6 @@ body {
 
 .vacancy {
   width: 100%;
-  height: 448px;
   background-color: #FFF9ED;
   border-radius: 8px;
   margin-bottom: 16px;
@@ -115,4 +114,21 @@ body {
 .vacancy h5 {
   color: #763117;
   margin-bottom: 16px;
+}
+.vacancy ul {
+  margin-bottom: 32px;
+}
+
+.vacancy li {
+  color: #EB6937;
+  margin-bottom: 8px;
+}
+
+.vacancy button {
+  background-color: #EB6937;
+  width: 100%;
+  height: 40px;
+  color: #FFF9ED;
+  border-radius: 8px;
+  border: none;
 }
