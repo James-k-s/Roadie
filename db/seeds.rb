@@ -78,7 +78,10 @@ Vacancy.create!(
   instrument: "Guitar",
   description: "We are looking for a guitarist to join our band. You must be able to play rock music and have your own equipment.",
   filled: false,
-  band_id: Band.first.id
+  band_id: Band.first.id,
+  years_of_experience: 2,
+  availability: "Weekends",
+  confidence: "Can perform in front of an audience"
 )
 
 puts "Created #{Vacancy.count} vacancies."
