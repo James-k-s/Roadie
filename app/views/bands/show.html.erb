@@ -43,9 +43,9 @@
           <p><%= vacancy.description %></p>
           <h5>Requirements:</h5>
           <ul>
-            <li>3+ years of experience</li>
-            <li>Regularly available</li>
-            <li>Comfortable playing live</li>
+            <li><%= vacancy.years_of_experience %>+ years of experience</li>
+            <li>Availability: <%= vacancy.availability %></li>
+            <li><%= vacancy.confidence %></li>
           </ul>
         <% end %>
         <button>Apply</button>

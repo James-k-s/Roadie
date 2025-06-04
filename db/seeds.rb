@@ -97,13 +97,13 @@ puts "Created #{Band.count} bands."
 puts "Creating vacancies..."
 
 Vacancy.create!(
-  instrument: "Vocals",
+  instrument: "Singer",
   description: "We are looking for a vocalist to join our band. You must be able to sing rock music and have your own microphone.",
   filled: false,
   band_id: Band.first.id,
   years_of_experience: 2,
   availability: "Weekends",
-  confidence: "Can perform in front of an audience"
+  confidence: "Comfortable performing in front of an audience"
 )
 
 puts "Created #{Vacancy.count} vacancies."
