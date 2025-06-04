@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h2 class="band-name"><%= @band.name %></h2>
+  <div class="band-details">
+    <div class="band-info">
+      <i class="fa-solid fa-music me-2"></i>
+      <p><%= @band.genre %></p>
+    </div>
+    <div class="band-info">
+      <i class="fa-solid fa-calendar me-2"></i>
+      <p>Formed <%= @band.created_at.to_date.year %></p>
+    </div>
+    <div class="band-info">
+      <i class="fa-solid fa-location-dot me-2"></i>
+      <p><%= @band.address %></p>
+    </div>
+  </div>
+</div>
