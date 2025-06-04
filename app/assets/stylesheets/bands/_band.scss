@@ -1,6 +1,6 @@
 .band-details {
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   width: 400px;
 }
 
@@ -43,5 +43,32 @@
 }
 
 body {
+  background-color: white;
+}
+
+.band-photo {
+  width: 752px;
+  height: 336px;
+  background-color: #EB6937;
+  border-radius: 8px;
+}
+
+.band-about {
+  width: 752px;
+  height: 224px;
   background-color: #FFF9ED;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 2rem;
+}
+
+.band-members {
+  width: 752px;
+  height: 416px;
+  background-color: #FFF9ED;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 2rem;
 }
