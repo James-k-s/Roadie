@@ -38,14 +38,16 @@
       <h3>Open Positions:</h3>
       <p>Join our musical journey...</p>
       <div class="vacancy">
-        <h4>Bass Guitarist</h4>
-        <p>We're looking for a dedicated bass player to complete our rhythm section. Must be passionate about indie rock and open to creative collaboration.</p>
-        <h5>Requirements:</h5>
-        <ul>
-          <li>3+ years of experience</li>
-          <li>Regularly available</li>
-          <li>Comfortable playing live</li>
-        </ul>
+        <% @band.vacancies.each do |vacancy| %>
+          <h4><%= vacancy.instrument %></h4>
+          <p><%= vacancy.description %></p>
+          <h5>Requirements:</h5>
+          <ul>
+            <li>3+ years of experience</li>
+            <li>Regularly available</li>
+            <li>Comfortable playing live</li>
+          </ul>
+        <% end %>
         <button>Apply</button>
       </div>
     </div>
