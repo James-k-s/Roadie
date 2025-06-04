@@ -50,6 +50,28 @@ User.create!(
   address: "London, UK"
 )
 
+User.create!(
+  email: "jane@jane.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "Jane",
+  last_name: "Doe",
+  username: "jane",
+  bio: "I am a vocalist and I love to sing.",
+  address: "London, UK"
+)
+
+User.create!(
+  email: "john@john.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "John",
+  last_name: "Doe",
+  username: "john",
+  bio: "I am a keyboardist and I love to play the keyboard.",
+  address: "London, UK"
+)
+
 puts "Created #{User.count} users."
 
 puts "Creating bands..."
@@ -67,7 +89,7 @@ Band.create!(
   address: "London, UK",
   bio: "We are a jazz band from London. We love to play jazz music and we are looking for new members.",
   genre: "Jazz",
-  user_id: User.second.id
+  user_id: User.last.id
 )
 
 puts "Created #{Band.count} bands."
@@ -75,8 +97,8 @@ puts "Created #{Band.count} bands."
 puts "Creating vacancies..."
 
 Vacancy.create!(
-  instrument: "Guitar",
-  description: "We are looking for a guitarist to join our band. You must be able to play rock music and have your own equipment.",
+  instrument: "Vocals",
+  description: "We are looking for a vocalist to join our band. You must be able to sing rock music and have your own microphone.",
   filled: false,
   band_id: Band.first.id,
   years_of_experience: 2,
@@ -90,7 +112,7 @@ puts "Creating applications..."
 
 Application.create!(
   pitch: "I am a guitarist and I love to play rock music. I have my own equipment and I am available to rehearse.",
-  user_id: User.last.id,
+  user_id: User.find_by(first_name: "Jane").id,
   vacancy_id: Vacancy.first.id
 )
 
