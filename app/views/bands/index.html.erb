@@ -1,0 +1,38 @@
+<div class="body-container">
+
+  <div class="left-side-container">
+    <div class="filter-bands">
+      <%= form_with url: bands_path, method: :get, local: true do |f|%>
+      <div class="filter-options">
+      <div class="form-group">
+        <h2>Filter bands</h2>
+      </div>
+      <div class="form-group">
+      </div>
+        <div class="form-group">
+          <%= f.label :genre %>
+          <%= f.text_field :genre %>
+        </div>
+        <div class="form-group">
+          <%= f.label :address %>
+          <%= f.text_field :location %>
+        </div>
+        <div class="checkbox">
+          <%= f.label :"vacancies only?" %>
+          <%= f.check_box :vacancy %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Filter", class: "submit-button" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="right-side-container">
+  <h1>Map goes here</h1>
+  </div>
+
+
+</div>
