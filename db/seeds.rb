@@ -12,6 +12,8 @@ puts "Clearing existing records..."
 
 Application.destroy_all
 Vacancy.destroy_all
+BandMember.destroy_all
+Instrument.destroy_all
 Band.destroy_all
 User.destroy_all
 

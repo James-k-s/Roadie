@@ -164,3 +164,9 @@ body {
   border-radius: 8px;
   border: none;
 }
+
+.band-member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

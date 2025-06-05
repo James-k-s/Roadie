@@ -28,9 +28,9 @@
       <div class="band-members">
         <h3>Meet the Band</h3>
         <ul class="members-list">
-          <li class="band-member">James Kay-Shuttleworth</li>
-          <li class="band-member">Admir Kurman</li>
-          <li class="band-member">Milo Vingoe</li>
+        <% @band.band_members.each do |member| %>
+          <li class="band-member"><span><%= member.user.first_name %> <%= member.user.last_name %></span><span><%= Instrument.find_by(user_id: member.user_id).name %></span></li>
+        <% end %>
         </ul>
       </div>
     </div>
