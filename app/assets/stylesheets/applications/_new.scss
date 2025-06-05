@@ -1,0 +1,39 @@
+.application-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  height: 100%;
+}
+.application-new {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  h3 {
+    padding-bottom: 8px;
+  }
+
+}
+.typing {
+  width: 400px;
+  height: 150px;
+  margin-bottom: 8px;
+}
+
+.submit-button {
+  background-color: #EB6937;
+  padding: 8px;
+  border: none;
+  border-radius: 8px ;
+  color: #FAD6C7;
+}
+
+.modal-header{
+  background-color: #FFF9ED;
+}
+.modal-body {
+  background-color: #FFF9ED;
+}
+
+#footer-bg {
+  background-color: #FFF9ED;
+}
