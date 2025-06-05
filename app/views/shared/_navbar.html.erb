@@ -8,12 +8,16 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">Bands</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">My Profile</a></li>
+        <li class="nav-item"><%= link_to "Home", root_path, class: "nav-links" %></li>
+        <li class="nav-item"><%= link_to "About", "#", class: "nav-links" %></li>
+        <li class="nav-item"><%= link_to "Bands", bands_path, class: "nav-links" %></li>
+        <li class="nav-item"><%= link_to "My profile", "#", class: "nav-links" %></li>
       </ul>
-      <button class="btn btn-outline-light ms-3">Login</button>
+      <% if user_signed_in? %>
+        <%= link_to "Logout", "#", class: "nav-links log" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "nav-links log" %>
+      <% end %>
     </div>
   </div>
 </nav>

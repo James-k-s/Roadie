@@ -31,6 +31,7 @@
 
     <div class="band-cards">
       <% @bands.each do |band| %>
+        <%= link_to band_path(band), class: "text-decoration-none" do%>
         <div class="band-card">
           <%= image_tag "band.jpg", class: "band-card-img" %>
           <div class="band-card-info">
@@ -39,6 +40,7 @@
             <p>Location: <%= band.address %> </p>
           </div>
         </div>
+        <% end %>
       <% end %>
     </div>
 
