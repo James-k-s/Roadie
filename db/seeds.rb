@@ -79,13 +79,14 @@ puts "Created #{User.count} users."
 
 puts "Creating bands..."
 
-Band.create!(
+band = Band.new(
   name: "The Rockers",
   address: "New Cross, London, UK",
   bio: "We are a rock band from London. We love to play rock music and we are looking for new members.",
   genre: "Rock",
   user_id: User.first.id
 )
+band.photo.attach(io: File.open(Rails.root.join("app/assets/images/rock_band.jpg")), filename: "rock_band.jpg", content_type: "image/jpg")
 
 Band.create!(
   name: "The Jazzers",
