@@ -27,7 +27,7 @@ User.create!(
   last_name: "Vingoe",
   username: "milo",
   bio: "I am a musician and I love to play the guitar. I am looking for a band to join.",
-  address: "London, UK"
+  address: "New Cross, London, UK"
 )
 
 User.create!(
@@ -38,7 +38,7 @@ User.create!(
   last_name: "Kay-Shuttleworth",
   username: "james",
   bio: "I am a drummer and I love to play the drums.",
-  address: "London, UK"
+  address: "Brixton, London, UK"
 )
 
 User.create!(
@@ -49,7 +49,7 @@ User.create!(
   last_name: "Kurman",
   username: "admir",
   bio: "I am a bassist and I love to play the bass.",
-  address: "London, UK"
+  address: "Maida Vale, London, UK"
 )
 
 User.create!(
@@ -60,7 +60,7 @@ User.create!(
   last_name: "Doe",
   username: "jane",
   bio: "I am a vocalist and I love to sing.",
-  address: "London, UK"
+  address: "Earls Court, London, UK"
 )
 
 User.create!(
@@ -71,7 +71,7 @@ User.create!(
   last_name: "Doe",
   username: "john",
   bio: "I am a keyboardist and I love to play the keyboard.",
-  address: "London, UK"
+  address: "Epsom, London, UK"
 )
 
 puts "Created #{User.count} users."
@@ -81,7 +81,7 @@ puts "Creating bands..."
 
 Band.create!(
   name: "The Rockers",
-  address: "London, UK",
+  address: "New Cross, London, UK",
   bio: "We are a rock band from London. We love to play rock music and we are looking for new members.",
   genre: "Rock",
   user_id: User.first.id
@@ -89,7 +89,7 @@ Band.create!(
 
 Band.create!(
   name: "The Jazzers",
-  address: "London, UK",
+  address: "Brixton, London, UK",
   bio: "We are a jazz band from London. We love to play jazz music and we are looking for new members.",
   genre: "Jazz",
   user_id: User.last.id
