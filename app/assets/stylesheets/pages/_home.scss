@@ -1,4 +1,111 @@
-// Specific CSS for your home-page
 .banner {
+      background: url('Banner.jpg') no-repeat center center;
+      background-blend-mode: multiply;
+      background-size: cover;
+      color: white;
+      padding: 100px 30px;
+      text-align: center;
+      object-fit: cover;
+    }
 
+    .title {
+      color:#FFF9ED;
+      font-size: 48px;
+    }
+
+
+    .find-bands {
+      background-color: #FFF9ED;
+      color: #96320E;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+      margin: 4px;
+
+    }
+
+    .find-musicians {
+      background-color: #EB6937;
+      color: #FFF9ED;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+      margin: 4px
+    }
+
+    .lead {
+      color:#FFF9ED;
+
+    }
+    .banner-buttons {
+      margin-top: 20px;
+    }
+    .banner-buttons .btn {
+      padding: 14px 32px;
+      font-size: 1.1rem;
+    }
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .footer {
+      background-color: #96320E;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.2rem;
+    }
+    .btn-find-bands {
+      background-color: #FFF9ED;
+      color: black;
+      border: none;
+    }
+    .btn-find-musicians {
+      background-color: #F18A60;
+      color: white;
+      border: none;
+    }
+     .why-roadie-title {
+      color: #96320E;
+      font-weight: bold;
+    }
+     .navbar-custom {
+      background-color: #FFF9ED;
+    }
+    .footer {
+      bottom: 0;
+      position: relative;
+      left: 0;
+      width: 100%;
+      margin-top: 16px;
+    }
+
+.nav-links{
+  color: #96320E;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  padding-left: 16px;
+
+}
+
+.log {
+  padding: 8px;
+  border: #96320E 1px solid;
+  margin: 8px;
+  border-radius: 8px;
+}
+.main-container {
+  height: 100%;
+  min-height:100vh; ;
 }
