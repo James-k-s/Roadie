@@ -325,30 +325,30 @@ dylan = User.new(
 )
 dylan.photo.attach(io: File.open(Rails.root.join("app/assets/images/dylan_cray.jpg")), filename: "dylan_cray.jpg", content_type: "image/jpg")
 
-User.create!(milo)
-User.create!(james)
-User.create!(admir)
-User.create!(jane)
-User.create!(john)
-User.create!(tom)
-User.create!(leo)
-User.create!(aiko)
-User.create!(zawadi)
-User.create!(callum)
-User.create!(kai)
-User.create!(jiro)
-User.create!(emily)
-User.create!(sophie)
-User.create!(chloe)
-User.create!(kenji)
-User.create!(minsoo)
-User.create!(wei)
-User.create!(arun)
-User.create!(daichi)
-User.create!(jack)
-User.create!(theo)
-User.create!(eliza)
-User.create!(dylan)
+milo.save
+james.save
+admir.save
+jane.save
+john.save
+tom.save
+leo.save
+aiko.save
+zawadi.save
+callum.save
+kai.save
+jiro.save
+emily.save
+sophie.save
+chloe.save
+kenji.save
+minsoo.save
+wei.save
+arun.save
+daichi.save
+jack.save
+theo.save
+eliza.save
+dylan.save
 
 puts "Created #{User.count} users."
 
@@ -373,7 +373,7 @@ jazzers = Band.new(
 jazzers.photo.attach(io: File.open(Rails.root.join("app/assets/images/jazz-band.jpg")), filename: "jazz-band.jpg", content_type: "image/jpeg")
 
 starlynx = Band.new(
-  name: "Starlynx",
+  name: "StarLynx",
   address: "Maida Vale, London, UK",
   bio: " We are StarLynx — Kai Lennox, 24, and Jiro Sato, 23 — an English electronic duo based in Birmingham, weaving futuristic soundscapes that combine shimmering synths with dynamic, emotive beats. Driven by a passion for innovative production and boundary-breaking creativity, we create music that’s fresh, bold, and perfect for both intimate venues and festival main stages.
 We are on the lookout for a female lead vocalist with a unique voice and captivating presence to bring our sound to life. If you’re creative, ambitious, and ready to be part of something cutting-edge, let’s connect and make the future sound unforgettable.
@@ -415,14 +415,14 @@ fifth_elephant = Band.new(
   genre: "Alt Rock/Punk/Grunge",
   user_id: User.find_by(first_name: "Jack").id
 )
-fifth_elephant.photo.attach(io: File.open(Rails.root.join("app/assets/images/fifth_elephant.jpg")), filename: "fifth_elephant.jpg", content_type: "image/jpeg")
+fifth_elephant.photo.attach(io: File.open(Rails.root.join("app/assets/images/the_fifth_elephant.jpg")), filename: "the_fifth_elephant.jpg", content_type: "image/jpeg")
 
-Band.create!(rockers)
-Band.create!(jazzers)
-Band.create!(starlynx)
-Band.create!(moonlit_roses)
-Band.create!(dolce_capella)
-Band.create!(fifth_elephant)
+rockers.save
+jazzers.save
+starlynx.save
+moonlit_roses.save
+dolce_capella.save
+fifth_elephant.save
 
 puts "Created #{Band.count} bands."
 
@@ -462,7 +462,7 @@ Instrument.create!(
   name: "Violin",
   experience: 12,
   description: "I can play classical, jazz, and contemporary.",
-  user_id: User.find_by(first_name: "Tom").id
+  user_id: User.find_by(first_name: "Thomas").id
 )
 Instrument.create!(
   name: "Vocals",
@@ -603,13 +603,13 @@ BandMember.create!(
 )
 BandMember.create!(
   band_leader: true,
-  band_id: Band.find_by(name: "Starlynx").id,
+  band_id: Band.find_by(name: "StarLynx").id,
   user_id: User.find_by(first_name: "Kai").id,
   instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "Kai").id).id
 )
 BandMember.create!(
   band_leader: false,
-  band_id: Band.find_by(name: "Starlynx").id,
+  band_id: Band.find_by(name: "StarLynx").id,
   user_id: User.find_by(first_name: "Jiro").id,
   instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "Jiro").id).id
 )
