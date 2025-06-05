@@ -48,8 +48,32 @@
             <li><%= vacancy.confidence %></li>
           </ul>
         </div>
+      <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Apply Now
+      </button>
+
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Application for <%= @band.name %></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body application-new">
+              <h3>Why are you a good candidate?</h3>
+              <%= simple_form_for [ vacancy, @application ] do |f| %>
+                <%=  f.input :pitch, class: "typing" %>
+            </div>
+            <div class="modal-footer" id="footer-bg">
+              <%= f.submit class: "submit-button" %>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <% end %>
-      <button>Apply</button>
     </div>
   </div>
 </div>
