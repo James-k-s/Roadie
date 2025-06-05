@@ -1,2 +1,77 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<body>
+  <!-- Banner -->
+  <section class="banner">
+    <h1 class="display-4">Roadie</h1>
+    <p class="lead">Connect with Your Perfect Musical Match</p>
+    <div class="banner-buttons d-flex justify-content-center">
+      <%= link_to "Find Bands", bands_path, class: "btn btn-find-bands me-3" %>
+      <%= link_to "Find Musicians", users_path, class: "btn btn-find-bands me-3" %>
+    </div>
+
+    <!-- 4 Cards inside banner -->
+    <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+      <div class="card" style="width: 16rem;">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Explore indie bands in your area.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 16rem;">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Join a jazz ensemble or blues group.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 16rem;">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Find rock and metal groups nearby.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 16rem;">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Discover singer-songwriters and duos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Roadie -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4 why-roadie-title">Why Choose Roadie?</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Easy Matching">
+          <div class="card-body">
+            <h5 class="card-title">Easy Matching</h5>
+            <p class="card-text">Our platform quickly matches musicians and bands based on genre, location, and availability.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Verified Profiles">
+          <div class="card-body">
+            <h5 class="card-title">Verified Profiles</h5>
+            <p class="card-text">Only real musicians and serious bands — no spam, just jam.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Built for Artists">
+          <div class="card-body">
+            <h5 class="card-title">Built for Artists</h5>
+            <p class="card-text">Designed with musicians in mind — intuitive tools, clean UI, and creative community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</body>
