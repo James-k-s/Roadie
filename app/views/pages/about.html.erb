@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Roadie</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: sans-serif;
+    }
+
+    .frame-layer {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.9;
+      transform: rotate(var(--rotate, 0deg));
+      clip-path: polygon(var(--clip));
+    }
+
+    .shape1 {
+      background-color: #96320E;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      --clip: 0 0, 70% 0, 100% 100%, 0 100%;
+    }
+
+    .shape2 {
+      background-color: #EB6937;
+      top: 0;
+      right: 0;
+      width: 260px;
+      height: 100%;
+      --clip: 20% 0, 100% 30%, 100% 100%, 0% 90%;
+      --rotate: -2deg;
+    }
+
+    .shape3 {
+      background-color: #F18A60;
+      bottom: 0;
+      left: 180px;
+      width: calc(100% - 440px);
+      height: 40px;
+      --clip: 0 10%, 100% 0%, 100% 100%, 0% 100%;
+      --rotate: 0deg;
+    }
+
+    .shape4 {
+      background-color: #FAD6C7;
+      top: 20px;
+      left: 160px;
+      width: calc(100% - 180px);
+      height: 60px;
+      --clip: 0 0, 100% 0, 85% 100%, 0% 80%;
+      --rotate: 0deg;
+    }
+
+    .content-container {
+      position: relative;
+      z-index: 1;
+      padding: 100px 60px 160px 60px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .top-right-img {
+      float: right;
+      width: 280px;
+      margin-left: 40px;
+      border-radius: 10px;
+    }
+
+    .bottom-left-img {
+      float: left;
+      width: 220px;
+      margin-right: 40px;
+      margin-top: 60px;
+      border-radius: 10px;
+    }
+
+    .vertical-title {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 2rem;
+      font-weight: bold;
+      color:rgb(255, 255, 255);
+      position: absolute;
+      left: 40px;
+      top: 160px;
+    }
+
+    .main-text {
+      margin-top: 40px;
+      margin-left: 160px;
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="frame-layer">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+
+
+  <div class="content-container">
+    <div class="vertical-title">About Us</div>
+    <img src="app/assets/images/three-men-radiant-flawless-skin.jpeg" alt="Top Image" class="top-right-img">
+    <div class="main-text">
+      <h2>Why We Started Roadie</h2>
+      <p>Music is built on connection — between rhythms, voices, instruments, and above all, people. Yet finding the right collaborators can often feel harder than writing the perfect hook. That is why we created Roadie — a platform designed to help musicians, vocalists, producers, and bands discover each other with ease and purpose.
+          Behind the scenes, we are a trio of music lovers and tech entrepreneurs — James, Milo, and Admir — who built this platform under the guidance and mentorship of Le Wagon London. Our mission is simple: to empower creatives to connect, collaborate, and make music happen.
+        Whether you're in your bedroom studio or selling out gigs, there's a space for you here.
+      </p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
