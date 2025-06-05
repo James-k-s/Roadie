@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 class="band-name"><%= @band.name %></h2>
+    <button class="contact-button"><i class="fa-solid fa-user"></i><p>Contact Band</p></button>
+  </div>
+  <div class="band-details">
+    <div class="band-info">
+      <i class="fa-solid fa-music me-2"></i>
+      <p><%= @band.genre %></p>
+    </div>
+    <div class="band-info">
+      <i class="fa-solid fa-calendar me-2"></i>
+      <p>Formed <%= @band.created_at.to_date.year %></p>
+    </div>
+    <div class="band-info">
+      <i class="fa-solid fa-location-dot me-2"></i>
+      <p><%= @band.address %></p>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div class="left-side">
+      <div class="band-photo">
+      </div>
+      <div class="band-about">
+        <h3>About Us</h3>
+        <p><%= @band.bio %></p>
+      </div>
+      <div class="band-members">
+        <h3>Meet the Band</h3>
+        <ul class="members-list">
+        <% @band.band_members.each do |member| %>
+          <li class="band-member"><span><%= member.user.first_name %> <%= member.user.last_name %></span><span><%= Instrument.find_by(user_id: member.user_id).name %></span></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="vacancies">
+      <h3>Open Positions:</h3>
+      <p>Join our musical journey...</p>
+      <% @band.vacancies.each do |vacancy| %>
+        <div class="vacancy">
+          <h4><%= vacancy.instrument %></h4>
+          <p><%= vacancy.description %></p>
+          <h5>Requirements:</h5>
+          <ul>
+            <li><%= vacancy.years_of_experience %>+ years of experience</li>
+            <li>Availability: <%= vacancy.availability %></li>
+            <li><%= vacancy.confidence %></li>
+          </ul>
+        </div>
+      <% end %>
+      <button>Apply</button>
+    </div>
+  </div>
+</div>

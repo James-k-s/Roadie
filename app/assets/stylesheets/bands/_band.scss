@@ -1,0 +1,172 @@
+.band-details {
+  display: flex;
+  margin-bottom: 2rem;
+  width: 400px;
+}
+
+.band-info {
+  display: flex;
+  margin-right: 1rem;
+  line-height: 16px;
+}
+
+.band-name {
+  font-weight: 700;
+  font-size: 48px;
+  color: #763117;
+}
+
+.band-info p {
+  color: #EB6937;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 208px;
+  height: 64px;
+  background-color: #FFF9ED;
+  font-size: 20px;
+  font-weight: 700;
+  color: #763117;
+  border: 2px solid #763117;
+  border-radius: 8px;
+}
+
+.contact-button p {
+  margin: 0 0 0 8px;
+}
+
+.band-details p {
+  margin-bottom: 0;
+}
+
+body {
+  background-color: white;
+}
+
+.band-photo {
+  width: 752px;
+  height: 336px;
+  background-color: #EB6937;
+  border-radius: 8px;
+}
+
+.band-about {
+  width: 752px;
+  background-color: #FFF9ED;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 2rem;
+}
+
+.band-about h3 {
+  color: #763117;
+  margin: 0 0 16px 0;
+  line-height: 32px;
+  font-size: 32px;
+}
+
+
+.band-members {
+  width: 752px;
+  background-color: #FFF9ED;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 2rem;
+}
+
+.band-members h3 {
+  color: #763117;
+  margin: 0 0 16px 0;
+  line-height: 32px;
+  font-size: 32px;
+}
+
+.band-members ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.band-members li {
+  background-color: white;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 8px;
+  margin-left: none;
+  list-style: none;
+  color: #763117;
+  display: flex;
+
+}
+
+.vacancies {
+  width: 400px;
+  height:fit-content;
+  background-color: #FAD6C7;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vacancies h3 {
+  align-self: flex-start;
+  color: #763117;
+  margin: 0 0 16px 0;
+  line-height: 32px;
+  font-size: 32px;
+}
+
+.vacancies p {
+  margin: 0 0 16px 0;
+  align-self: start;
+}
+
+.vacancy {
+  width: 100%;
+  background-color: #FFF9ED;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.vacancy h4 {
+  color: #763117;
+  margin-bottom: 16px;
+}
+
+.vacancy h5 {
+  color: #763117;
+  margin-bottom: 16px;
+}
+.vacancy ul {
+  margin-bottom: 32px;
+}
+
+.vacancy li {
+  color: #EB6937;
+  margin-bottom: 8px;
+}
+
+.vacancy button {
+  background-color: #EB6937;
+  width: 100%;
+  height: 40px;
+  color: #FFF9ED;
+  border-radius: 8px;
+  border: none;
+}
+
+.band-member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

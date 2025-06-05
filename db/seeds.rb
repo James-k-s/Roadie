@@ -12,6 +12,8 @@ puts "Clearing existing records..."
 
 Application.destroy_all
 Vacancy.destroy_all
+BandMember.destroy_all
+Instrument.destroy_all
 Band.destroy_all
 User.destroy_all
 
@@ -50,7 +52,30 @@ User.create!(
   address: "London, UK"
 )
 
+User.create!(
+  email: "jane@jane.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "Jane",
+  last_name: "Doe",
+  username: "jane",
+  bio: "I am a vocalist and I love to sing.",
+  address: "London, UK"
+)
+
+User.create!(
+  email: "john@john.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "John",
+  last_name: "Doe",
+  username: "john",
+  bio: "I am a keyboardist and I love to play the keyboard.",
+  address: "London, UK"
+)
+
 puts "Created #{User.count} users."
+
 
 puts "Creating bands..."
 
@@ -67,18 +92,93 @@ Band.create!(
   address: "London, UK",
   bio: "We are a jazz band from London. We love to play jazz music and we are looking for new members.",
   genre: "Jazz",
-  user_id: User.second.id
+  user_id: User.last.id
 )
 
 puts "Created #{Band.count} bands."
 
+puts "Creating instruments..."
+
+Instrument.create!(
+  name: "Guitar",
+  experience: 3,
+  description: "I can play rock, jazz, and blues.",
+  user_id: User.find_by(first_name: "Milo").id
+)
+
+Instrument.create!(
+  name: "Drums",
+  experience: 4,
+  description: "I can play rock, jazz, and funk.",
+  user_id: User.find_by(first_name: "James").id
+)
+
+Instrument.create!(
+  name: "Bass",
+  experience: 5,
+  description: "I can play rock, jazz, and funk.",
+  user_id: User.find_by(first_name: "Admir").id
+)
+
+Instrument.create!(
+  name: "Vocals",
+  experience: 2,
+  description: "I can sing rock, pop, and jazz.",
+  user_id: User.find_by(first_name: "Jane").id
+)
+
+Instrument.create!(
+  name: "Keyboard",
+  experience: 4,
+  description: "I can play rock, jazz, and classical.",
+  user_id: User.find_by(first_name: "John").id
+)
+
+puts "Created #{Instrument.count} instruments."
+
+puts "Creating band members..."
+
+BandMember.create!(
+  band_leader: true,
+  band_id: Band.find_by(name: "The Rockers").id,
+  user_id: User.find_by(first_name: "Milo").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "Milo").id).id
+)
+
+BandMember.create!(
+  band_leader: false,
+  band_id: Band.find_by(name: "The Rockers").id,
+  user_id: User.find_by(first_name: "James").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "James").id).id
+)
+
+BandMember.create!(
+  band_leader: false,
+  band_id: Band.find_by(name: "The Rockers").id,
+  user_id: User.find_by(first_name: "Admir").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "Admir").id).id
+)
+
+BandMember.create!(
+  band_leader: true,
+  band_id: Band.find_by(name: "The Jazzers").id,
+  user_id: User.find_by(first_name: "John").id,
+  instrument_id: Instrument.find_by(user_id: User.find_by(first_name: "John").id).id
+)
+
+puts "Created #{BandMember.count} band members."
+
+
 puts "Creating vacancies..."
 
 Vacancy.create!(
-  instrument: "Guitar",
-  description: "We are looking for a guitarist to join our band. You must be able to play rock music and have your own equipment.",
+  instrument: "Singer",
+  description: "We are looking for a vocalist to join our band. You must be able to sing rock music and have your own microphone.",
   filled: false,
-  band_id: Band.first.id
+  band_id: Band.first.id,
+  years_of_experience: 2,
+  availability: "Weekends",
+  confidence: "Comfortable performing in front of an audience"
 )
 
 puts "Created #{Vacancy.count} vacancies."
@@ -87,7 +187,7 @@ puts "Creating applications..."
 
 Application.create!(
   pitch: "I am a guitarist and I love to play rock music. I have my own equipment and I am available to rehearse.",
-  user_id: User.last.id,
+  user_id: User.find_by(first_name: "Jane").id,
   vacancy_id: Vacancy.first.id
 )
 
