@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :bands
+
+  resources :bands, only: [:show, :index]
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
