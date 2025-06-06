@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :bands, only: [:show, :index]
+  resources :bands, only: [:show, :index] do
+    resources :vacancies, only: [:create]
+  end
   resources :users
   get "about", to: "pages#about"
 
 
   resources :vacancies, only: [:index, :show] do
     resources :applications, only: [:create]
+
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

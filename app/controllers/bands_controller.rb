@@ -12,5 +12,6 @@ class BandsController < ApplicationController
   def show
     @band = Band.find(params[:id])
     @application = Application.new
+    @vacancy = Vacancy.new
   end
 end
