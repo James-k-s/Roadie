@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :bands, only: [:show, :index] do
     resources :vacancies, only: [:create]
   end
-  resources :users
+  resources :users , only: [:show, :index]
   get "about", to: "pages#about"
 
 

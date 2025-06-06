@@ -1,1 +1,46 @@
-<h1>All users</h1>
+<div class="body-container">
+
+  <div class="left-side-container">
+
+    <div class="filter-bands">
+      <%= form_with url: bands_path, method: :get, local: true do |f|%>
+        <div class="filter-options">
+          <div class="form-group">
+            <h2>Filter Musicians</h2>
+          </div>
+          <div class="form-group">
+          </div>
+            <div class="form-group">
+              <%= f.label :instrument %>
+              <%= f.text_field :instrument %>
+            </div>
+            <div class="form-group">
+              <%= f.label :address %>
+              <%= f.text_field :location %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "Filter", class: "submit-button" %>
+            </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="band-cards">
+      <% @user.each do |user| %>
+        <%= link_to user_path(user), class: "text-decoration-none" do %>
+        <div class="band-card">
+          <%= cl_image_tag user.photo.key, class: "user-card-img" %>
+          <div class="band-card-info">
+            <h3><%= user.first_name %> <%= user.last_name %></h3>
+            <p>Location: <%= user.address %> </p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="right-side-container" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
