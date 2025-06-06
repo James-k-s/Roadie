@@ -374,7 +374,7 @@ jazzers.photo.attach(io: File.open(Rails.root.join("app/assets/images/jazz-band.
 
 starlynx = Band.new(
   name: "StarLynx",
-  address: "Maida Vale, London, UK",
+  address: "Birmingham, UK",
   bio: " We are StarLynx — Kai Lennox, 24, and Jiro Sato, 23 — an English electronic duo based in Birmingham, weaving futuristic soundscapes that combine shimmering synths with dynamic, emotive beats. Driven by a passion for innovative production and boundary-breaking creativity, we create music that’s fresh, bold, and perfect for both intimate venues and festival main stages.
 We are on the lookout for a female lead vocalist with a unique voice and captivating presence to bring our sound to life. If you’re creative, ambitious, and ready to be part of something cutting-edge, let’s connect and make the future sound unforgettable.
 ",
@@ -385,7 +385,7 @@ starlynx.photo.attach(io: File.open(Rails.root.join("app/assets/images/starlynx.
 
 moonlit_roses = Band.new(
   name: "The Moonlit Roses",
-  address: "Hackney, London, UK",
+  address: "Brighton, UK",
   bio: "We are The Moonlit Roses — Emily, Sophie, and Chloe — a Brighton-based trio blending catchy pop hooks with indie vibes and heartfelt lyrics. Together, we create music that is fresh, vibrant, and full of personality, perfect for both intimate gigs and lively festival crowds.
     Right now, we are searching for a talented fourth member to complete our lineup. Whether you are a vocalist, instrumentalist, or multi-instrumentalist with a passion for pop and indie sounds, we would love to hear from you. If you are creative, dedicated, and ready to join a fun, ambitious band making waves, get in touch — let’s make music and memories together.",
   genre: "Pop/Indie",
@@ -408,7 +408,7 @@ dolce_capella.photo.attach(io: File.open(Rails.root.join("app/assets/images/dolc
 fifth_elephant = Band.new(
   name: "Fifth Elephant",
   address: "Camden, London, UK",
-  bio: "We are The Fifth Elephant — a gritty four-piece rock band based in Shoreditch, forged in the heart of London’s underground scene and raised on power chords, distortion, and late-night gigs. Our sound blends raw alt-rock energy with punk spirit and grunge edge, channeling chaos into catharsis at every show.
+  bio: "We are The Fifth Elephant — a gritty four-piece rock band based in Camden, forged in the heart of London’s underground scene and raised on power chords, distortion, and late-night gigs. Our sound blends raw alt-rock energy with punk spirit and grunge edge, channeling chaos into catharsis at every show.
     We have been tearing through rock bars and festivals across the UK, building a loyal following and sharpening our sound in the studio we call home. The name, inspired by \"The Fifth Elephant\" - the title of the 24th novel in Terry Pratchett’s Discworld series. The name comes from an old Discworld myth.
     We're currently looking for a female lead vocalist — someone with a killer voice, presence, and fire to match our sound. If you can command a crowd, write with soul, and love the thrill of the stage (and a bit of Discworld magic wouldn’t hurt), let’s make some noise together.
     Drop us a message. Let’s melt some amps.",
