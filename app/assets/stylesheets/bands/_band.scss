@@ -1,13 +1,14 @@
 .band-details {
   display: flex;
   margin-bottom: 2rem;
-  width: 400px;
+  width: min-content;
 }
 
 .band-info {
   display: flex;
   margin-right: 1rem;
   line-height: 16px;
+  text-wrap: nowrap;
 }
 
 .band-name {
@@ -48,10 +49,13 @@ body {
 
 .band-photo {
   width: 752px;
-  height: 336px;
-  background-color: #EB6937;
+  height: 400px;
   border-radius: 8px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 
 .band-about {
   width: 752px;
@@ -102,7 +106,22 @@ body {
   list-style: none;
   color: #763117;
   display: flex;
+  font-size: 24px;
+  font-weight: 600;
+}
 
+.band-members span {
+  line-height: 24px;
+}
+
+.band-member-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 16px;
 }
 
 .vacancies {
