@@ -64,16 +64,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-              <%= simple_form_for [ @band, @vacancy ] do |f| %>
-                <%= f.input :instrument %>
-                <%= f.input :description, class: "typing" %>
-                <%= f.input :years_of_experience %>
-                <%= f.input :availability %>
-                <%= f.input :confidence %>
+                <%= simple_form_for [ @band, @vacancy ] do |f| %>
+                  <%= f.input :instrument %>
+                  <%= f.input :description, class: "typing" %>
+                  <%= f.input :years_of_experience %>
+                  <%= f.input :availability %>
+                  <%= f.input :confidence %>
+
+                  <%= f.submit class: "submit-button" %>
+                <% end %>
               </div>
               <div class="modal-footer" id="footer-bg">
-                <%= f.submit class: "submit-button" %>
-              <% end %>
               </div>
             </div>
           </div>
@@ -91,10 +92,11 @@
               <h3>Why are you a good candidate?</h3>
               <%= simple_form_for [ vacancy, @application ] do |f| %>
                 <%=  f.input :pitch, class: "typing" %>
+                 <%= f.submit class: "submit-button" %>
+              <% end %>
             </div>
             <div class="modal-footer" id="footer-bg">
-              <%= f.submit class: "submit-button" %>
-              <% end %>
+
             </div>
 
           </div>
