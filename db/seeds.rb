@@ -381,7 +381,7 @@ We are on the lookout for a female lead vocalist with a unique voice and captiva
   genre: "Electronic",
   user_id: User.find_by(first_name: "Kai").id
 )
-starlynx.photo.attach(io: File.open(Rails.root.join("app/assets/images/starlynx.jpg")), filename: "starlynx.jpg", content_type: "image/jpeg")
+starlynx.photo.attach(io: File.open(Rails.root.join("app/assets/images/StarLynx.jpg")), filename: "StarLynx.jpg", content_type: "image/jpeg")
 
 moonlit_roses = Band.new(
   name: "The Moonlit Roses",
