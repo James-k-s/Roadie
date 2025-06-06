@@ -11,25 +11,33 @@
     <!-- 4 Cards inside banner -->
     <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
       <div class="card" style="width: 16rem;">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="img-container">
+          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749214755/electric-guitar_ybxodb.png", class: "card-img-top") %>
+        </div>
         <div class="card-body">
           <p class="card-text">Explore indie bands in your area.</p>
         </div>
       </div>
       <div class="card" style="width: 16rem;">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="img-container">
+          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749213725/piano_lqmvdr.png", class: "card-img-top") %>
+        </div>
         <div class="card-body">
           <p class="card-text">Join a jazz ensemble or blues group.</p>
         </div>
       </div>
       <div class="card" style="width: 16rem;">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="img-container">
+          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749214755/drum_srtv6x.png", class: "card-img-top") %>
+        </div>
         <div class="card-body">
           <p class="card-text">Find rock and metal groups nearby.</p>
         </div>
       </div>
       <div class="card" style="width: 16rem;">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+        <div class="img-container">
+          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749214757/microphone_ff172t.png", class: "card-img-top") %>
+        </div>
         <div class="card-body">
           <p class="card-text">Discover singer-songwriters and duos.</p>
         </div>
@@ -41,30 +49,36 @@
   <div class="container my-5">
     <h2 class="text-center mb-4 why-roadie-title">Why Choose Roadie?</h2>
     <div class="row text-center">
-      <div class="col-md-4">
+      <div class="d-flex justify-content-between">
+      <div class="col-md-3">
         <div class="card h-100">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Easy Matching">
-          <div class="card-body">
+          <div class="img-container">
+            <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749216152/pngtree-two-people-in-a-circle-icon-vector-png-image_6991516_jxuzwv.png", class: "card-img-top") %>
+          </div>
             <h5 class="card-title">Easy Matching</h5>
             <p class="card-text">Our platform quickly matches musicians and bands based on genre, location, and availability.</p>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Verified Profiles">
-          <div class="card-body">
-            <h5 class="card-title">Verified Profiles</h5>
-            <p class="card-text">Only real musicians and serious bands — no spam, just jam.</p>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <div class="img-container">
+              <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749216099/pngtree-tick-vector-icon-png-image_696437_p3zyg7.jpg", class: "card-img-top") %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Verified Profiles</h5>
+              <p class="card-text">Only real musicians and serious bands — no spam, just jam.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Built for Artists">
-          <div class="card-body">
-            <h5 class="card-title">Built for Artists</h5>
-            <p class="card-text">Designed with musicians in mind — intuitive tools, clean UI, and creative community.</p>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <div class="img-container">
+              <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749216033/musical-note-black-icon-symbol-transparent-png-7017516950335268jb4vzed5z_wurzdr.png", class: "card-img-top") %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Built for Artists</h5>
+              <p class="card-text">Designed with musicians in mind — intuitive tools, clean UI, and creative community.</p>
+            </div>
           </div>
         </div>
       </div>
