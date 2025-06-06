@@ -109,3 +109,17 @@
   height: 100%;
   min-height:100vh; ;
 }
+
+.card-img-top {
+  width: 100px !important;
+  height: 100px !important;
+  align-self: center;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+}
