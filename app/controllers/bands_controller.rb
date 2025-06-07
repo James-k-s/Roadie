@@ -10,10 +10,9 @@ class BandsController < ApplicationController
   end
 
   def show
-    # band_member = BandMember.find_by(user_id: current_user.id)
-    # @user_band = band_member&.band
     @band = Band.find(params[:id])
     @application = Application.new
     @vacancy = Vacancy.new
   end
+
 end
