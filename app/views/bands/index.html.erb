@@ -1,6 +1,8 @@
 <div class="body-container">
+  <%= link_to root_path do %>
+    <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+  <% end %>
   <div class="left-side-container">
-
     <div class="filter-bands">
       <%= form_with url: bands_path, method: :get, local: true do |f|%>
         <div class="filter-options">
