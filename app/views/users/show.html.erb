@@ -1,7 +1,10 @@
+<%= link_to users_path do %>
+  <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+<% end %>
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center">
-    <h2 class="band-name"><%= @user.first_name %><%= @user.last_name %></h2>
-    <button class="contact-button"><i class="fa-solid fa-user"></i><p>Contact <%= @user.first_name %></p></button>
+    <h2 class="band-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+    <button class="contact-button"><i class="fa-solid fa-user"></i><p>My chats</p></button>
   </div>
   <div class="band-details">
     <div class="band-info">
@@ -14,7 +17,7 @@
   </div>
   <div class="d-flex justify-content-between">
     <div class="left-side">
-      <div class="band-photo" style="background-image: url('<%= cl_image_path @user.photo.key %>'); object-fit:cover">
+      <div class="band-photo object-fit-cover" style="background-image: url('<%= cl_image_path @user.photo.key %>'); object-fit:cover">
       </div>
       <div class="band-about">
         <h3>About me</h3>
@@ -22,7 +25,7 @@
       </div>
       <div class="band-about">
         <% @user.instruments.each do |instrument| %>
-          <h3>Instruments I play:</h3>
+          <h3>My abilities:</h3>
         <ul>
           <li><%= instrument.name %></li>
         </ul>
