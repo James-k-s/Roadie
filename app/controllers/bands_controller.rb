@@ -13,6 +13,7 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     @application = Application.new
     @vacancy = Vacancy.new
+    @chat = Chat.new
   end
 
 end

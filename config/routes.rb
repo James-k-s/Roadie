@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :bands, only: [:show, :index] do
     resources :vacancies, only: [:create]
+    resources :chats, only: [:create, :show]
   end
-  resources :users , only: [:show, :index]
+  resources :users, only: [:show, :index]
   get "about", to: "pages#about"
+  resources :chats, only: :show do
+    resources :messages, only: [:create]
+  end
 
 
   resources :vacancies, only: [:index, :show] do
