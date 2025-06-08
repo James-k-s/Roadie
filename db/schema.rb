@@ -149,7 +149,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
     t.bigint "band_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.index ["band_id"], name: "index_posts_on_band_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
