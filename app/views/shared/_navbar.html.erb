@@ -15,11 +15,14 @@
         <li class="nav-item"><%= link_to "Bands", bands_path, class: "nav-links" %></li>
         <li class="nav-item"><%= link_to "Musicians", users_path, class: "nav-links" %></li>
         <li class="nav-item"><%= link_to "Posts", posts_path, class: "nav-links" %></li>
+
         <% if user_signed_in? && BandMember.exists?(user_id: current_user.id) && %>
           <li class="nav-item"><%= link_to "My band", band_path(@user_band), class: "nav-links" %> </li>
         <% end %>
+
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to "My profile", user_path(current_user), class: "nav-links" %></li>
+          <li class="nav-item"><%= link_to "My band", band_path(@user_band), class: "nav-links" %> </li>
         <% end %>
       </ul>
       <% if user_signed_in? %>

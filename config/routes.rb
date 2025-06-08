@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :bands, only: [:show, :index] do
     resources :vacancies, only: [:create]
   end
-  resources :posts, only: [:index, :show]
+
+  resources :posts, only: [:index, :show, :create]
+
+  resources :users , only: [:show, :index]
+  get "about", to: "pages#about"
+  
   resources :applications, only: [:index, :show, :destroy]
   resources :vacancies, only: [:index, :show] do
     resources :applications, only: [:create]

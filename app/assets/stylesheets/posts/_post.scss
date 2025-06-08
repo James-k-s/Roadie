@@ -22,6 +22,16 @@
   margin-right: 16px;
 }
 
+.sharing {
+  position: absolute;
+  width: 233px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  right: 66px;
+  margin-top: 54px;
+}
+
 .post-text {
   margin-top:8px ;
   color: #333;
@@ -30,6 +40,14 @@
 .path-link {
   text-decoration: none;
   color: #96320E;
+}
+
+#create-button {
+  background-color: #EB6937;
+  color:#FFF9ED;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .body-container {
