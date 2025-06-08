@@ -8,7 +8,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_one_attached :photo
 
-  has_many :bands
+  has_many :bands, dependent: :destroy
   has_many :band_members, dependent: :destroy
   has_many :songs, dependent: :destroy
   has_many :posts, dependent: :destroy
