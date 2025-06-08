@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :users , only: [:show, :index]
   get "about", to: "pages#about"
-  
-  resources :posts, only: [:index, :show]
+
+  resources :posts, only: [:index, :create]
   resources :applications, only: [:index, :show, :destroy]
 
   resources :vacancies, only: [:index, :show] do
