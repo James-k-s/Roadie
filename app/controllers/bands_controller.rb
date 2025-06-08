@@ -16,4 +16,9 @@ class BandsController < ApplicationController
     @chat = Chat.new
   end
 
+  def create
+    @band = Band.new(band_params)
+    @band.user = current_user
+  end
+
 end

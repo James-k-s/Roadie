@@ -1,1 +1,11 @@
-<h1>Chat</h1>
+<%= simple_form_for [@chat],
+  html: {class: "d-flex"} do |f|
+%>
+  <% other_user = current_user == @chat.band.user ? @chat.user : @chat.band.user %>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message #{other_user.name}",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>

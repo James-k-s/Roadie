@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :bands, only: [:show, :index] do
     resources :vacancies, only: [:create]
-    resources :chats, only: [:create, :show]
+    resources :chats, only: [:new, :create, :show]
   end
   resources :users, only: [:show, :index]
   get "about", to: "pages#about"
