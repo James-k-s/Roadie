@@ -15,4 +15,8 @@ class BandsController < ApplicationController
     @vacancy = Vacancy.new
   end
 
+  def new
+    @user = current_user
+    @band = Band.new
+  end
 end
