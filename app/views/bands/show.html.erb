@@ -44,7 +44,10 @@
       <p>Join our musical journey...</p>
       <% @band.vacancies.each do |vacancy| %>
         <div class="vacancy">
-          <h4><%= vacancy.instrument %></h4>
+          <div class="d-flex justify-content-between">
+            <h4><%= vacancy.instrument %></h4>
+            <%= link_to "Delete Vacancy", band_vacancy_path(@band, vacancy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
           <p><%= vacancy.description %></p>
           <h5>Requirements:</h5>
           <ul>
@@ -59,7 +62,7 @@
               View Applications for this position
             </button>
           <% else %>
-            <!-- Button for applyig to vacancy -->
+            <!-- Button for applying to vacancy -->
             <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#applicationModal<%= vacancy.id %>">
               Apply Now
             </button>
