@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   has_many :bands
-  has_many :band_members
+  has_many :band_members, dependent: :destroy
   has_many :songs, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :notifications, dependent: :destroy

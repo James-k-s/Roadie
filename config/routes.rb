@@ -9,14 +9,13 @@ Rails.application.routes.draw do
 
   resources :users , only: [:show, :index]
   get "about", to: "pages#about"
-  
+
   resources :applications, only: [:index, :show, :destroy]
   resources :vacancies, only: [:index, :show] do
     resources :applications, only: [:create]
   end
 
   root to: "pages#home"
-  get "about", to: "pages#about"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
