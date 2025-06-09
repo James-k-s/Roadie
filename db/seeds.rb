@@ -20,7 +20,7 @@ User.destroy_all
 UserGenre.destroy_all
 Genre.destroy_all
 
-["Rock", "Jazz", "Electronic", "Indie", "Techno", "Disco", "Blues", "Bossanova", "Gabber", "Schlager" ].each do |name|
+["Rock", "Britpop", "Jazz", "Electronic", "Indie", "Pop", "Techno", "Disco", "Punk", "Blues", "New-age", "Hip-hop", "Funk", "Synth-pop", "K-pop", "Bossanova", "Gabber", "Schlager" ].each do |name|
   Genre.create(name: name)
 end
 
