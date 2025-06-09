@@ -10,8 +10,9 @@
 
 puts "Clearing existing records..."
 
+Message.destroy_all
+Chat.destroy_all
 Song.destroy_all
-puts "#{Song.count}"
 Application.destroy_all
 Vacancy.destroy_all
 BandMember.destroy_all
@@ -807,6 +808,26 @@ the_rockers_song.save
 
 puts "Created #{Song.count} songs."
 
+puts "Creating chats..."
+chat1 = Chat.new(
+  band_id: Band.find_by(name: "Fifth Elephant").id,
+  user_id: User.find_by(first_name: "Milo").id
+)
+
+chat1.save
+
+puts "Created #{Chat.count} chats."
+
+puts "Creating messages..."
+
+message1 = Message.new(
+  message_content: "Hey, I just wanted to say that I really love your music! I think you guys are amazing.",
+  user_id: User.find_by(first_name: "Milo").id,
+  chat_id: chat1.id
+)
+message1.save
+
+puts "Created #{Message.count} messages."
 # gig_post = Post.create!(
 #   title: "Gig at The O2",
 #   content: "We are playing at The O2 next month and we would love to see you there!",
@@ -814,6 +835,5 @@ puts "Created #{Song.count} songs."
 #   band_id: Band.find_by(name: "The Jazzers").id
 # )
 # gig_post.photo.attach(io: File.open(Rails.root.join("app/assets/images/gig.jpg")), filename: "gig.jpg", content_type: "image/jpeg")
-
 
 puts "Seeding completed successfully!"

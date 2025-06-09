@@ -17,7 +17,7 @@
 
 
 
-  <body>
+  <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
   <%= render "shared/navbar" %>
   <div class="main-container">
     <%= render "shared/flashes" %>
