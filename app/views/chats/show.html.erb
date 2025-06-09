@@ -1,10 +1,28 @@
-<%= simple_form_for [@chat],
+
+<div class="container chat">
+  <h1>Your Chat with <%= @chat.band.name %></h1>
+
+  <div id="messages" class="messages">
+    <% if @chat.messages.count > 0 %>
+      <% @chat.message.each do |message| %>
+        <div id="message-<%= message.id %>">
+          <small>
+            <strong><%= message.user %></strong>
+            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </small>
+          <p><%= message.message_content %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<%= simple_form_for [@chat, @message],
   html: {class: "d-flex"} do |f|
 %>
   <% other_user = current_user == @chat.band.user ? @chat.user : @chat.band.user %>
-  <%= f.input :content,
+  <%= f.input :message_content,
     label: false,
-    placeholder: "Message #{other_user.name}",
+    placeholder: "Message #{other_user.first_name}",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>

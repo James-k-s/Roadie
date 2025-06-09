@@ -14,12 +14,8 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     @application = Application.new
     @vacancy = Vacancy.new
-    @chat = Chat.new
-  end
-
-  def create
-    @band = Band.new(band_params)
-    @band.user = current_user
+    @chat = Chat.find_by(band: @band, user: current_user)
+    @chats = @band.chats.where(user: current_user)
   end
 
   def new
@@ -29,7 +25,7 @@ class BandsController < ApplicationController
 
   def create
     @band = Band.new(band_params)
-    @band.user = @user
+    @band.user = current_user
     if @band.save
       redirect_to band_path(@band), notice: 'Band was successfully created.'
     else

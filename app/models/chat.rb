@@ -1,5 +1,5 @@
 class Chat < ApplicationRecord
-  belongs_to :band, dependent: :destroy
-  belongs_to :user, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  belongs_to :band
+  belongs_to :user
+  has_many :messages
 end

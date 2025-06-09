@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_09_135523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -122,10 +122,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
   create_table "messages", force: :cascade do |t|
     t.string "message_content"
     t.bigint "user_id", null: false
-    t.bigint "chats_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chats_id"], name: "index_messages_on_chats_id"
+    t.bigint "chat_id"
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -220,7 +220,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
   add_foreign_key "events", "band_members"
   add_foreign_key "genres", "users"
   add_foreign_key "instruments", "users"
-  add_foreign_key "messages", "chats", column: "chats_id"
+  add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "bands"
   add_foreign_key "notifications", "users"

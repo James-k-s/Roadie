@@ -4,8 +4,7 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center">
     <h2 class="band-name"><%= @band.name %></h2>
-    <button class="contact-button"><i class="fa-solid fa-user"></i><p>Contact Band</p></button>
-    <%= link_to band_chat_path(band_id: @band.id), class: "contact-button" do %>
+    <%= link_to chat_path(@chat), class: "contact-button" do %>
       <i class="fa-solid fa-envelope"></i>
       <p>Chat with Band</p>
     <% end %>
