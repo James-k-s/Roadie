@@ -104,6 +104,16 @@
 
 }
 
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF9ED;
+}
+
+#navbarDropdown {
+  margin-left: 8px;
+}
+
 .log {
   padding: 8px;
   border: #96320E 1px solid;
