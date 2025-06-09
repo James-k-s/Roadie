@@ -8,6 +8,23 @@
       object-fit: cover;
     }
 
+.banner {
+      height: 500px;
+      overflow: hidden;
+      position: relative;
+    }
+
+.banner-image {
+      object-fit: cover;
+      height: 100%;
+      filter: brightness(60%);
+    }
+
+    .banner-content h1,
+    .banner-content p {
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
     .title {
       color:#FFF9ED;
       font-size: 48px;

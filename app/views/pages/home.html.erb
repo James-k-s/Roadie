@@ -1,12 +1,32 @@
 <body>
   <!-- Banner -->
-  <section class="banner">
+  <section class="banner position-relative">
+  <!-- Carousel Background -->
+  <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/assets/banner1.jpg" class="d-block w-100 banner-image" alt="Banner Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/banner2.jpg" class="d-block w-100 banner-image" alt="Banner Image 2">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/banner3.jpg" class="d-block w-100 banner-image" alt="Banner Image 3">
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay Content -->
+  <div class="banner-content position-absolute top-50 start-50 translate-middle text-center text-white">
     <h1 class="title">Roadie</h1>
     <p class="lead">Connect with Your Perfect Musical Match</p>
-    <div class="banner-buttons d-flex justify-content-center">
-      <%= link_to "Find Bands", bands_path, class: "find-bands" %>
-      <%= link_to "Find Musicians", users_path, class: "find-musicians" %>
+    <div class="banner-buttons d-flex justify-content-center gap-3 mt-3">
+      <%= link_to "Find Bands", bands_path, class: "btn btn-primary" %>
+      <%= link_to "Find Musicians", users_path, class: "btn btn-outline-light" %>
     </div>
+  </div>
+</section>
+
 
     <!-- 4 Cards inside banner -->
     <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
