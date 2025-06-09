@@ -31,11 +31,18 @@
 
       <div class="band-songs">
         <h3>Songs</h3>
-        <audio controls>
+          <ul>
           <% @band.songs.each do |song| %>
-            <source src= "<%= url_for(song.song.attachment) %>" class="song">
-        <% end %>
-        </audio>
+          <div class="song-item">
+            <li>
+                <h5><%= song.title %></h5>
+                <audio controls class="song">
+                    <source src= "<%= url_for(song.song.attachment) %>">
+                </audio>
+            </li>
+          </div>
+          <% end %>
+          </ul>
 
       </div>
       <div class="band-members">

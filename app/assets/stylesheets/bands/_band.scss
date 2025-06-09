@@ -129,6 +129,21 @@ body {
   font-weight: 600;
 }
 
+
+.song {
+  // margin-left: 16px;
+}
+
+.song-item {
+  margin-top: 16px;
+  // display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  h5 {
+    color: #763117;
+  }
+}
+
 .band-members span {
   line-height: 24px;
 }
