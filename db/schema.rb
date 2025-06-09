@@ -85,7 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_09_220956) do
     t.bigint "band_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user1_id", null: false
+    t.bigint "user1_id"
     t.bigint "user2_id"
     t.index ["band_id"], name: "index_chats_on_band_id"
     t.index ["user1_id"], name: "index_chats_on_user1_id"

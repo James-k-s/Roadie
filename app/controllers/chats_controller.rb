@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   def index
-    @chats = Chat.where(user: current_user).order(created_at: :desc)
+    @chats = Chat.where(user1: current_user).or(user2: current_user).order(created_at: :desc)
     @messages = Message.where(chat_id: @chats.pluck(:id)).order(created_at: :asc)
   end
 

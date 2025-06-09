@@ -16,11 +16,7 @@
           <% else %>
             <div class="chat-list">
               <% user_chats.each do |chat| %>
-              <% if chat.band %>
-                <% other_user = current_user == chat.band.user ? chat.user : chat.band.user %>
-              <% else %>
                 <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
-              <% end %>
                 <div class="chat-item">
                   <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#viewingChatModal_<%= chat.id %>">View Chat</button>
                   <strong><%= other_user.first_name %> <%= other_user.last_name %></strong>
@@ -35,11 +31,7 @@
 
   <!-- Modal for viewing one chat -->
   <% user_chats.each do |chat| %>
-    <% if chat.band %>
-      <% other_user = current_user == chat.band.user ? chat.user : chat.band.user %>
-    <% else %>
       <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
-    <% end %>
     <div class = "modal fade" id="viewingChatModal_<%= chat.id %>" >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -55,11 +47,7 @@
               <% end %>
             </div>
             <%= simple_form_for [chat, @message], html: {class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
-              <% if chat.band %>
-                <% other_user = current_user == chat.band.user ? chat.user : chat.band.user %>
-              <% else %>
-                <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
-              <% end %>
+              <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
               <%= f.input :message_content,
                 label: false,
                 placeholder: "Message #{other_user.first_name}",
