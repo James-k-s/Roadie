@@ -377,7 +377,7 @@ jazzers.photo.attach(io: File.open(Rails.root.join("app/assets/images/jazz-band.
 
 starlynx = Band.new(
   name: "StarLynx",
-  address: "Birmingham, UK",
+  address: "Croydon, UK",
   bio: " We are StarLynx — Kai Lennox, 24, and Jiro Sato, 23 — an English electronic duo based in Birmingham, weaving futuristic soundscapes that combine shimmering synths with dynamic, emotive beats. Driven by a passion for innovative production and boundary-breaking creativity, we create music that’s fresh, bold, and perfect for both intimate venues and festival main stages.
 We are on the lookout for a female lead vocalist with a unique voice and captivating presence to bring our sound to life. If you’re creative, ambitious, and ready to be part of something cutting-edge, let’s connect and make the future sound unforgettable.
 ",
@@ -388,7 +388,7 @@ starlynx.photo.attach(io: File.open(Rails.root.join("app/assets/images/StarLynx.
 
 moonlit_roses = Band.new(
   name: "The Moonlit Roses",
-  address: "Brighton, UK",
+  address: "Chelmsford, UK",
   bio: "We are The Moonlit Roses — Emily, Sophie, and Chloe — a Brighton-based trio blending catchy pop hooks with indie vibes and heartfelt lyrics. Together, we create music that is fresh, vibrant, and full of personality, perfect for both intimate gigs and lively festival crowds.
     Right now, we are searching for a talented fourth member to complete our lineup. Whether you are a vocalist, instrumentalist, or multi-instrumentalist with a passion for pop and indie sounds, we would love to hear from you. If you are creative, dedicated, and ready to join a fun, ambitious band making waves, get in touch — let’s make music and memories together.",
   genre: "Pop/Indie",
