@@ -1,4 +1,9 @@
 class ChatsController < ApplicationController
+  def index
+    @chats = Chat.where(user: current_user).order(created_at: :desc)
+    @messages = Message.where(chat_id: @chats.pluck(:id)).order(created_at: :asc)
+  end
+
   def show
     @chat = Chat.find(params[:id])
     @message = Message.new

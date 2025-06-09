@@ -1,0 +1,31 @@
+<% if user_signed_in? %>
+  <button type="button" class="chat-button" data-bs-toggle="modal" data-bs-target="#viewingChatsModal">Chats</button>
+
+  <!-- Modal for viewing chats -->
+  <div class="modal fade" id="viewingChatsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5" id="viewingChatsModalLabel">Your Chats</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <% if current_user.chats.empty? %>
+            <p>No chats available. Start a new conversation!</p>
+          <% else %>
+            <div class="chat-list">
+              <% current_user.chats.each do |chat| %>
+                <% other_user = current_user == chat.band.user ? chat.user : chat.band.user %>
+                <div class="chat-item">
+                  <a href="<%= chat_path(chat) %>">
+                    <strong><%= other_user.first_name %> <%= other_user.last_name %></strong>
+                  </a>
+                </div>
+              <% end %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
