@@ -33,9 +33,6 @@ class BandsController < ApplicationController
 
   private
 
-  def set_user
-    @user = current_user
-  end
 
   def band_params
     params.require(:band).permit(:name, :address, :bio, :genre, :photo)

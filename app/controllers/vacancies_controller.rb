@@ -21,5 +21,4 @@ class VacanciesController < ApplicationController
   def vacancy_params
     params.require(:vacancy).permit(:title, :description, :instrument, :years_of_experience, :availability, :confidence)
   end
-
 end
