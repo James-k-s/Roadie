@@ -776,7 +776,25 @@ the_rockers_song = Song.new(
   band_id: Band.find_by(name: "The Rockers").id
 )
 the_rockers_song.song.attach(io: File.open(Rails.root.join("app/assets/songs/dance_yrself_clean.mp3")), filename: "dance_yrself_clean.mp3", content_type: "song/mp3")
+
+fifth_elephant = Song.new(
+  title: "Smells like teen spirit",
+  band_id: Band.find_by(name: "Fifth Elephant").id
+)
+
+fifth_elephant.song.attach(io: File.open(Rails.root.join("app/assets/songs/smells_like_teen_spirit.mp3")), filename: "smells_like_teen_spirit.mp3", content_type: "song/mp3")
+
+the_rockers_song2 = Song.new(
+  title: "Sparks",
+  band_id: Band.find_by(name: "The Rockers").id
+)
+
+the_rockers_song2.song.attach(io: File.open(Rails.root.join("app/assets/songs/sparks.mp3")), filename: "sparks.mp3", content_type: "song/mp3")
+
+the_rockers_song2.save
+fifth_elephant.save
 the_rockers_song.save
+
 puts "Created #{Song.count} songs."
 
 # gig_post = Post.create!(
