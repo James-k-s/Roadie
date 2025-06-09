@@ -1,4 +1,5 @@
 class VacanciesController < ApplicationController
+
   def create
     @vacancy = Vacancy.create(vacancy_params)
     @vacancy.band = Band.find(params[:band_id])
@@ -8,6 +9,13 @@ class VacanciesController < ApplicationController
       redirect_to root_path, alert: "Failed to create vacancy. Please try again."
     end
   end
+
+  def destroy
+    @vacancy = Vacancy.find(params[:id])
+    @vacancy.destroy
+    redirect_to band_path(@vacancy.band), notice: "Vacancy deleted successfully."
+  end
+
   private
 
   def vacancy_params

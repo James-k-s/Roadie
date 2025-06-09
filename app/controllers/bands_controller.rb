@@ -15,4 +15,24 @@ class BandsController < ApplicationController
     @vacancy = Vacancy.new
   end
 
+  def new
+    @user = current_user
+    @band = Band.new
+  end
+
+  def create
+    @band = Band.new(band_params)
+    @band.user = @user
+    if @band.save
+      redirect_to band_path(@band), notice: 'Band was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def band_params
+    params.require(:band).permit(:name, :address, :bio, :genre, :photo)
+  end
 end
