@@ -1,0 +1,63 @@
+<div class="sharing">
+  <h3>Feel like sharing?</h3>
+  <button type="button" class="create-post-button" id="create-button" data-bs-toggle="modal" data-bs-target="#createPost">
+    Create a Post
+  </button>
+</div>
+
+
+<div class="modal fade" id="createPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @post do |f| %>
+          <%= f.input :title, label: "Title", input_html: { class: "form-control" } %>
+          <%= f.input :content, label: "Content", input_html: { class: "form-control" } %>
+          <%= f.button :submit, id: "create-button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="body-container">
+<div class="posts">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <% if post.band_id %>
+        <%= link_to band_path(post.band.id), class: "path-link" do %>
+          <div class="who-post">
+            <%= cl_image_tag post.band.photo.key, class: "post-avatar-image object-fit-cover" %>
+            <h3><%= post.band.name %></h3>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to user_path(current_user.id), class: "path-link" do %>
+        <div class="who-post">
+          <%= cl_image_tag current_user.photo.key, class: "post-avatar-image object-fit-cover" %>
+          <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+        </div>
+        <% end %>
+      <% end %>
+      <%= image_tag "just_started_band.jpg", alt: "post_image", class: "post-image" %>
+      <div class="post-text">
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+      </div>
+      <hr>
+      <div class="post-content">
+        <p><%= image_tag "heart.png", class: "like-button" %><%= post.likes %></p>
+        <p><%= image_tag "comment.png", class: "like-button" %></p>
+        <p><%= image_tag "bookmark.png", class: "like-button" %></p>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</div>

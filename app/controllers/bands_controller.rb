@@ -4,7 +4,8 @@ class BandsController < ApplicationController
     @markers = @bands.geocoded.map do |band|
       {
         lat: band.latitude,
-        lng: band.longitude
+        lng: band.longitude,
+        info_window_html: render_to_string(partial: "bands/band_info_window", locals: { band: band })
       }
     end
   end
@@ -21,4 +22,24 @@ class BandsController < ApplicationController
     @band.user = current_user
   end
 
+  def new
+    @user = current_user
+    @band = Band.new
+  end
+
+  def create
+    @band = Band.new(band_params)
+    @band.user = @user
+    if @band.save
+      redirect_to band_path(@band), notice: 'Band was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def band_params
+    params.require(:band).permit(:name, :address, :bio, :genre, :photo)
+  end
 end

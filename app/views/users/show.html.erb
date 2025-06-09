@@ -1,5 +1,8 @@
 <%= link_to users_path do %>
   <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+  <% if current_user == @user %>
+    <%= link_to "Update Profile", edit_user_registration_path(current_user), class: "nav-links log" %>
+  <% end %>
 <% end %>
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center">
@@ -34,6 +37,35 @@
 
 
     </div>
+    <div class="vacancies">
+      <h3>My applications:</h3>
+      <% if current_user.id == @user.id %>
+          <% current_user.applications.each do |application| %>
+        <div class="applications">
+            <div class="my-application">
+              <%= link_to band_path(application.vacancy.band.id), class: "text-decoration-none" do %>
+              <h5 class="application-band-title">- <%= application.vacancy.band.name %></h5>
+              <% end %>
+              <p><strong>Position:</strong> <%= application.vacancy.instrument %></p>
+              <p><strong>Your message: </strong><%= application.pitch %></p>
+              <% if application.vacancy.filled %>
+                <p><strong>Status: </strong> You have been selected!!</p>
+              <% else %>
+                <p><strong>Status: </strong>  Decision pending</p>
+              <% end %>
+              <p><strong>Submitted on: </strong><%= application.vacancy.created_at.strftime("%d %b %y") %></p>
+            </div>
+        </div>
+          <% end %>
+      <% else %>
+      <div class="no-applications">
+        <h4>You do not have any applications</h4>
+      <% end%>
+      </div>
+
+
+    </div>
+
 
   </div>
 </div>

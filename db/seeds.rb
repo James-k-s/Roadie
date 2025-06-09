@@ -10,10 +10,13 @@
 
 puts "Clearing existing records..."
 
+Song.destroy_all
+puts "#{Song.count}"
 Application.destroy_all
 Vacancy.destroy_all
 BandMember.destroy_all
 Instrument.destroy_all
+Post.destroy_all
 Band.destroy_all
 User.destroy_all
 
@@ -748,5 +751,41 @@ Application.create!(
 )
 
 puts "Created #{Application.count} applications."
+
+puts "Creating posts..."
+
+Post.create!(
+  title: "Just started a new band!!!",
+  content: "I cant wait to rock n roll!!!",
+  band_id: Band.find_by(name: "The Rockers").id,
+  user_id: User.find_by(first_name: "James").id
+)
+
+Post.create!(
+  title: "Looking for a drummer!",
+  content: "Join the band and help us create some amazing music! We are looking for a drummer who can play rock, jazz, and funk. If you are interested, please contact us.",
+  band_id: Band.find_by(name: fifth_elephant.name).id,
+  user_id: User.find_by(first_name: "Jack").id
+)
+
+puts "Created #{Post.count} posts."
+puts "Creating songs..."
+
+the_rockers_song = Song.new(
+  title: "Dance Yrself Clean",
+  band_id: Band.find_by(name: "The Rockers").id
+)
+the_rockers_song.song.attach(io: File.open(Rails.root.join("app/assets/songs/dance_yrself_clean.mp3")), filename: "dance_yrself_clean.mp3", content_type: "song/mp3")
+the_rockers_song.save
+puts "Created #{Song.count} songs."
+
+# gig_post = Post.create!(
+#   title: "Gig at The O2",
+#   content: "We are playing at The O2 next month and we would love to see you there!",
+#   user_id: User.find_by(first_name: "James").id,
+#   band_id: Band.find_by(name: "The Jazzers").id
+# )
+# gig_post.photo.attach(io: File.open(Rails.root.join("app/assets/images/gig.jpg")), filename: "gig.jpg", content_type: "image/jpeg")
+
 
 puts "Seeding completed successfully!"

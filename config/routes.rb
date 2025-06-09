@@ -1,21 +1,30 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+
+  resources :users, only: [:show, :index] do
+    resources :bands, only: [:new, :create]
+  end
+
   resources :bands, only: [:show, :index] do
-    resources :vacancies, only: [:create]
+    resources :vacancies, only: [:create, :destroy]
     resources :chats, only: [:new, :create, :show]
   end
-  resources :users, only: [:show, :index]
-  get "about", to: "pages#about"
+  
   resources :chats, only: :show do
     resources :messages, only: [:create]
   end
 
+  resources :posts, only: [:index, :show, :create]
+
+  resources :applications, only: [:index, :show, :destroy]
 
   resources :vacancies, only: [:index, :show] do
     resources :applications, only: [:create]
-
   end
+
+  get "about", to: "pages#about"
+  root to: "pages#home"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
