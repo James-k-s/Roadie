@@ -19,8 +19,8 @@ BandMember.destroy_all
 Instrument.destroy_all
 Post.destroy_all
 Band.destroy_all
-User.destroy_all
 UserGenre.destroy_all
+User.destroy_all
 Genre.destroy_all
 
 ["Rock", "Britpop", "Jazz", "Electronic", "Indie", "Pop", "Techno", "Disco", "Punk", "Blues", "New-age", "Hip-hop", "Funk", "Synth-pop", "K-pop", "Bossanova", "Gabber", "Schlager" ].each do |name|
