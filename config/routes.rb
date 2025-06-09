@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :vacancies, only: [:create]
   end
 
-  resources :users , only: [:show, :index]
+  resources :users, only: [:show, :index]
   get "about", to: "pages#about"
 
   resources :posts, only: [:index, :create]
