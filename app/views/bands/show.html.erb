@@ -42,123 +42,159 @@
     <div class="vacancies">
       <h3>Open Positions:</h3>
       <p>Join our musical journey...</p>
-      <% @band.vacancies.each do |vacancy| %>
-        <div class="vacancy">
-            <h4><%= vacancy.instrument %></h4>
-          <div class="d-flex justify-content-between">
-            <%= link_to "Delete Vacancy", band_vacancy_path(@band, vacancy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <% if @band.vacancies.any? %>
+
+        <% @band.vacancies.each do |vacancy| %>
+          <div class="vacancy">
+              <h4><%= vacancy.instrument %></h4>
+            <div class="d-flex justify-content-between">
+              <%= link_to "Delete Vacancy", band_vacancy_path(@band, vacancy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
+            <p><%= vacancy.description %></p>
+            <h5>Requirements:</h5>
+            <ul>
+              <li><%= vacancy.years_of_experience %>+ years of experience</li>
+              <li>Availability: <%= vacancy.availability %></li>
+              <li><%= vacancy.confidence %></li>
+            </ul>
+
+            <!-- Button for viewing applications-->
+            <% if  @band.band_members.exists?(user_id: current_user.id) %>
+              <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#viewingApplicationsModal_<%= vacancy.id %>">
+                View Applications for this position
+              </button>
+            <% else %>
+              <!-- Button for applying to vacancy -->
+              <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#applicationModal<%= vacancy.id %>">
+                Apply Now
+              </button>
+            <% end %>
           </div>
-          <p><%= vacancy.description %></p>
-          <h5>Requirements:</h5>
-          <ul>
-            <li><%= vacancy.years_of_experience %>+ years of experience</li>
-            <li>Availability: <%= vacancy.availability %></li>
-            <li><%= vacancy.confidence %></li>
-          </ul>
-
-          <!-- Button for viewing applications-->
-          <% if  @band.band_members.exists?(user_id: current_user.id) %>
-            <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#viewingApplicationsModal_<%= vacancy.id %>">
-              View Applications for this position
-            </button>
-          <% else %>
-            <!-- Button for applying to vacancy -->
-            <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#applicationModal<%= vacancy.id %>">
-              Apply Now
-            </button>
-          <% end %>
-        </div>
 
 
-        <!-- Button for creating vacancy -->
+          <!-- Button for creating vacancy -->
 
 
-        <!-- Modal for viewing applications -->
+          <!-- Modal for viewing applications -->
 
-        <div class="modal fade" id="viewingApplicationsModal_<%= vacancy.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Applications for this position</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <% vacancy.applications.each do |application| %>
-                  <div class="application">
-                  <% if application.pitch == nil %>
-                    <p>No applications yet for this position.</p>
-                  <% else %>
-                    <h5><%= application.user.first_name%>  <%=application.user.last_name%> </h5>
-                    <p><%= application.pitch %></p>
-                    <p>Submitted on: <%= application.created_at.strftime("%d %b %y") %> </p>
+          <div class="modal fade" id="viewingApplicationsModal_<%= vacancy.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Applications for this position</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <% vacancy.applications.each do |application| %>
+                    <div class="application">
+                    <% if application.pitch == nil %>
+                      <p>No applications yet for this position.</p>
+                    <% else %>
+                      <h5><%= application.user.first_name%>  <%=application.user.last_name%> </h5>
+                      <p><%= application.pitch %></p>
+                      <p>Submitted on: <%= application.created_at.strftime("%d %b %y") %> </p>
+                    <% end %>
+                    </div>
                   <% end %>
-                  </div>
-                <% end %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-        <!-- Modal for creating a new vacancy-->
-        <div class="modal fade" id="createVacancyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new vacancy listing</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <%= simple_form_for [ @band, @vacancy ] do |f| %>
-                  <%= f.input :instrument %>
-                  <%= f.input :description, class: "typing" %>
-                  <%= f.input :years_of_experience %>
-                  <%= f.input :availability %>
-                  <%= f.input :confidence %>
-
-                  <%= f.submit class: "submit-button" %>
-                <% end %>
-              </div>
-              <div class="modal-footer" id="footer-bg">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
 
-        <!-- Modal for application form -->
-      <div class="modal fade" id="applicationModal<%= vacancy.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Application for <%= @band.name %></h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          <!-- Modal for creating a new vacancy-->
+          <div class="modal fade" id="createVacancyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new vacancy listing</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for [ @band, @vacancy ] do |f| %>
+                    <%= f.input :instrument %>
+                    <%= f.input :description, class: "typing" %>
+                    <%= f.input :years_of_experience %>
+                    <%= f.input :availability %>
+                    <%= f.input :confidence %>
+
+                    <%= f.submit class: "submit-button" %>
+                  <% end %>
+                </div>
+                <div class="modal-footer" id="footer-bg">
+                </div>
+              </div>
             </div>
-            <div class="modal-body application-new">
-              <h3>Why are you a good candidate?</h3>
-              <%= simple_form_for [ vacancy, @application ] do |f| %>
-                <%=  f.input :pitch, class: "typing" %>
-                 <%= f.submit class: "submit-button" %>
-              <% end %>
-            </div>
-            <div class="modal-footer" id="footer-bg">
-
-            </div>
-
           </div>
-        </div>
-      </div>
 
-      <% end %>
-      <% if  @band.band_members.exists?(user_id: current_user.id) %>
-        <button type="button" class="find-bands" data-bs-toggle="modal" data-bs-target="#createVacancyModal">
-          Create a new vancancy
-        </button>
+
+          <!-- Modal for application form -->
+          <div class="modal fade" id="applicationModal<%= vacancy.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Application for <%= @band.name %></h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body application-new">
+                  <h3>Why are you a good candidate?</h3>
+                  <%= simple_form_for [ vacancy, @application ] do |f| %>
+                    <%=  f.input :pitch, class: "typing" %>
+                    <%= f.submit class: "submit-button" %>
+                  <% end %>
+                </div>
+                <div class="modal-footer" id="footer-bg">
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+        <% if  @band.band_members.exists?(user_id: current_user.id) %>
+          <button type="button" class="find-bands" data-bs-toggle="modal" data-bs-target="#createVacancyModal">
+            Create a new vancancy
+          </button>
+        <% end %>
+
+      <% else %>
+
+        <% if  @band.band_members.exists?(user_id: current_user.id) %>
+          <button type="button" class="find-bands" data-bs-toggle="modal" data-bs-target="#createVacancyModalEmpty">
+            Create a new vancancy
+          </button>
+        <% end %>
+
+        <div class="modal fade" id="createVacancyModalEmpty" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new vacancy listing</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for [ @band, @vacancy ] do |f| %>
+                    <%= f.input :instrument %>
+                    <%= f.input :description, class: "typing" %>
+                    <%= f.input :years_of_experience %>
+                    <%= f.input :availability %>
+                    <%= f.input :confidence %>
+                    <%= f.submit class: "submit-button" %>
+                  <% end %>
+                </div>
+                <div class="modal-footer" id="footer-bg">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
       <% end %>
     </div>
   </div>
