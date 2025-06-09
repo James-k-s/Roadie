@@ -1,7 +1,6 @@
 class VacanciesController < ApplicationController
 
   def create
-    raise
     @vacancy = Vacancy.create(vacancy_params)
     @vacancy.band = Band.find(params[:band_id])
     if @vacancy.save!
