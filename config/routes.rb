@@ -5,15 +5,12 @@ Rails.application.routes.draw do
     resources :vacancies, only: [:create]
   end
 
-<<<<<<< HEAD
-  resources :users, only: [:show, :index]
-=======
   resources :posts, only: [:index, :show, :create]
 
   resources :users , only: [:show, :index]
->>>>>>> f53075f27ae33bbae76e318ce020c59500ec504a
+
   get "about", to: "pages#about"
-  
+
   resources :applications, only: [:index, :show, :destroy]
   resources :vacancies, only: [:index, :show] do
     resources :applications, only: [:create]
