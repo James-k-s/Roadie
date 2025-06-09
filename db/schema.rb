@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_09_141418) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,10 +103,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_genres_on_user_id"
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -175,6 +173,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
     t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
+  create_table "user_genres", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_user_genres_on_genre_id"
+    t.index ["user_id"], name: "index_user_genres_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -218,7 +225,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
   add_foreign_key "chats", "bands"
   add_foreign_key "chats", "users"
   add_foreign_key "events", "band_members"
-  add_foreign_key "genres", "users"
   add_foreign_key "instruments", "users"
   add_foreign_key "messages", "chats", column: "chats_id"
   add_foreign_key "messages", "users"
@@ -229,5 +235,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_082115) do
   add_foreign_key "projects", "bands"
   add_foreign_key "songs", "bands"
   add_foreign_key "songs", "users"
+  add_foreign_key "user_genres", "genres"
+  add_foreign_key "user_genres", "users"
   add_foreign_key "vacancies", "bands"
 end

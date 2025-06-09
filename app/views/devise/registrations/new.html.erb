@@ -18,6 +18,7 @@
     <%= f.input :username, required: true %>
     <%= f.input :first_name, required: true %>
     <%= f.input :last_name, required: true %>
+    <%= f.association :genres, as: :check_boxes, input_html: { multiple: true } %>
     <%= f.input :address, required: true %>
     <%= f.input :bio, required: true %>
     <%= f.input :photo, as: :file, required: true %>

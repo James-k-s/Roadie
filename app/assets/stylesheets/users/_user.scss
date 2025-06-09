@@ -16,3 +16,20 @@
   text-decoration: none;
   color: #763117;
 }
+
+.genre-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.genre-list li {
+  background-color: #e0e0e0;
+  padding: 6px 10px;
+  margin: 4px 6px 4px 0;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.content-flex-wrapper {
+  gap: 10px;
+}

@@ -17,6 +17,12 @@ Instrument.destroy_all
 Post.destroy_all
 Band.destroy_all
 User.destroy_all
+UserGenre.destroy_all
+Genre.destroy_all
+
+["Rock", "Jazz", "Electronic", "Indie", "Techno", "Disco", "Blues", "Bossanova", "Gabber", "Schlager" ].each do |name|
+  Genre.create(name: name)
+end
 
 puts "Creating users..."
 
@@ -31,6 +37,7 @@ milo = User.new(
   address: "New Cross, London, UK"
 )
 milo.photo.attach(io: File.open(Rails.root.join("app/assets/images/milo_vingoe.jpg")), filename: "milo_vingoe.jpg", content_type: "image/jpg")
+milo.user_genres.build(genre: Genre.all.sample)
 
 james =User.new(
   email: "james@james.com",
@@ -43,6 +50,8 @@ james =User.new(
   address: "Brixton, London, UK"
 )
 james.photo.attach(io: File.open(Rails.root.join("app/assets/images/james_kay-shuttleworth.jpg")), filename: "james_kay-shuttleworth.jpg", content_type: "image/jpg")
+james.user_genres.build(genre: Genre.all.sample)
+
 
 admir = User.new(
   email: "admir@admir.com",
@@ -55,6 +64,7 @@ admir = User.new(
   address: "Maida Vale, London, UK"
 )
 admir.photo.attach(io: File.open(Rails.root.join("app/assets/images/admir_kurman.jpg")), filename: "admir_kurman.jpg", content_type: "image/jpg")
+admir.user_genres.build(genre: Genre.all.sample)
 
 jane = User.new(
   email: "jane@jane.com",
