@@ -5,6 +5,10 @@
   <div class="d-flex justify-content-between align-items-center">
     <h2 class="band-name"><%= @band.name %></h2>
     <button class="contact-button"><i class="fa-solid fa-user"></i><p>Contact Band</p></button>
+    <%= link_to band_chat_path(band_id: @band.id), class: "contact-button" do %>
+      <i class="fa-solid fa-envelope"></i>
+      <p>Chat with Band</p>
+    <% end %>
   </div>
   <div class="band-details">
     <div class="band-info">
@@ -29,16 +33,22 @@
         <p><%= @band.bio %></p>
       </div>
 
-      <% if @band.songs %>
-        <div class="band-songs">
-          <h3>Songs</h3>
-          <audio controls>
-            <% @band.songs.each do |song| %>
-              <source src= "<%= url_for(song.song.attachment) %>" class="song">
-            <% end %>
-          </audio>
-        </div>
-      <% end %>
+
+      <div class="band-songs">
+        <h3>Songs</h3>
+          <ul>
+          <% @band.songs.each do |song| %>
+          <div class="song-item">
+            <li>
+                <h5><%= song.title %></h5>
+                <audio controls class="song">
+                    <source src= "<%= url_for(song.song.attachment) %>">
+                </audio>
+            </li>
+          </div>
+          <% end %>
+          </ul>
+        
 
       <div class="band-members">
         <h3>Meet the Band</h3>
