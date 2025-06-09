@@ -28,6 +28,16 @@
         <h3>About Us</h3>
         <p><%= @band.bio %></p>
       </div>
+
+      <div class="band-songs">
+        <h3>Songs</h3>
+        <audio controls>
+          <% @band.songs.each do |song| %>
+            <source src= "<%= url_for(song.song.attachment) %>" class="song">
+        <% end %>
+        </audio>
+
+      </div>
       <div class="band-members">
         <h3>Meet the Band</h3>
         <ul class="members-list">
