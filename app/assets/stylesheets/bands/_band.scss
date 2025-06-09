@@ -55,6 +55,25 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.band-songs {
+  width: 752px;
+  background-color: #FFF9ED;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 2rem;
+
+  h3 {
+    color: #763117;
+  }
+
+  audio::-webkit-media-controls-play-button,
+  audio::-webkit-media-controls-panel {
+  background-color: #EB6937;
+  color: #a0276e;
+}
+}
+
 
 
 .band-about {
@@ -108,6 +127,21 @@ body {
   display: flex;
   font-size: 24px;
   font-weight: 600;
+}
+
+
+.song {
+  // margin-left: 16px;
+}
+
+.song-item {
+  margin-top: 16px;
+  // display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  h5 {
+    color: #763117;
+  }
 }
 
 .band-members span {

@@ -27,6 +27,11 @@
 
     }
 
+    .navbar-nav {
+      align-items: center;
+
+    }
+
     .find-musicians {
       background-color: #EB6937;
       color: #FFF9ED;
@@ -97,6 +102,16 @@
   font-size: 16px;
   padding-left: 16px;
 
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF9ED;
+}
+
+#navbarDropdown {
+  margin-left: 8px;
 }
 
 .log {

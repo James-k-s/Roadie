@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :users, only: [:show, :index] do
     resources :bands, only: [:new, :create]
   end
+
   resources :bands, only: [:show, :index] do
     resources :vacancies, only: [:create, :destroy]
+    resources :chats, only: [:new, :create, :show]
   end
+  
+  resources :chats, only: :show do
+    resources :messages, only: [:create]
+  end
+
   resources :posts, only: [:index, :show, :create]
+
   resources :applications, only: [:index, :show, :destroy]
+
   resources :vacancies, only: [:index, :show] do
     resources :applications, only: [:create]
   end

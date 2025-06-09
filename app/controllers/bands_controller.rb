@@ -4,7 +4,8 @@ class BandsController < ApplicationController
     @markers = @bands.geocoded.map do |band|
       {
         lat: band.latitude,
-        lng: band.longitude
+        lng: band.longitude,
+        info_window_html: render_to_string(partial: "bands/band_info_window", locals: { band: band })
       }
     end
   end
@@ -13,6 +14,12 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     @application = Application.new
     @vacancy = Vacancy.new
+    @chat = Chat.new
+  end
+
+  def create
+    @band = Band.new(band_params)
+    @band.user = current_user
   end
 
   def new
