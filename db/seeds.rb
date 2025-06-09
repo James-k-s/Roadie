@@ -811,7 +811,7 @@ puts "Created #{Song.count} songs."
 puts "Creating chats..."
 chat1 = Chat.new(
   band_id: Band.find_by(name: "Fifth Elephant").id,
-  user_id: User.find_by(first_name: "Milo").id
+  user1_id: User.find_by(first_name: "Milo").id
 )
 
 chat1.save

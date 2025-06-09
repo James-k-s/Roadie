@@ -12,8 +12,10 @@ class ChatsController < ApplicationController
   def create
     @band = Band.find(params[:band_id])
     @chat = Chat.new(chat_params)
+    @user2 = User.find(params[:user_id])
     @chat.band = @band
     @chat.user = current_user
+    @chat.user2 = @user2
 
     if @chat.save
       redirect_to @chat, notice: 'Chat was successfully created.'
@@ -26,6 +28,6 @@ class ChatsController < ApplicationController
   private
 
   def chat_params
-    params.require(:chat).permit(:id, :band_id, :user_id)
+    params.require(:chat).permit(:id, :band_id, :user1_id, :user2_id)
   end
 end

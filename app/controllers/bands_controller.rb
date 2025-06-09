@@ -14,14 +14,13 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     @application = Application.new
     @vacancy = Vacancy.new
-    if Chat.find_by(band: @band, user: current_user)
-      @chat = Chat.find_by(band: @band, user: current_user)
+    if Chat.find_by(band: @band, user1: current_user)
+      @chat = Chat.find_by(band: @band, user1: current_user)
     else
-      @chat = Chat.new(band: @band, user: current_user)
+      @chat = Chat.new(band: @band, user1: current_user)
       @chat.save
     end
-    @chat = Chat.find_by(band: @band, user: current_user)
-    @chats = @band.chats.where(user: current_user)
+    @chats = @band.chats.where(user1: current_user)
   end
 
   def new
