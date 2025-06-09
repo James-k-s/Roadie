@@ -18,7 +18,7 @@
       <p><%= @user.address %></p>
     </div>
   </div>
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between content-flex-wrapper">
     <div class="left-side">
       <div class="band-photo object-fit-cover" style="background-image: url('<%= cl_image_path @user.photo.key %>'); object-fit:cover">
       </div>
@@ -34,38 +34,47 @@
         </ul>
         <% end %>
       </div>
-
-
     </div>
-    <div class="vacancies">
-      <h3>My applications:</h3>
-      <% if current_user.id == @user.id %>
+    <div class="right-side">
+      <div class="vacancies">
+        <h3>My applications:</h3>
+        <% if current_user.id == @user.id %>
           <% current_user.applications.each do |application| %>
-        <div class="applications">
-            <div class="my-application">
-              <%= link_to band_path(application.vacancy.band.id), class: "text-decoration-none" do %>
-              <h5 class="application-band-title">- <%= application.vacancy.band.name %></h5>
-              <% end %>
-              <p><strong>Position:</strong> <%= application.vacancy.instrument %></p>
-              <p><strong>Your message: </strong><%= application.pitch %></p>
-              <% if application.vacancy.filled %>
-                <p><strong>Status: </strong> You have been selected!!</p>
-              <% else %>
-                <p><strong>Status: </strong>  Decision pending</p>
-              <% end %>
-              <p><strong>Submitted on: </strong><%= application.vacancy.created_at.strftime("%d %b %y") %></p>
+            <div class="applications">
+              <div class="my-application">
+                <%= link_to band_path(application.vacancy.band.id), class: "text-decoration-none" do %>
+                  <h5 class="application-band-title">- <%= application.vacancy.band.name %></h5>
+                <% end %>
+                <p><strong>Position:</strong> <%= application.vacancy.instrument %></p>
+                <p><strong>Your message: </strong><%= application.pitch %></p>
+                <% if application.vacancy.filled %>
+                  <p><strong>Status: </strong> You have been selected!!</p>
+                <% else %>
+                  <p><strong>Status: </strong>  Decision pending</p>
+                <% end %>
+                <p><strong>Submitted on: </strong><%= application.vacancy.created_at.strftime("%d %b %y") %></p>
+              </div>
             </div>
-        </div>
           <% end %>
-      <% else %>
-      <div class="no-applications">
-        <h4>You do not have any applications</h4>
-      <% end%>
+        <% else %>
+          <div class="no-applications">
+            <h4>You do not have any applications</h4>
+          </div>
+        <% end%>
       </div>
 
-
+      <div class="band-about">
+        <h3>Genres I perform in</h3>
+        <% if @user.genres.any? %>
+          <ul class="genre-list">
+            <% @user.genres.each do |genre| %>
+              <li><%= genre.name %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>No genres listed.</p>
+        <% end %>
+      </div>
     </div>
-
-
   </div>
 </div>

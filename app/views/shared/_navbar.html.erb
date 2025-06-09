@@ -13,22 +13,33 @@
         <li class="nav-item"><%= link_to "Musicians", users_path, class: "nav-links" %></li>
         <li class="nav-item"><%= link_to "Posts", posts_path, class: "nav-links" %></li>
 
-        <% if user_signed_in? && BandMember.find_by(user_id: current_user.id) %>
-          <li class="nav-item"><%= link_to "My band", band_path(@user_band), class: "nav-links" %> </li>
-        <% elsif user_signed_in? %>
-          <li class="nav-item"><%= link_to "Create Band", new_user_band_path(current_user), class: "nav-links" %></li>
+      <% if user_signed_in? %>
+        <%if current_user.photo.key == nil %>
+          <%= image_tag "https://res.cloudinary.com/dpt8iwr4k/image/upload/v1748533518/blank-profile-picture_xdu3re.webp", alt: "dropdown menu", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= cl_image_tag current_user.photo.key, alt: "dropdown menu", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
 
-        <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "My profile", user_path(current_user), class: "nav-links" %></li>
-        <% end %>
-      </ul>
-      <% if user_signed_in? %>
-        <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links log" %>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? && BandMember.find_by(user_id: current_user.id) %>
+
+            <%= link_to "My band", band_path(@user_band), class: "nav-links" %>
+            <%= link_to "My profile", user_path(current_user), class: "nav-links" %>
+            <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links" %>
+
+          <% elsif user_signed_in? %>
+            <ul>
+              <li><%= link_to "Create Band", new_user_band_path(current_user), class: "nav-links" %></li>
+              <li><%= link_to "My profile", user_path(current_user), class: "nav-links" %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links log" %></li>
+            </ul>
+          <% end %>
+        </div>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "nav-links log" %>
         <%= link_to "Sign Up", new_user_registration_path, class: "nav-links log" %>
       <% end %>
+      </ul>
     </div>
   </div>
 </nav>

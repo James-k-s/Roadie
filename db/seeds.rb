@@ -20,6 +20,12 @@ Instrument.destroy_all
 Post.destroy_all
 Band.destroy_all
 User.destroy_all
+UserGenre.destroy_all
+Genre.destroy_all
+
+["Rock", "Britpop", "Jazz", "Electronic", "Indie", "Pop", "Techno", "Disco", "Punk", "Blues", "New-age", "Hip-hop", "Funk", "Synth-pop", "K-pop", "Bossanova", "Gabber", "Schlager" ].each do |name|
+  Genre.create(name: name)
+end
 
 puts "Creating users..."
 
@@ -34,6 +40,7 @@ milo = User.new(
   address: "New Cross, London, UK"
 )
 milo.photo.attach(io: File.open(Rails.root.join("app/assets/images/milo_vingoe.jpg")), filename: "milo_vingoe.jpg", content_type: "image/jpg")
+milo.user_genres.build(genre: Genre.all.sample)
 
 james =User.new(
   email: "james@james.com",
@@ -46,6 +53,8 @@ james =User.new(
   address: "Brixton, London, UK"
 )
 james.photo.attach(io: File.open(Rails.root.join("app/assets/images/james_kay-shuttleworth.jpg")), filename: "james_kay-shuttleworth.jpg", content_type: "image/jpg")
+james.user_genres.build(genre: Genre.all.sample)
+
 
 admir = User.new(
   email: "admir@admir.com",
@@ -58,6 +67,7 @@ admir = User.new(
   address: "Maida Vale, London, UK"
 )
 admir.photo.attach(io: File.open(Rails.root.join("app/assets/images/admir_kurman.jpg")), filename: "admir_kurman.jpg", content_type: "image/jpg")
+admir.user_genres.build(genre: Genre.all.sample)
 
 jane = User.new(
   email: "jane@jane.com",
@@ -378,7 +388,7 @@ jazzers.photo.attach(io: File.open(Rails.root.join("app/assets/images/jazz-band.
 
 starlynx = Band.new(
   name: "StarLynx",
-  address: "Birmingham, UK",
+  address: "Croydon, UK",
   bio: " We are StarLynx — Kai Lennox, 24, and Jiro Sato, 23 — an English electronic duo based in Birmingham, weaving futuristic soundscapes that combine shimmering synths with dynamic, emotive beats. Driven by a passion for innovative production and boundary-breaking creativity, we create music that’s fresh, bold, and perfect for both intimate venues and festival main stages.
 We are on the lookout for a female lead vocalist with a unique voice and captivating presence to bring our sound to life. If you’re creative, ambitious, and ready to be part of something cutting-edge, let’s connect and make the future sound unforgettable.
 ",
@@ -389,7 +399,7 @@ starlynx.photo.attach(io: File.open(Rails.root.join("app/assets/images/StarLynx.
 
 moonlit_roses = Band.new(
   name: "The Moonlit Roses",
-  address: "Brighton, UK",
+  address: "Chelmsford, UK",
   bio: "We are The Moonlit Roses — Emily, Sophie, and Chloe — a Brighton-based trio blending catchy pop hooks with indie vibes and heartfelt lyrics. Together, we create music that is fresh, vibrant, and full of personality, perfect for both intimate gigs and lively festival crowds.
     Right now, we are searching for a talented fourth member to complete our lineup. Whether you are a vocalist, instrumentalist, or multi-instrumentalist with a passion for pop and indie sounds, we would love to hear from you. If you are creative, dedicated, and ready to join a fun, ambitious band making waves, get in touch — let’s make music and memories together.",
   genre: "Pop/Indie",
@@ -777,7 +787,25 @@ the_rockers_song = Song.new(
   band_id: Band.find_by(name: "The Rockers").id
 )
 the_rockers_song.song.attach(io: File.open(Rails.root.join("app/assets/songs/dance_yrself_clean.mp3")), filename: "dance_yrself_clean.mp3", content_type: "song/mp3")
+
+fifth_elephant = Song.new(
+  title: "Smells like teen spirit",
+  band_id: Band.find_by(name: "Fifth Elephant").id
+)
+
+fifth_elephant.song.attach(io: File.open(Rails.root.join("app/assets/songs/smells_like_teen_spirit.mp3")), filename: "smells_like_teen_spirit.mp3", content_type: "song/mp3")
+
+the_rockers_song2 = Song.new(
+  title: "Sparks",
+  band_id: Band.find_by(name: "The Rockers").id
+)
+
+the_rockers_song2.song.attach(io: File.open(Rails.root.join("app/assets/songs/sparks.mp3")), filename: "sparks.mp3", content_type: "song/mp3")
+
+the_rockers_song2.save
+fifth_elephant.save
 the_rockers_song.save
+
 puts "Created #{Song.count} songs."
 
 puts "Creating chats..."

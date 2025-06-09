@@ -32,15 +32,23 @@
         <p><%= @band.bio %></p>
       </div>
 
+
       <div class="band-songs">
         <h3>Songs</h3>
-        <audio controls>
+          <ul>
           <% @band.songs.each do |song| %>
-            <source src= "<%= url_for(song.song.attachment) %>" class="song">
-        <% end %>
-        </audio>
+          <div class="song-item">
+            <li>
+                <h5><%= song.title %></h5>
+                <audio controls class="song">
+                    <source src= "<%= url_for(song.song.attachment) %>">
+                </audio>
+            </li>
+          </div>
+          <% end %>
+          </ul>
+        </div>
 
-      </div>
       <div class="band-members">
         <h3>Meet the Band</h3>
         <ul class="members-list">
