@@ -1,5 +1,4 @@
 class BandsController < ApplicationController
-  before_action :set_user, only: [:new, :create]
   def index
     @bands = Band.all
     @markers = @bands.geocoded.map do |band|
@@ -32,7 +31,6 @@ class BandsController < ApplicationController
   end
 
   private
-
 
   def band_params
     params.require(:band).permit(:name, :address, :bio, :genre, :photo)

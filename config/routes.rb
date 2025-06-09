@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :bands, only: [:new, :create]
   end
   resources :bands, only: [:show, :index] do
-    resources :vacancies, only: [:new, :create, :destroy]
+    resources :vacancies, only: [:create, :destroy]
   end
   resources :posts, only: [:index, :show, :create]
   resources :applications, only: [:index, :show, :destroy]

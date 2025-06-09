@@ -44,8 +44,8 @@
       <p>Join our musical journey...</p>
       <% @band.vacancies.each do |vacancy| %>
         <div class="vacancy">
-          <div class="d-flex justify-content-between">
             <h4><%= vacancy.instrument %></h4>
+          <div class="d-flex justify-content-between">
             <%= link_to "Delete Vacancy", band_vacancy_path(@band, vacancy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
           <p><%= vacancy.description %></p>
