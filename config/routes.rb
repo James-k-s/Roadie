@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :bands, only: [:show, :index] do
+    resources :events, only: [:index, :create, :destroy]
     resources :vacancies, only: [:create, :destroy]
     resources :chats, only: [:create]
   end
