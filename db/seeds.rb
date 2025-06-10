@@ -10,6 +10,8 @@
 
 puts "Clearing existing records..."
 
+UserGenre.destroy_all
+Genre.destroy_all
 Message.destroy_all
 Chat.destroy_all
 Song.destroy_all
@@ -19,10 +21,15 @@ BandMember.destroy_all
 Instrument.destroy_all
 Post.destroy_all
 Band.destroy_all
-UserGenre.destroy_all
+
 User.destroy_all
+
+UserGenre.destroy_all
+
 Genre.destroy_all
 
+
+puts "Creating genres..."
 ["Rock", "Britpop", "Jazz", "Electronic", "Indie", "Pop", "Techno", "Disco", "Punk", "Blues", "New-age", "Hip-hop", "Funk", "Synth-pop", "K-pop", "Bossanova", "Gabber", "Schlager" ].each do |name|
   Genre.create(name: name)
 end
@@ -101,10 +108,10 @@ tom = User.new(
   last_name: "Everleigh",
   username: "tom",
   bio: " Hi, I’m Tom Everleigh, a 19-year-old violinist based in London. I've been playing the violin since I was seven and have trained classically through both private tuition and youth orchestras, performing everything from chamber works to larger ensemble pieces.
-I’m currently looking to join a classical or neo-classical group in London—something that values musicality, collaboration, and a fresh approach to performance. I’m particularly drawn to projects that blend tradition with innovation, but I’m also very happy to be part of a more traditional string ensemble or quartet.
-Though I’m young, I bring commitment, a trained ear, and a genuine love for the violin. I'm keen to connect with like-minded musicians who want to create something beautiful and meaningful.
-Let’s make music together!
-",
+  I’m currently looking to join a classical or neo-classical group in London—something that values musicality, collaboration, and a fresh approach to performance. I’m particularly drawn to projects that blend tradition with innovation, but I’m also very happy to be part of a more traditional string ensemble or quartet.
+  Though I’m young, I bring commitment, a trained ear, and a genuine love for the violin. I'm keen to connect with like-minded musicians who want to create something beautiful and meaningful.
+  Let’s make music together!
+  ",
   address: "Camden, London, UK"
 )
 tom.photo.attach(io: File.open(Rails.root.join("app/assets/images/thomas_everleigh.jpg")), filename: "thomas_everleigh.jpg", content_type: "image/jpg")
@@ -117,9 +124,9 @@ leo = User.new(
   last_name: "Hartley",
   username: "leo",
   bio: "Hey, I’m Leo Hartley, a 22-year-old vocalist based in London with a passion for live performance and storytelling through music. I’ve been singing for as long as I can remember, and over the years I’ve developed a dynamic vocal style influenced by rock, indie, soul, and a touch of blues.
-I’m currently on the lookout for a band to join as a lead singer—ideally a group that's serious about rehearsing, gigging, and writing original material. I’m especially drawn to bands with a strong creative vision, but I’m open to different genres as long as there’s energy and heart behind the sound.
-Whether it's intimate acoustic sets or high-energy stages, I thrive in front of an audience and bring both stage presence and vocal power. If you’re building something fresh and want a frontman who’s driven, versatile, and all in—let’s chat.
-",
+  I’m currently on the lookout for a band to join as a lead singer—ideally a group that's serious about rehearsing, gigging, and writing original material. I’m especially drawn to bands with a strong creative vision, but I’m open to different genres as long as there’s energy and heart behind the sound.
+  Whether it's intimate acoustic sets or high-energy stages, I thrive in front of an audience and bring both stage presence and vocal power. If you’re building something fresh and want a frontman who’s driven, versatile, and all in—let’s chat.
+  ",
   address: "Hackney, London, UK"
 )
 leo.photo.attach(io: File.open(Rails.root.join("app/assets/images/leo_hartley.jpg")), filename: "leo_hartley.jpg", content_type: "image/jpg")
@@ -132,9 +139,9 @@ aiko = User.new(
   last_name: "Tanaka",
   username: "aiko",
   bio: " Hello, I’m Aiko Tanaka, a 24-year-old pianist originally from Japan, now based in London. I’ve been passionate about the piano since childhood, with a background in classical training alongside a growing love for contemporary and jazz styles.
-I’m eager to join a band or musical project where I can contribute both my technical skills and creative ideas. I’m especially interested in groups that blend different genres or experiment with new sounds, but I’m equally comfortable supporting more traditional ensembles.
-With a strong work ethic and a collaborative spirit, I enjoy bringing music to life both in the studio and on stage. If you’re looking for a dedicated pianist with an open mind and a fresh perspective, I’d love to connect.
-",
+  I’m eager to join a band or musical project where I can contribute both my technical skills and creative ideas. I’m especially interested in groups that blend different genres or experiment with new sounds, but I’m equally comfortable supporting more traditional ensembles.
+  With a strong work ethic and a collaborative spirit, I enjoy bringing music to life both in the studio and on stage. If you’re looking for a dedicated pianist with an open mind and a fresh perspective, I’d love to connect.
+  ",
   address: "Shoreditch, London, UK"
 )
 aiko.photo.attach(io: File.open(Rails.root.join("app/assets/images/aiko_tanaka.jpg")), filename: "aiko_tanaka.jpg", content_type: "image/jpg")
@@ -147,8 +154,8 @@ zawadi = User.new(
   last_name: "Nyongo'o",
   username: "zawadi",
   bio: "I am Zawadi, born and raised in South London with deep Kenyan roots and a sound that’s as layered as my playlists — grunge guitars, indie angst, and the raw edge of East African rhythm. I have spent the past few years writing, gigging, and fronting small projects, but I am now on the hunt for a serious band to grow with, create with, and blow the roof off venues with.
-    I am drawn to gritty alt-rock, moody indie textures, and punk energy with a twist — something that hits hard but stays smart. My voice is husky and powerful, perfect for both razor-sharp anthems and stripped-back, soul-cutting verses.
-    ",
+  I am drawn to gritty alt-rock, moody indie textures, and punk energy with a twist — something that hits hard but stays smart. My voice is husky and powerful, perfect for both razor-sharp anthems and stripped-back, soul-cutting verses.
+  ",
   address: "South London, UK"
 )
 zawadi.photo.attach(io: File.open(Rails.root.join("app/assets/images/zawadi_nyongoo.jpg")), filename: "zawadi_nyongoo.jpg", content_type: "image/jpg")
@@ -161,8 +168,8 @@ callum = User.new(
   last_name: "Fraser",
   username: "callum",
   bio: "Hey, I’m Callum—a drummer based in London with a solid background in live performance and studio work. I’ve been playing for years, and my style pulls from a mix of rock, funk, indie, and a bit of jazz and electronic influence. Whether it’s locking in a groove or adding some creative energy to a track, I’m all about serving the song and elevating the sound.
-Right now, I’m looking to join a band that’s serious about making music—whether that means regular gigs, recording, or just building something tight and exciting together. I’m reliable, easygoing, and committed, with my own gear and transport. Always up for a jam, rehearsal, or last-minute show.
-If you're looking for a drummer who brings both feel and focus, I’d love to hear from you.",
+  Right now, I’m looking to join a band that’s serious about making music—whether that means regular gigs, recording, or just building something tight and exciting together. I’m reliable, easygoing, and committed, with my own gear and transport. Always up for a jam, rehearsal, or last-minute show.
+  If you're looking for a drummer who brings both feel and focus, I’d love to hear from you.",
   address: "Clapham, London, UK"
 )
 callum.photo.attach(io: File.open(Rails.root.join("app/assets/images/callum_fraser.jpg")), filename: "callum_fraser.jpg", content_type: "image/jpg")
@@ -175,8 +182,8 @@ kai = User.new(
   last_name: "Lennox",
   username: "kai",
   bio: "I’m Kai Lennox, synth player and sound designer for StarLynx, an electronic band based in Birmingham. We fuse ambient textures, hypnotic rhythms, and immersive synthscapes to create a sound that’s both cinematic and deeply electronic. My setup blends analog gear with digital tools to shape atmospheres that hit hard live and translate just as well in headphones.
-    Influenced by artists like Jon Hopkins, Moderat, and Nine Inch Nails, I’m all about layering melody, noise, and pulse to build something that resonates. With StarLynx, every track is designed to take you somewhere—whether it’s dark and driving or spaced-out and introspective.
-    We’re all about pushing boundaries, playing live, and connecting through sound. Keep an ear out—StarLynx is just getting started.",
+  Influenced by artists like Jon Hopkins, Moderat, and Nine Inch Nails, I’m all about layering melody, noise, and pulse to build something that resonates. With StarLynx, every track is designed to take you somewhere—whether it’s dark and driving or spaced-out and introspective.
+  We’re all about pushing boundaries, playing live, and connecting through sound. Keep an ear out—StarLynx is just getting started.",
   address: "Birmingham, UK"
 )
 kai.photo.attach(io: File.open(Rails.root.join("app/assets/images/kai_lennox.jpg")), filename: "kai_lennox.jpg", content_type: "image/jpg")
@@ -189,8 +196,8 @@ jiro = User.new(
   last_name: "Sato",
   username: "jiro",
   bio: "I’m Jiro Sato, the other half of StarLynx, an electronic duo based in Birmingham. I handle the beats, production, and live performance elements that bring our sound to life. My background is in electronic music production, with a focus on creating dynamic, emotive tracks that blend organic and synthetic elements.
-    Influenced by artists like Bonobo, Four Tet, and ODESZA, I love crafting intricate rhythms and textures that draw listeners in. Whether it’s building a track from the ground up or remixing something to give it a fresh spin, I’m all about innovation and pushing the limits of what electronic music can be.
-    With StarLynx, we’re not just making music—we’re creating experiences that resonate on and off the stage. Keep an eye out for our upcoming releases and live shows—we’re just getting started.",
+  Influenced by artists like Bonobo, Four Tet, and ODESZA, I love crafting intricate rhythms and textures that draw listeners in. Whether it’s building a track from the ground up or remixing something to give it a fresh spin, I’m all about innovation and pushing the limits of what electronic music can be.
+  With StarLynx, we’re not just making music—we’re creating experiences that resonate on and off the stage. Keep an eye out for our upcoming releases and live shows—we’re just getting started.",
   address: "Birmingham, UK"
 )
 jiro.photo.attach(io: File.open(Rails.root.join("app/assets/images/jiro_sato.jpg")), filename: "jiro_sato.jpg", content_type: "image/jpg")
@@ -339,30 +346,30 @@ dylan = User.new(
 )
 dylan.photo.attach(io: File.open(Rails.root.join("app/assets/images/dylan_cray.jpg")), filename: "dylan_cray.jpg", content_type: "image/jpg")
 
-milo.save
-james.save
-admir.save
-jane.save
-john.save
-tom.save
-leo.save
-aiko.save
-zawadi.save
-callum.save
-kai.save
-jiro.save
-emily.save
-sophie.save
-chloe.save
-kenji.save
-minsoo.save
-wei.save
-arun.save
-daichi.save
-jack.save
-theo.save
-eliza.save
-dylan.save
+milo.save!
+james.save!
+admir.save!
+jane.save!
+john.save!
+tom.save!
+leo.save!
+aiko.save!
+zawadi.save!
+callum.save!
+kai.save!
+jiro.save!
+emily.save!
+sophie.save!
+chloe.save!
+kenji.save!
+minsoo.save!
+wei.save!
+arun.save!
+daichi.save!
+jack.save!
+theo.save!
+eliza.save!
+dylan.save!
 
 puts "Created #{User.count} users."
 
@@ -828,6 +835,9 @@ message1 = Message.new(
 message1.save
 
 puts "Created #{Message.count} messages."
+
+
+
 # gig_post = Post.create!(
 #   title: "Gig at The O2",
 #   content: "We are playing at The O2 next month and we would love to see you there!",

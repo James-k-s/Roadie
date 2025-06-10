@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :messages
-  has_many :user_genres
+  has_many :user_genres, dependent: :destroy
   has_many :genres, through: :user_genres
   has_many :instruments, dependent: :destroy
   has_many :applications, dependent: :destroy
