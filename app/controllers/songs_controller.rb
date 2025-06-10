@@ -5,16 +5,16 @@ class SongsController < ApplicationController
     if @band
       @song.band = @band
       if @song.save!
-        redirect_to band_path(@band), notice: "Vacancy created successfully."
+        redirect_to band_path(@band), notice: "Song successfully added."
       else
-        redirect_to root_path, alert: "Failed to create vacancy. Please try again."
+        redirect_to root_path, alert: "Failed to add song. Please try again."
       end
     else
       @song.user = current_user
       if @song.save!
-        redirect_to user_path(@song.user), notice: "Vacancy created successfully."
+        redirect_to user_path(@song.user), notice: "Song successfully added."
       else
-        redirect_to root_path, alert: "Failed to create vacancy. Please try again."
+        redirect_to root_path, alert: "Failed to add song. Please try again."
       end
     end
   end

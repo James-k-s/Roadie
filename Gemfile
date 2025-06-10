@@ -53,6 +53,11 @@ gem "sassc-rails"
 gem "geocoder"
 gem "cloudinary"
 gem "solid_cable"
+gem "ruby-openai"
+gem "solid_cache"
+
+
+
 
 group :development, :test do
   gem "dotenv-rails"

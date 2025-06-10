@@ -10,10 +10,10 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="modalbody">
         <%= simple_form_for [@user, @post] do |f| %>
           <%= f.input :title, label: "Title", input_html: { class: "form-control" } %>
           <%= f.input :content, label: "Content", input_html: { class: "form-control" } %>
