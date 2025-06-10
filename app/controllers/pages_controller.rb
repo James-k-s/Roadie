@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def calendar
+    @events = Event.all
+  end
 end
