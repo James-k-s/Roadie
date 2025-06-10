@@ -53,6 +53,7 @@ gem "sassc-rails"
 gem "geocoder"
 gem "cloudinary"
 gem "solid_cable"
+gem "simple_calendar"
 
 group :development, :test do
   gem "dotenv-rails"

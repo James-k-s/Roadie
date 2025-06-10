@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   get "about", to: "pages#about"
+  get "calendar", to: "pages#calendar"
   root to: "pages#home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
