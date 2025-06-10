@@ -16,9 +16,6 @@
   </div>
   <div class="band-details">
     <div class="band-info">
-    </div>
-
-    <div class="band-info">
       <i class="fa-solid fa-location-dot me-2"></i>
       <p><%= @user.address %></p>
     </div>
@@ -34,9 +31,9 @@
       <div class="band-about">
         <% @user.instruments.each do |instrument| %>
           <h3>My abilities:</h3>
-        <ul>
-          <li><%= instrument.name %></li>
-        </ul>
+          <ul>
+            <li><%= instrument.name %></li>
+          </ul>
         <% end %>
       </div>
     </div>
@@ -78,6 +75,22 @@
           </ul>
         <% else %>
           <p>No genres listed.</p>
+        <% end %>
+      </div>
+      <div class="band-about">
+        <% user_events = @user.primary_events << @user.secondary_events %>
+        <% if user_events.any? %>
+          <h3>My events</h3>
+          <ul class="event-list">
+            <% user_events.each do |event| %>
+              <br>
+              <li>
+                <strong><%= event.title %></strong> - <%= event.start_time.strftime("%d %b %Y") %> - <%= event.end_time.strftime("%d %b %Y") %> - <strong><%= event.status.capitalize %></strong>
+                <p><%= event.content %></p>
+                <%= event.user1.first_name %> <%= event.user1.last_name %>
+              </li>
+            <% end %>
+          </ul>
         <% end %>
       </div>
     </div>

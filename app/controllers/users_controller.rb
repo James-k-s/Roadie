@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       @chat = Chat.new(user1: current_user, user2: @user)
       @chat.save
     end
+    @event = Event.new
   end
 
   private

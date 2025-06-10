@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :bands, only: [:new, :create]
     resources :chats, only: [:create]
     resources :posts, only: [:create]
+    resources :events, only: [:index, :create, :destroy]
   end
 
   resources :bands, only: [:show, :index] do
