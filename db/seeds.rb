@@ -23,7 +23,6 @@ Post.destroy_all
 Band.destroy_all
 
 User.destroy_all
-
 UserGenre.destroy_all
 
 Genre.destroy_all
