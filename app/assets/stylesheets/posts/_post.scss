@@ -78,6 +78,11 @@
   flex-direction: column;
   border-radius: 8px;
   justify-content: center;
+  .post-photo {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+  }
 }
 .post-content {
   display: flex;

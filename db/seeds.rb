@@ -415,7 +415,7 @@ moonlit_roses.photo.attach(io: File.open(Rails.root.join("app/assets/images/the_
 
 dolce_capella = Band.new(
   name: "Dolce Capella",
-  address: "Shoreditch, London, UK",
+  address: "Guildford, London, UK",
   bio: "We are Dolce Capella — five classically trained musicians from across Asia, now based in London and united by a shared love of harmony, tradition, and innovation. Aged between 20 and 22, we blend rich a cappella vocals with classical instruments, creating heartfelt performances that move between timeless elegance and fresh interpretation.
     With roots in Japan, Korea, China, and Thailand, we bring a multicultural depth to our sound, performing across the UK and Europe at festivals, concert halls, and cultural events.
     We are currently looking for one more male musician or vocalist to join our group — someone with a classical background, strong musicality, and a passion for performance. If you are collaborative, creative, and ready to travel and perform with a committed ensemble, we would love to hear from you. Join us — and help shape the next chapter of Dolce Capella.
@@ -771,19 +771,44 @@ puts "Created #{Application.count} applications."
 
 puts "Creating posts..."
 
-Post.create!(
+the_rockers_post = Post.create!(
   title: "Just started a new band!!!",
   content: "I cant wait to rock n roll!!!",
   band_id: Band.find_by(name: "The Rockers").id,
   user_id: User.find_by(first_name: "James").id
 )
 
-Post.create!(
+the_rockers_post.photo.attach(io: File.open(Rails.root.join("app/assets/images/three-men-radiant-flawless-skin.jpeg")), filename: "three-men-radiant-flawless-skin.jpeg", content_type: "image/jpeg")
+the_rockers_post.save!
+
+fifth_elephant_post = Post.create!(
   title: "Looking for a drummer!",
   content: "Join the band and help us create some amazing music! We are looking for a drummer who can play rock, jazz, and funk. If you are interested, please contact us.",
   band_id: Band.find_by(name: fifth_elephant.name).id,
   user_id: User.find_by(first_name: "Jack").id
 )
+
+the_jazzers = Post.create!(
+  title: "Just played in Buckingham Palace",
+  content: "The king loved it :)",
+  band_id: Band.find_by(name: "The Jazzers").id,
+  user_id: User.find_by(first_name: "John").id
+)
+
+the_jazzers.photo.attach(io: File.open(Rails.root.join("app/assets/images/the_jazzers_post.jpg")), filename: "the_jazzers_post.jpg", content_type: "image/jpg")
+the_jazzers.save!
+
+fifth_elephant_post.photo.attach(io: File.open(Rails.root.join("app/assets/images/drummer.jpg")), filename: "drummer.jpg", content_type: "image/jpg")
+fifth_elephant_post.save!
+
+zawadi_post = Post.create!(
+  title: "Look at me go!",
+  content: "I love playing live",
+  user_id: User.find_by(first_name: "Zawadi").id
+)
+
+zawadi_post.photo.attach(io: File.open(Rails.root.join("app/assets/images/zawadi.jpg")), filename: "zawadi.jpg", content_type: "image/jpg")
+
 
 puts "Created #{Post.count} posts."
 puts "Creating songs..."
