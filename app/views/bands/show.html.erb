@@ -218,5 +218,21 @@
 
       <% end %>
     </div>
+    <div class="events">
+      <h3>Upcoming Events</h3>
+      <% if @events.empty? %>
+        <p>No upcoming events.</p>
+      <% else %>
+        <% @events.each do |event| %>
+          <div class="event">
+            <h4><%= event.title %></h4>
+            <p><%= event.start_time.strftime("%d %b %Y") %></p>
+            <p><%= event.end_time.strftime("%d %b %Y") %></p>
+            <p><%= event.address %></p>
+            <p><%= event.content %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
