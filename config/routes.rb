@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :bands, only: [:new, :create]
     resources :chats, only: [:create]
     resources :songs, only: [:create]
+    resources :posts, only: [:create]
+
   end
 
   resources :bands, only: [:show, :index] do
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :posts, only: [:index, :show, :create]
+  resources :posts, only: [:index, :show]
 
   resources :applications, only: [:index, :show, :destroy]
 
