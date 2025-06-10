@@ -13,5 +13,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if Chat.find_by(user1: @user, user2: current_user)
+      @chat = Chat.find_by(user1: @user, user2: current_user)
+    elsif Chat.find_by(user1: current_user, user2: @user)
+      @chat = Chat.find_by(user1: current_user, user2: @user)
+    else
+      @chat = Chat.new(user1: current_user, user2: @user)
+      @chat.save
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :adress, :bio, :photo, :genre, :latitude, :longitude)
   end
 end

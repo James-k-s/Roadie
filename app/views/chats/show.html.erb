@@ -1,6 +1,11 @@
 
 <div class="container chat">
-  <h1>Your Chat with <%= @chat.band.name %></h1>
+  <% if @chat.band %>
+    <% other_user = current_user == @chat.band.user ? @chat.user : @chat.band.user %>
+  <% else %>
+    <% other_user = current_user == @chat.user2 ? @chat.user1 : @chat.user2 %>
+  <% end %>
+  <h1>Your Chat with <%= other_user.first_name %> <%= other_user.last_name %></h1>
   <%= turbo_stream_from "chat_#{@chat.id}_messages" %>
   <div id="messages" class="messages">
     <% @chat.messages.each do |message| %>
@@ -8,7 +13,11 @@
     <% end %>
   </div>
   <%= simple_form_for [@chat, @message], html: {class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
-    <% other_user = current_user == @chat.band.user ? @chat.user : @chat.band.user %>
+    <% if @chat.band %>
+      <% other_user = current_user == @chat.band.user ? @chat.user : @chat.band.user %>
+    <% else %>
+      <% other_user = current_user == @chat.user2 ? @chat.user1 : @chat.user2 %>
+    <% end %>
     <%= f.input :message_content,
       label: false,
       placeholder: "Message #{other_user.first_name}",

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_user_band
+  before_action :set_user_chats
+  before_action :set_message
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -19,6 +21,22 @@ class ApplicationController < ActionController::Base
       @user_band = Band.find_by(id: band_member.band_id) if band_member
     else
       @user_band = nil
+    end
+  end
+
+  def set_user_chats
+    if user_signed_in?
+      @user_chats = Chat.where(user_id: current_user.id)
+    else
+      @user_chats = []
+    end
+  end
+
+  def set_message
+    if user_signed_in?
+      @message = Message.new
+    else
+      @message = nil
     end
   end
 end

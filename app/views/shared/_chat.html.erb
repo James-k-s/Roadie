@@ -1,0 +1,63 @@
+<% if user_signed_in? %>
+  <button type="button" class="chat-button" data-bs-toggle="modal" data-bs-target="#viewingChatsModal">Chats</button>
+
+  <!-- Modal for viewing chats -->
+  <div class="modal fade" id="viewingChatsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5" id="viewingChatsModalLabel">Your Chats</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <% user_chats = current_user.primary_chats << current_user.secondary_chats %>
+          <% if current_user.primary_chats.empty? && current_user.secondary_chats.empty?%>
+            <p>No chats available. Start a new conversation!</p>
+          <% else %>
+            <div class="chat-list">
+              <% user_chats.each do |chat| %>
+                <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
+                <div class="chat-item">
+                  <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#viewingChatModal_<%= chat.id %>">View Chat</button>
+                  <strong><%= other_user.first_name %> <%= other_user.last_name %></strong>
+                </div>
+              <% end %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for viewing one chat -->
+  <% user_chats.each do |chat| %>
+      <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
+    <div class = "modal fade" id="viewingChatModal_<%= chat.id %>" >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fs-5" id="exampleModalLabel_<%= chat.id %>">Chat with <%= other_user.first_name %> <%= other_user.last_name %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= turbo_stream_from "chat_#{chat.id}_messages" %>
+            <div id="messages" class="messages">
+              <% chat.messages.each do |message| %>
+                <%= render "messages/message", message: message, user: current_user %>
+              <% end %>
+            </div>
+            <%= simple_form_for [chat, @message], html: {class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
+              <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
+              <%= f.input :message_content,
+                label: false,
+                placeholder: "Message #{other_user.first_name}",
+                wrapper_html: {class: "flex-grow-1"}
+              %>
+              <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

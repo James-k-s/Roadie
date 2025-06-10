@@ -2,6 +2,11 @@
   <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
   <% if current_user == @user %>
     <%= link_to "Update Profile", edit_user_registration_path(current_user), class: "nav-links log" %>
+  <% else %>
+    <%= link_to chat_path(@chat), class: "contact-button" do %>
+      <i class="fa-solid fa-envelope"></i>
+      <p>Chat with User</p>
+    <% end %>
   <% end %>
 <% end %>
 <div class="container mt-5">
