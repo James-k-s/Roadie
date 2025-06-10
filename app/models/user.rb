@@ -20,4 +20,5 @@ class User < ApplicationRecord
   has_many :genres, through: :user_genres
   has_many :instruments, dependent: :destroy
   has_many :applications, dependent: :destroy
+  has_many :ablums, dependent: :destroy
 end

@@ -27,6 +27,11 @@ Rails.application.routes.draw do
     resources :applications, only: [:create]
   end
 
+  get "inspiration", to: "pages#inspiration"
+
+  resources :albums, only: [:index, :create, :show]
+
+
   get "about", to: "pages#about"
   root to: "pages#home"
 

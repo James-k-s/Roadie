@@ -1,0 +1,2 @@
+<h1>Album cover result</h1>
+<%= cl_image_tag @album.photo.key, alt: "AI-generated image of an album" if @album.photo.attached? %>

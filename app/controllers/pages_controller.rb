@@ -6,4 +6,10 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def inspiration
+    @albums = Album.all
+    @album = Album.new
+    @user = current_user
+  end
 end
