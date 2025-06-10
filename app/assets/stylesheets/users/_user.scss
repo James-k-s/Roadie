@@ -22,6 +22,44 @@
   padding-left: 0;
 }
 
+.left-side-user {
+width: 800px;
+}
+
+
+.user-songs {
+  width: 100%;
+  background-color: #FFF9ED;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  margin-top: 2rem;
+  padding: 16px;
+
+  audio::-webkit-media-controls-play-button,
+  audio::-webkit-media-controls-panel {
+  background-color: #EB6937;
+  color: #a0276e;
+  }
+  h3 {
+    color: #763117;
+  }
+  .my-songs {
+    display: flex;
+    align-items: center;
+  .fa-plus {
+    margin-left: 8px;
+    border: 2px solid #763117;
+    border-radius: 8px;
+  }
+  }
+}
+
+
+
+#modal-footerr {
+  background-color: #FFF9ED;
+}
+
 .genre-list li {
   background-color: #e0e0e0;
   padding: 6px 10px;
@@ -33,6 +71,8 @@
 .content-flex-wrapper {
   gap: 10px;
 }
+
+
 
 .user-photo {
   width: 100%;

@@ -33,23 +33,28 @@
       </div>
 
 
-      <% if @bands.songs %>
-        <div class="band-songs">
-          <h3>Songs</h3>
-            <ul>
-            <% @band.songs.each do |song| %>
-            <div class="song-item">
-              <li>
-                  <h5><%= song.title %></h5>
-                  <audio controls class="song">
-                      <source src= "<%= url_for(song.song.attachment) %>">
-                  </audio>
-              </li>
-            </div>
-            <% end %>
-            </ul>
-         </div>
-      <% end %>
+
+      <div class="band-songs">
+        <div class="my-band-songs">
+          <h3>My Songs</h3>
+          <% if @is_member %>
+            <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#addSongModaBand"></i>
+          <% end %>
+        </div>
+          <% @band.songs.each do |song| %>
+          <div class="song-item">
+          <ul>
+            <li>
+                <h5><%= song.title %></h5>
+                <audio controls class="song">
+                    <source src= "<%= url_for(song.song.attachment) %>">
+                </audio>
+            </li>
+          </ul>
+          </div>
+          <% end %>
+        </div>
+
 
       <div class="band-members">
         <h3>Meet the Band</h3>
@@ -220,5 +225,27 @@
 
       <% end %>
     </div>
+
+    <div class="modal fade" id="addSongModaBand" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [@band, @song] do |f| %>
+                <%= f.input :title %>
+                <%= f.input :song %>
+                <%= f.submit %>
+              <% end %>
+            </div>
+            <div class="modal-footer" id="modal-footerr">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
   </div>
 </div>

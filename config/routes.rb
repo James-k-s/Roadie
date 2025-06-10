@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index] do
     resources :bands, only: [:new, :create]
     resources :chats, only: [:create]
+    resources :songs, only: [:create]
   end
 
   resources :bands, only: [:show, :index] do
     resources :vacancies, only: [:create, :destroy]
     resources :chats, only: [:create]
+    resources :songs, only: [:create]
   end
 
   resources :chats, only: [:index, :show] do
