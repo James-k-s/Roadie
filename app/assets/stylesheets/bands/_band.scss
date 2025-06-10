@@ -13,6 +13,16 @@
   text-wrap: nowrap;
 }
 
+.my-band-songs {
+  display: flex;
+  align-items: center;
+  .fa-plus {
+    margin-left: 8px;
+    border: 2px solid #763117;
+    border-radius: 8px;
+  }
+}
+
 .band-name {
   font-weight: 700;
   font-size: 48px;
