@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     @post = Post.new
+    @user = current_user
   end
 
   def create
@@ -20,10 +21,9 @@ class PostsController < ApplicationController
     end
   end
 
-
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :photo)
   end
 end
