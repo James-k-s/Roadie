@@ -1,8 +1,8 @@
 <div class="body-container bg-dark-blue">
-  <%= link_to root_path do %>
-    <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
-  <% end %>
   <div class="left-side-container">
+    <%= link_to root_path do %>
+      <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+    <% end %>
     <div class="filter-bands me-3">
       <%= form_with url: bands_path, method: :get, local: true do |f|%>
         <div class="filter-options no-hover-no-shadow-card bg-dark-blue w-100">
@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="d-flex justify-content-center">
-            <button type="submit" class="filter-button bg-light-blue "><i class="fa-solid fa-filter"></i></button>
+            <button type="submit" class="filter-button bg-light-blue"><i class="fa-solid fa-filter"></i></button>
           </div>
         </div>
       <% end %>
@@ -40,9 +40,8 @@
         <% end %>
       <% end %>
     </div>
-
   </div>
-
   <div class="right-side-container" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   </div>
 </div>
