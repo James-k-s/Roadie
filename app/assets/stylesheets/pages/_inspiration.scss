@@ -1,0 +1,36 @@
+.albums {
+  width: 60%;
+  min-height: 350px;
+  background-color: #FFF9ED;
+  border: 2px solid #763117;
+  border-radius: 8px;
+  margin-left: 16px;
+}
+
+.album-heading {
+  margin-top: 16px;
+  width: 100%;
+  color: #763117;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.youralbums {
+  margin-left: 30px;
+  height: 100%;
+}
+
+
+.albumBody {
+  display: flex;
+  justify-content: space-between;
+}
+
+.generateAlbums {
+  margin-right: 30px;
+}
+
+#generate-button {
+  background-color: #EB6937;
+  color:#FFF9ED;
+}

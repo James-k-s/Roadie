@@ -4,14 +4,20 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index] do
     resources :bands, only: [:new, :create]
     resources :chats, only: [:create]
+    resources :songs, only: [:create]
     resources :posts, only: [:create]
+
     resources :events, only: [:index, :create, :destroy]
+
+
+
   end
 
   resources :bands, only: [:show, :index] do
     resources :events, only: [:index, :create, :destroy]
     resources :vacancies, only: [:create, :destroy]
     resources :chats, only: [:create]
+    resources :songs, only: [:create]
   end
 
   resources :chats, only: [:index, :show] do
@@ -25,6 +31,11 @@ Rails.application.routes.draw do
   resources :vacancies, only: [:index, :show] do
     resources :applications, only: [:create]
   end
+
+  get "inspiration", to: "pages#inspiration"
+
+  resources :albums, only: [:index, :create, :show]
+
 
   get "about", to: "pages#about"
   get "calendar", to: "pages#calendar"

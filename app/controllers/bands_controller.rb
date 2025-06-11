@@ -11,7 +11,9 @@ class BandsController < ApplicationController
   end
 
   def show
+    @song = Song.new
     @band = Band.find(params[:id])
+    @is_member = @band.member?(current_user)
     @application = Application.new
     @vacancy = Vacancy.new
     if Chat.find_by(band: @band, user1: current_user)

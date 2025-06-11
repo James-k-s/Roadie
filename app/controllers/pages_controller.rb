@@ -7,7 +7,13 @@ class PagesController < ApplicationController
   def about
   end
 
+
   def calendar
     @events = Event.all
+
+  def inspiration
+    @albums = Album.all
+    @album = Album.new
+    @user = current_user
   end
 end

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @song = Song.new
     @user = User.find(params[:id])
     if Chat.find_by(user1: @user, user2: current_user)
       @chat = Chat.find_by(user1: @user, user2: current_user)
