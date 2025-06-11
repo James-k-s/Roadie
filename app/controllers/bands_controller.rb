@@ -23,6 +23,12 @@ class BandsController < ApplicationController
       @chat.save
     end
     @chats = @band.chats.where(user1: current_user)
+    @event = Event.new
+    if @band.band_members.exists?(user: current_user)
+      @events = @band.events
+    else
+      @events = @band.events.where(status: "gig").or(@band.events.where(status: "tour"))
+    end
   end
 
   def new

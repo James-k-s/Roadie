@@ -7,9 +7,14 @@ Rails.application.routes.draw do
     resources :songs, only: [:create]
     resources :posts, only: [:create]
 
+    resources :events, only: [:index, :create, :destroy]
+
+
+
   end
 
   resources :bands, only: [:show, :index] do
+    resources :events, only: [:index, :create, :destroy]
     resources :vacancies, only: [:create, :destroy]
     resources :chats, only: [:create]
     resources :songs, only: [:create]
@@ -33,6 +38,7 @@ Rails.application.routes.draw do
 
 
   get "about", to: "pages#about"
+  get "calendar", to: "pages#calendar"
   root to: "pages#home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

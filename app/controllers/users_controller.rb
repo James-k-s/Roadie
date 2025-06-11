@@ -22,6 +22,13 @@ class UsersController < ApplicationController
       @chat = Chat.new(user1: current_user, user2: @user)
       @chat.save
     end
+    @event = Event.new
+    @user_band = @user.bands.first
+    @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id)).or(Event.where(band_id: @user_band.id))
+    if current_user != @user
+      public_events = @events.select { |event| event.status == "gig" || event.status == "tour" }
+      @events = public_events
+    end
   end
 
   private

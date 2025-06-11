@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :primary_chats, class_name: 'Chat', foreign_key: 'user1_id', dependent: :destroy
   has_many :secondary_chats, class_name: 'Chat', foreign_key: 'user2_id', dependent: :destroy
+  has_many :primary_events, class_name: 'Event', foreign_key: 'user1_id', dependent: :destroy
+  has_many :secondary_events, class_name: 'Event', foreign_key: 'user2_id', dependent: :destroy
   has_many :messages
   has_many :user_genres, dependent: :destroy
   has_many :genres, through: :user_genres

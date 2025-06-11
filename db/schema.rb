@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_10_144803) do
+
+ActiveRecord::Schema[7.1].define(version: 2025_06_10_133924) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,10 +108,18 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_10_144803) do
     t.string "content"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.bigint "band_member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["band_member_id"], name: "index_events_on_band_member_id"
+    t.bigint "user1_id"
+    t.bigint "user2_id"
+    t.bigint "band_id"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "status", default: 0
+    t.index ["band_id"], name: "index_events_on_band_id"
+    t.index ["user1_id"], name: "index_events_on_user1_id"
+    t.index ["user2_id"], name: "index_events_on_user2_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -257,7 +267,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_10_144803) do
   add_foreign_key "chats", "bands"
   add_foreign_key "chats", "users", column: "user1_id"
   add_foreign_key "chats", "users", column: "user2_id"
-  add_foreign_key "events", "band_members"
+  add_foreign_key "events", "bands"
+  add_foreign_key "events", "users", column: "user1_id"
+  add_foreign_key "events", "users", column: "user2_id"
   add_foreign_key "instruments", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
