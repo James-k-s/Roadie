@@ -10,6 +10,7 @@
         <li class="nav-item"><%= link_to "Bands", bands_path, class: "nav-links text-white" %></li>
         <li class="nav-item"><%= link_to "Musicians", users_path, class: "nav-links text-white" %></li>
         <li class="nav-item"><%= link_to "Posts", posts_path, class: "nav-links text-white" %></li>
+        <li class="nav-item"><button class="nav-links text-white chat-button" data-bs-toggle="modal" data-bs-target="#viewingChatsModal">Chats</button></li>
 
       <% if user_signed_in? %>
         <%if current_user.photo.key == nil %>

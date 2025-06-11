@@ -337,12 +337,15 @@
 .roadie-header {
   height : 64px;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .roadie-title {
   font-size: 80px;
   font-weight: 900;
   position: relative;
+  width: fit-content;
   top: -48px;
   margin: 0;
   text-shadow: 0 2px 6px rgba(255,255,255,0.25);
