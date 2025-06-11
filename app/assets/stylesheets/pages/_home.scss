@@ -176,7 +176,7 @@
 }
 .frame-layer {
   position: absolute;
-  top: 1296px;
+  top: 1714px;
   bottom: 0px;
   height: 568px;
   left: 0;
@@ -257,4 +257,45 @@
   margin-left: 160px;
   max-width: 600px;
   font-size: 1.1rem;
+}
+
+.how-it-works-section {
+  background-color: #FFF9ED;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 300px;
+  margin: 20px;
+}
+
+.step h4 {
+  background-color: #96320E;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+.step h6 {
+  margin-top: 10px;
+  color: #96320E;
+}
+.step p {
+  margin-top: 10px;
+  color: #333;
 }
