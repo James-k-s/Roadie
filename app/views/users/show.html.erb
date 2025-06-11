@@ -24,7 +24,7 @@
       <div class="user-photo object-fit-cover" style="background-image: url('<%= cl_image_path @user.photo.key %>'); object-fit:cover">
       </div>
       <div class="band-about">
-        <h3>About me</h3>
+        <h3>A little on me</h3>
         <p><%= @user.bio %></p>
       </div>
 
@@ -58,11 +58,7 @@
       <div class="band-about">
         <% @user.instruments.each do |instrument| %>
 
-          <h3>My abilities:</h3>
-          <ul>
-            <li><%= instrument.name %></li>
-          </ul>
-          <h3>My abilities</h3>
+          <h3>What I bring to the table:</h3>
         <ul>
           <li><%= instrument.name %></li>
         </ul>
@@ -99,7 +95,7 @@
       </div>
 
       <div class="band-about">
-        <h3>Genres I perform in</h3>
+        <h3>I am known for</h3>
         <% if @user.genres.any? %>
           <ul class="genre-list">
             <% @user.genres.each do |genre| %>

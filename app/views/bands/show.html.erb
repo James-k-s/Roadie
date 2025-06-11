@@ -163,22 +163,25 @@
             </div>
 
 
-            <!-- Modal for application form -->
-            <div class="modal fade" id="applicationModal<%= vacancy.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Application for <%= @band.name %></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body application-new">
-                    <h3>Why are you a good candidate?</h3>
-                    <%= simple_form_for [ vacancy, @application ] do |f| %>
-                      <%=  f.input :pitch, class: "typing" %>
-                      <%= f.submit class: "submit-button" %>
+
+          <!-- Modal for application form -->
+          <div class="modal fade" id="applicationModal<%= vacancy.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Application for <%= @band.name %></h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body application-new">
+                  <h3>What makes you the one?</h3>
+                  <%= simple_form_for [ vacancy, @application ] do |f| %>
+                    <%= f.input :pitch, class: "typing", label: false, placeholder: "e.g. experience, favourite bands, ambitions..." %>
+                    <%= button_tag type: "submit", class: "submit-button" do %>
+                      <i class='fa-solid fa-paper-plane fa-flip-horizontal'></i>
                     <% end %>
-                  </div>
-                  <div class="modal-footer" id="footer-bg">
+                  <% end %>
+                </div>
+                <div class="modal-footer" id="footer-bg">
 
                   </div>
 
