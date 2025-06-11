@@ -40,38 +40,46 @@
     <!-- 4 Cards inside banner -->
   <div class="section-gradient-bottom">
     <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
-      <div class="card new-card-style" style="width: 16rem;">
-        <div class="img-container">
-          <%= image_tag "electric-guitar.png"%>
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
+          <div class="img-container">
+            <%= image_tag "electric-guitar.png"%>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-char">Explore indie bands in your area.</p>
+          </div>
         </div>
-        <div class="card-body">
-          <p class="card-text text-char">Explore indie bands in your area.</p>
+      <% end %>
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
+          <div class="img-container">
+            <%= image_tag "piano.png"%>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-char">Join a jazz ensemble or blues group.</p>
+          </div>
         </div>
-      </div>
-      <div class="card new-card-style" style="width: 16rem;">
-        <div class="img-container">
-          <%= image_tag "piano.png"%>
+      <% end %>
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
+          <div class="img-container">
+            <%= image_tag "drum.png"%>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-char">Find rock and metal groups nearby.</p>
+          </div>
         </div>
-        <div class="card-body">
-          <p class="card-text text-char">Join a jazz ensemble or blues group.</p>
+      <% end %>
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
+          <div class="img-container">
+            <%= image_tag "microphone.png"%>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-char">Discover singer-songwriters and duos.</p>
+          </div>
         </div>
-      </div>
-      <div class="card new-card-style" style="width: 16rem;">
-        <div class="img-container">
-          <%= image_tag "drum.png"%>
-        </div>
-        <div class="card-body">
-          <p class="card-text text-char">Find rock and metal groups nearby.</p>
-        </div>
-      </div>
-      <div class="card new-card-style" style="width: 16rem;">
-        <div class="img-container">
-          <%= image_tag "microphone.png"%>
-        </div>
-        <div class="card-body">
-          <p class="card-text text-char">Discover singer-songwriters and duos.</p>
-        </div>
-      </div>
+      <% end %>
     </div>
 
     <!-- Why Choose Roadie -->

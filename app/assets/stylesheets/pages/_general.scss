@@ -21,6 +21,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
   border: none !important;
+  text-align: center;
 }
 
 .no-hover-card {
@@ -69,4 +70,8 @@ input {
   border-radius: 16px !important;
   border: none !important;
   width: 100% !important;
+}
+
+a {
+  text-decoration: none !important;
 }
