@@ -23,6 +23,20 @@ body {
   border: none !important;
 }
 
+.no-hover-card {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: none !important;
+  border: none !important;
+}
+
+.no-hover-no-shadow-card {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  border: none !important;
+}
+
 .new-card-style:hover {
   transform: translateY(-5px);
 }
@@ -48,4 +62,11 @@ body {
   list-style-type: none !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
+}
+
+input {
+  background-color: #FFF9ED !important;
+  border-radius: 16px !important;
+  border: none !important;
+  width: 100% !important;
 }
