@@ -1,0 +1,37 @@
+body {
+  background-color: #272757 !important;
+}
+
+.section-gradient-bottom {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-image: linear-gradient(to bottom , #272757, #5555BD) !important;
+}
+
+.section-gradient-top {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-image: linear-gradient(to top , #272757, #5555BD) !important;
+}
+
+.new-card-style {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  border: none !important;
+}
+
+.new-card-style:hover {
+  transform: translateY(-5px);
+}
+
+.bg-dark-blue {
+  background-color: #272757 !important;
+  color: white !important;
+}
+.bg-light-blue {
+  background-color: #5555BD !important;
+  color: white !important;
+}

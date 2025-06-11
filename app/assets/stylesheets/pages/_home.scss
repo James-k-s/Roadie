@@ -199,7 +199,7 @@
 }
 
 .shape1 {
-  background-color: #96320E;
+  background-color: #5555BD;
   top: 0;
   left: 0;
   width: 180px;
@@ -208,7 +208,7 @@
 }
 
 .shape2 {
-  background-color: #EB6937;
+  background-color: white;
   top: 0;
   right: 0;
   width: 260px;
@@ -218,23 +218,25 @@
 }
 
 .shape3 {
-  background-color: #F18A60;
+  background-color: #5555BD;
   bottom: 0;
   left: 180px;
   width: calc(100% - 440px);
   height: 40px;
   --clip: 0 10%, 100% 0%, 100% 100%, 0% 100%;
   --rotate: 0deg;
+  opacity: 0.8;
 }
 
 .shape4 {
-  background-color: #FAD6C7;
+  background-color: white;
   top: 20px;
   left: 160px;
   width: calc(100% - 180px);
   height: 60px;
   --clip: 0 0, 100% 0, 85% 100%, 0% 80%;
   --rotate: 0deg;
+  opacity: 0.5;
 }
 
 .content-container {
@@ -266,7 +268,7 @@
 }
 
 .how-it-works-section {
-  background-color: #FFF9ED;
+  background-color: white;
   padding: 60px 0;
   display: flex;
   flex-direction: column;
@@ -289,7 +291,7 @@
 }
 
 .step h4 {
-  background-color: #96320E;
+  background-color: #5555BD;
   color: white;
   padding: 10px;
   border-radius: 50%;
@@ -299,7 +301,7 @@
 }
 .step h6 {
   margin-top: 10px;
-  color: #96320E;
+  color: #5555BD;
 }
 .step p {
   margin-top: 10px;
@@ -321,4 +323,13 @@
 .title-wrapper {
   position: relative;
   bottom: 65px;
+}
+
+.text-char {
+  color: #36454F;
+}
+
+.bg-char {
+  background-color: #36454F;
+  color: white;
 }
