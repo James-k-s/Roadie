@@ -44,9 +44,9 @@
         </div>
           <% @band.songs.each do |song| %>
           <div class="song-item">
-          <ul>
-            <li>
-                <h5><%= song.title %></h5>
+          <ul class="no-bullet d-flex flex-column align-items-center">
+            <li class="d-flex align-items-center justify-content-center w-100">
+                <h5 class="m-0 w-50"><%= song.title %></h5>
                 <audio controls class="song">
                     <source src= "<%= url_for(song.song.attachment) %>">
                 </audio>
@@ -75,17 +75,17 @@
         <% if @band.vacancies.any? %>
 
           <% @band.vacancies.each do |vacancy| %>
-            <div class="vacancy">
+            <div class="vacancy d-flex flex-column align-items-center">
                 <h4><%= vacancy.instrument %></h4>
               <div class="d-flex justify-content-between">
                 <%= link_to "Delete Vacancy", band_vacancy_path(@band, vacancy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
               </div>
               <p><%= vacancy.description %></p>
               <h5>Requirements:</h5>
-              <ul>
-                <li><%= vacancy.years_of_experience %>+ years of experience</li>
-                <li>Availability: <%= vacancy.availability %></li>
-                <li><%= vacancy.confidence %></li>
+              <ul class="no-bullet d-flex flex-column align-items-center">
+                <li><strong>Experience:</strong>  <%= vacancy.years_of_experience %>+ years</li>
+                <li><strong>Availability:</strong>  <%= vacancy.availability %></li>
+                <li><strong>Confidence: </strong><%= vacancy.confidence %></li>
               </ul>
 
               <!-- Button for viewing applications-->

@@ -59,7 +59,7 @@
         <% @user.instruments.each do |instrument| %>
 
           <h3>What I bring to the table:</h3>
-        <ul>
+        <ul class="no-bullet">
           <li><%= instrument.name %></li>
         </ul>
 
@@ -74,7 +74,7 @@
             <div class="applications">
               <div class="my-application">
                 <%= link_to band_path(application.vacancy.band.id), class: "text-decoration-none" do %>
-                  <h5 class="application-band-title">- <%= application.vacancy.band.name %></h5>
+                  <h5 class="application-band-title"><%= application.vacancy.band.name %></h5>
                 <% end %>
                 <p><strong>Position:</strong> <%= application.vacancy.instrument %></p>
                 <p><strong>Your message: </strong><%= application.pitch %></p>
@@ -97,7 +97,7 @@
       <div class="band-about">
         <h3>I am known for</h3>
         <% if @user.genres.any? %>
-          <ul class="genre-list">
+          <ul class="genre-list no-bullet">
             <% @user.genres.each do |genre| %>
               <li><%= genre.name %></li>
             <% end %>
@@ -107,8 +107,8 @@
         <% end %>
       </div>
 
-      <div class="events">
-        <% if @events %>
+      <% if @events %>
+        <div class="events">
           <h3>Events:</h3>
           <ul class="event-list">
             <% @events.each do |event| %>
@@ -120,8 +120,8 @@
               </li>
             <% end %>
           </ul>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
 
 
