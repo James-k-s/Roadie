@@ -11,6 +11,8 @@ class BandsController < ApplicationController
   end
 
   def show
+    @albums = Album.all
+    @album = Album.new
     @song = Song.new
     @band = Band.find(params[:id])
     @is_member = @band.member?(current_user)

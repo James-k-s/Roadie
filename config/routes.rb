@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :vacancies, only: [:create, :destroy]
     resources :chats, only: [:create]
     resources :songs, only: [:create]
+    resources :albums, only: [:create]
   end
 
   resources :chats, only: [:index, :show] do
