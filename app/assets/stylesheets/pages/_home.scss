@@ -66,11 +66,12 @@
 
     }
     .banner-buttons {
-      margin-top: 20px;
+      margin: 8px 0;
     }
     .banner-buttons .btn {
       padding: 14px 32px;
       font-size: 1.1rem;
+      width: 300px;
     }
     .card img {
       height: 200px;
@@ -156,8 +157,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: 16px;
+  padding: 16px 16px 0 16px;
+}
+
+.img-container img {
+  width: 100px;
+  height: 100px;
 }
 
 .card-text {
@@ -168,6 +173,7 @@
   height: 40px;
   margin-top: 16px;
   margin-left: 16px;
+  color: white;
 }
 
 
@@ -322,7 +328,6 @@
 
 .title-wrapper {
   position: relative;
-  bottom: 65px;
 }
 
 .text-char {
@@ -349,4 +354,19 @@
   top: -48px;
   margin: 0;
   text-shadow: 0 2px 6px rgba(255,255,255,0.25);
+}
+
+.banner-content {
+  top: 4%;
+  padding: 0 8px 0 8px;
+  border-radius: 16px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 8px 8px 8px;
+  background-color:rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
 }
