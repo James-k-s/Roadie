@@ -24,7 +24,9 @@ class UsersController < ApplicationController
     end
     @event = Event.new
     @user_band = @user.bands.first
-    @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id)).or(Event.where(band_id: @user_band.id))
+    if @user_band
+      @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id)).or(Event.where(band_id: @user_band.id))
+    end
     if current_user != @user
       public_events = @events.select { |event| event.status == "gig" || event.status == "tour" }
       @events = public_events
