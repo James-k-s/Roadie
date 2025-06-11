@@ -4,6 +4,11 @@
   margin-bottom: 16px;
   width: 330px;
 }
+.typing input::placeholder {
+  color: hsl(0, 30%, 98%);  
+  opacity: 0.2;      
+}
+
 .no-applications {
   background-color: #FAD6C7;
 }
@@ -47,4 +52,15 @@
   color:#FFF9ED;
   text-decoration: none;
   font-weight: bold;
+}
+
+.submit-button {
+  padding: 5px 8px;   
+  width: auto;        
+  height: auto;      
+  min-width: 0;      
+  display: inline-flex;   
+  align-items: center;  
+  justify-content: center; 
+  border-radius: 4px;  
 }

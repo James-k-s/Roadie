@@ -163,10 +163,12 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body application-new">
-                  <h3>Why are you a good candidate?</h3>
+                  <h3>What makes you the one?</h3>
                   <%= simple_form_for [ vacancy, @application ] do |f| %>
-                    <%=  f.input :pitch, class: "typing" %>
-                    <%= f.submit class: "submit-button" %>
+                    <%= f.input :pitch, class: "typing", label: false, placeholder: "e.g. experience, favourite bands, ambitions..." %>
+                    <%= button_tag type: "submit", class: "submit-button" do %>
+                      <i class='fa-solid fa-paper-plane fa-flip-horizontal'></i>
+                    <% end %>
                   <% end %>
                 </div>
                 <div class="modal-footer" id="footer-bg">

@@ -4,3 +4,24 @@
   object-fit: cover;
   border-radius: 8px 0 0 8px;
 }
+
+.submit-button {
+  padding: 5px 8px;   
+  width: 100%;                    
+  align-items: center;  
+  justify-content: center; 
+  border-radius: 4px;  
+}
+
+.filter-bands {
+  display: flex;
+  width: 100%;
+  padding: 0;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}

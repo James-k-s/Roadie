@@ -21,6 +21,7 @@
 
     .banner-content h1,
     .banner-content p {
+      
       text-shadow: 0 2px 4px rgba(0,0,0,0.7);
 }
 
@@ -163,4 +164,21 @@
   height: 40px;
   margin-top: 16px;
   margin-left: 16px;
+}
+
+.custom-dark-outline {
+  background-color: rgba(255, 255, 255, 0.05); /* subtle dark tint */
+  border-color: rgba(255, 255, 255, 0.6);      /* match outline-light style */
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.custom-dark-outline:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* a little brighter on hover */
+  color: #fff;
+}
+
+.title-wrapper {
+  position: relative;
+  bottom: 65px;
 }

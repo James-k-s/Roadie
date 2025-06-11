@@ -96,3 +96,14 @@
 .form-group label {
   margin-bottom: 4px;
 }
+
+.submit-button {
+  padding: 5px 8px;   
+  width: auto;        
+  height: auto;      
+  min-width: 0;      
+  display: inline-flex;   
+  align-items: center;  
+  justify-content: center; 
+  border-radius: 4px;  
+}
