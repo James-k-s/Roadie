@@ -333,3 +333,17 @@
   background-color: #36454F !important;
   color: white !important;
 }
+
+.roadie-header {
+  height : 64px;
+  text-align: center;
+}
+
+.roadie-title {
+  font-size: 80px;
+  font-weight: 900;
+  position: relative;
+  top: -48px;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(255,255,255,0.25);
+}
