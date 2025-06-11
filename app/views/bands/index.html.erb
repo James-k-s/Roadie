@@ -6,7 +6,7 @@
     <div class="filter-bands">
       <%= form_with url: bands_path, method: :get, local: true do |f|%>
         <div class="filter-options">
-          <div class="form-group">
+          <div class="form-title">
             <h2>Show me bands</h2>
           </div>
           <div class="form-group">
@@ -18,10 +18,6 @@
             <div class="form-group">
               <%= f.label :location %>
               <%= f.text_field :location %>
-            </div>
-            <div class="checkbox">
-              <%= f.label :"Bands hiring" %>
-              <%= f.check_box :vacancy %>
             </div>
             <div class="form-group">
                <button type="submit" class="submit-button">

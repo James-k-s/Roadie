@@ -6,22 +6,20 @@
 }
 
 .submit-button {
-  padding: 5px 8px;   
-  width: 100%;                    
-  align-items: center;  
-  justify-content: center; 
-  border-radius: 4px;  
+  padding: 5px 8px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
 }
 
 .filter-bands {
   display: flex;
-  width: 100%;
   padding: 0;
 }
 
 .filter-options {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  display: grid;
+  width: 600px;
   align-items: center;
 }
