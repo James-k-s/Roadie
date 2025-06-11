@@ -1,42 +1,68 @@
 <%= link_to users_path do %>
   <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
-  <% if current_user == @user %>
-    <%= link_to "Update Profile", edit_user_registration_path(current_user), class: "nav-links log" %>
-  <% else %>
-    <%= link_to chat_path(@chat), class: "contact-button" do %>
-      <i class="fa-solid fa-envelope"></i>
-      <p>Chat with User</p>
-    <% end %>
-  <% end %>
 <% end %>
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center">
     <h2 class="band-name"><%= @user.first_name %> <%= @user.last_name %></h2>
-    <button class="contact-button"><i class="fa-solid fa-user"></i><p>My chats</p></button>
+    <% if current_user == @user %>
+    <%= link_to "Update Profile", edit_user_registration_path(current_user), class: "nav-links log text-decoration-none" %>
+  <% else %>
+    <%= link_to chat_path(@chat), class: "contact-button text-decoration-none" do %>
+      <i class="fa-solid fa-envelope"></i>
+      <p>Chat with User</p>
+    <% end %>
+  <% end %>
   </div>
   <div class="band-details">
-    <div class="band-info">
-    </div>
-
     <div class="band-info">
       <i class="fa-solid fa-location-dot me-2"></i>
       <p><%= @user.address %></p>
     </div>
   </div>
   <div class="d-flex justify-content-between content-flex-wrapper">
-    <div class="left-side">
-      <div class="band-photo object-fit-cover" style="background-image: url('<%= cl_image_path @user.photo.key %>'); object-fit:cover">
+    <div class="left-side-user">
+      <div class="user-photo object-fit-cover" style="background-image: url('<%= cl_image_path @user.photo.key %>'); object-fit:cover">
       </div>
       <div class="band-about">
         <h3>A little on me</h3>
         <p><%= @user.bio %></p>
       </div>
+
+        <div class="user-songs">
+          <div class="my-songs">
+            <h3>My Songs</h3>
+            <% if current_user == @user %>
+              <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#addSongModal"></i>
+            <% end %>
+          </div>
+
+
+
+          <% if @user.songs %>
+            <% @user.songs.each do |song| %>
+              <div class="song-item">
+                <ul>
+                  <li>
+                      <h5><%= song.title %></h5>
+                      <audio controls class="user-song">
+                          <source src= "<%= url_for(song.song.attachment) %>">
+                      </audio>
+                  </li>
+                </ul>
+              </div>
+            <% end %>
+          <% end %>
+         </div>
+
+
       <div class="band-about">
         <% @user.instruments.each do |instrument| %>
+
           <h3>What I bring to the table:</h3>
         <ul>
           <li><%= instrument.name %></li>
         </ul>
+
         <% end %>
       </div>
     </div>
@@ -80,6 +106,44 @@
           <p>No genres listed.</p>
         <% end %>
       </div>
+
+      <div class="events">
+        <% if @events %>
+          <h3>Events:</h3>
+          <ul class="event-list">
+            <% @events.each do |event| %>
+              <br>
+              <li class="event">
+                <strong><%= event.title %></strong> - <%= event.start_time.strftime("%H:%M - %d %b %Y") %> - <%= event.end_time.strftime("%H:%M - %d %b %Y") %> - <strong><%= event.status.capitalize %></strong>
+                <p><%= event.content %></p>
+                <%= event.user1.first_name %> <%= event.user1.last_name %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
+
+
+      <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [@user, @song] do |f| %>
+                <%= f.input :title %>
+                <%= f.input :song %>
+                <%= f.submit %>
+              <% end %>
+            </div>
+            <div class="modal-footer" id="modal-footerr">
+
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

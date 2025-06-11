@@ -10,8 +10,8 @@
 
 puts "Clearing existing records..."
 
+Event.destroy_all
 UserGenre.destroy_all
-Genre.destroy_all
 Message.destroy_all
 Chat.destroy_all
 Song.destroy_all
@@ -21,10 +21,7 @@ BandMember.destroy_all
 Instrument.destroy_all
 Post.destroy_all
 Band.destroy_all
-
 User.destroy_all
-UserGenre.destroy_all
-
 Genre.destroy_all
 
 
@@ -860,7 +857,60 @@ message1.save
 
 puts "Created #{Message.count} messages."
 
+puts "Creating events..."
 
+event1 = Event.new(
+  title: "Rock Night at The O2",
+  content: "Join us for an unforgettable night of rock music at The O2! Featuring live performances from The Rockers and special guests. Don't miss out!",
+  start_time: DateTime.now + 1.month,
+  end_time: DateTime.now + 1.month + 3.hours,
+  address: "The O2, London",
+  band_id: Band.find_by(name: "The Rockers").id,
+  user1_id: User.find_by(first_name: "Milo").id,
+  status: 1
+)
+event1.save!
+
+event2 = Event.new(
+  title: "Practice Session with The Rockers",
+  content: "We are having a practice session at our studio in New Cross. All band members are required to attend.",
+  start_time: DateTime.now + 1.week,
+  end_time: DateTime.now + 1.week + 2.hours,
+  address: "New Cross, London",
+  band_id: Band.find_by(name: "The Rockers").id,
+  user1_id: User.find_by(first_name: "James").id,
+  status: 2
+)
+event2.save!
+
+event3 = Event.new(
+  title: "Summer Tour",
+  content: "We are going on a summer tour across the UK! Join us for an amazing journey filled with music, fun, and unforgettable memories.",
+  start_time: DateTime.now + 2.months,
+  end_time: DateTime.now + 2.months + 1.week,
+  address: "Various locations across the UK",
+  band_id: Band.find_by(name: "The Rockers").id,
+  user1_id: User.find_by(first_name: "Milo").id,
+  status: 3
+)
+event3.save!
+
+event4 = Event.new(
+  title: "Meeting with Zawadi",
+  content: "Meeting with Zawadi to see if she would be a good addition to the band.",
+  start_time: DateTime.now + 1.week,
+  end_time: DateTime.now + 1.week + 1.hour,
+  address: "Camden, London",
+  band_id: Band.find_by(name: "The Rockers").id,
+  user1_id: User.find_by(first_name: "Milo").id,
+  status: 0
+)
+event4.save!
+
+puts "Created #{Event.count} events."
+
+# Uncomment the following lines to create a gig post
+# puts "Creating gig post..."
 
 # gig_post = Post.create!(
 #   title: "Gig at The O2",

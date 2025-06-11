@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @song = Song.new
     @user = User.find(params[:id])
     if Chat.find_by(user1: @user, user2: current_user)
       @chat = Chat.find_by(user1: @user, user2: current_user)
@@ -20,6 +21,15 @@ class UsersController < ApplicationController
     else
       @chat = Chat.new(user1: current_user, user2: @user)
       @chat.save
+    end
+    @event = Event.new
+    @user_band = @user.bands.first
+    if @user_band
+      @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id)).or(Event.where(band_id: @user_band.id))
+    end
+    if current_user != @user
+      public_events = @events.select { |event| event.status == "gig" || event.status == "tour" }
+      @events = public_events
     end
   end
 

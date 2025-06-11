@@ -54,6 +54,11 @@ gem "geocoder"
 gem "cloudinary"
 gem "solid_cable"
 
+gem "simple_calendar"
+gem "ruby-openai"
+gem "solid_cache"
+
+
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

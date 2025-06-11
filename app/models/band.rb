@@ -12,4 +12,12 @@ class Band < ApplicationRecord
   has_many :projects, dependent: :destroy
   belongs_to :user
   has_many :applications, through: :vacancies
+
+  has_many :events, dependent: :destroy
+
+
+  def member?(user)
+    band_members.exists?(user: user)
+  end
+
 end

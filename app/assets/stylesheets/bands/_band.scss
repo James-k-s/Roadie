@@ -6,11 +6,28 @@
 .left-side {
   width:800px ;
 }
+
+.right-side {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .band-info {
   display: flex;
   margin-right: 1rem;
   line-height: 16px;
   text-wrap: nowrap;
+}
+
+.my-band-songs {
+  display: flex;
+  align-items: center;
+  .fa-plus {
+    margin-left: 8px;
+    border: 2px solid #763117;
+    border-radius: 8px;
+  }
 }
 
 .band-name {
@@ -231,4 +248,65 @@ body {
   margin: 8px;
   padding: 8px;
   border-radius: 8px;
+}
+
+.events {
+  width: 400px;
+  height:fit-content;
+  background-color: #FAD6C7;
+  border: 2px solid #763117;
+  border-radius: 16px;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.events h3 {
+  align-self: flex-start;
+  color: #763117;
+  margin: 0 0 16px 0;
+  line-height: 32px;
+  font-size: 32px;
+}
+
+.events p {
+  margin: 0 0 16px 0;
+  align-self: start;
+}
+
+.event {
+  width: 100%;
+  background-color: #FFF9ED;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.event h4 {
+  color: #763117;
+  margin-bottom: 16px;
+}
+
+.event h5 {
+  color: #763117;
+  margin-bottom: 16px;
+}
+.event ul {
+  margin-bottom: 32px;
+}
+
+.event li {
+  color: #EB6937;
+  margin-bottom: 8px;
+}
+
+.event button {
+  background-color: #EB6937;
+  width: 100%;
+  height: 40px;
+  color: #FFF9ED;
+  border-radius: 8px;
+  border: none;
 }
