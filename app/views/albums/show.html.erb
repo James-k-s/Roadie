@@ -1,2 +1,9 @@
-<h1>Album cover result</h1>
-<%= cl_image_tag @album.photo.key, alt: "AI-generated image of an album" if @album.photo.attached? %>
+<%= link_to inspiration_path do %>
+  <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+<% end %>
+<div class="album-result">
+  <div class="album-content">
+    <h1><%= @album.name %></h1>
+    <%= cl_image_tag @album.photo.key, alt: "AI-generated image of an album" if @album.photo.attached? %>
+  </div>
+</div>

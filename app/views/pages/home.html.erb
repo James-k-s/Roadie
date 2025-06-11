@@ -22,10 +22,12 @@
 
   <!-- Overlay Content -->
   <div class="banner-content position-absolute top-50 start-50 translate-middle text-center text-white">
-    <h1 class="title">Roadie</h1>
-    <p class="lead">Connect with Your Perfect Musical Match</p>
+    <div class="title-wrapper">
+      <h1 class="title">Roadie</h1>
+      <p class="lead">Meet Your Perfect Bandmate</p>
+    </div>
     <div class="banner-buttons d-flex justify-content-center gap-3 mt-3">
-      <%= link_to "Find Bands", bands_path, class: "btn btn-primary" %>
+      <%= link_to "Find Bands", bands_path, class: "btn btn-outline-light custom-dark-outline" %>
       <%= link_to "Find Musicians", users_path, class: "btn btn-outline-light" %>
     </div>
   </div>

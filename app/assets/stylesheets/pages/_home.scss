@@ -2,9 +2,9 @@
       background-blend-mode: multiply;
       background-size: cover;
       color: white;
-      padding: 15px 30px;
       text-align: center;
       object-fit: cover;
+      width: 100%;
     }
 
 .banner {
@@ -21,6 +21,7 @@
 
     .banner-content h1,
     .banner-content p {
+      
       text-shadow: 0 2px 4px rgba(0,0,0,0.7);
 }
 
@@ -111,6 +112,10 @@
       margin-top: 16px;
     }
 
+.carousel-item {
+  width: 100%;
+}
+
 .nav-links{
   color: #96320E;
   text-decoration: none;
@@ -164,6 +169,7 @@
   margin-top: 16px;
   margin-left: 16px;
 }
+
 
 .roadie-float {
   width: 180px;
@@ -298,4 +304,19 @@
 .step p {
   margin-top: 10px;
   color: #333;
+
+.custom-dark-outline {
+  background-color: rgba(255, 255, 255, 0.05); /* subtle dark tint */
+  border-color: rgba(255, 255, 255, 0.6);      /* match outline-light style */
+  color: #fff;
+  transition: background-color 0.2s ease;
 }
+
+.custom-dark-outline:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* a little brighter on hover */
+  color: #fff;
+}
+
+.title-wrapper {
+  position: relative;
+  bottom: 65px;
