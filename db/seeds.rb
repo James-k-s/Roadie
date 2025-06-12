@@ -10,6 +10,7 @@
 
 puts "Clearing existing records..."
 
+Album.destroy_all
 Event.destroy_all
 UserGenre.destroy_all
 Message.destroy_all
@@ -414,7 +415,7 @@ jack.save!
 theo.save!
 eliza.save!
 dylan.save!
-max.save! 
+max.save!
 daniiar.save!
 jamie.save!
 sora.save!
@@ -532,7 +533,7 @@ fifth_elephant.save
 nomad_sons.save
 the_rolls.save
 marmalade_thieves.save
-seoulshire.save 
+seoulshire.save
 
 
 puts "Created #{Band.count} bands."

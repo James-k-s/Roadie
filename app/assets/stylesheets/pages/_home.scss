@@ -16,7 +16,7 @@
 .banner-image {
       object-fit: cover;
       height: 100%;
-      filter: brightness(60%);
+      filter: brightness(50%);
     }
 
     .banner-content h1,
@@ -74,11 +74,14 @@
     .banner-buttons {
       margin: 8px 0;
     }
+
     .banner-buttons .btn {
       padding: 14px 32px;
       font-size: 1.1rem;
       width: 300px;
       border: rgba(255, 255, 255, 0.6) solid 1px;
+      background-color:rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
     }
     .card img {
       height: 200px;
@@ -362,13 +365,13 @@
   font-weight: 900;
   position: relative;
   width: fit-content;
-  top: -48px;
   margin: 0;
-  text-shadow: 0 2px 6px rgba(255,255,255,0.25);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  top: -64px;
 }
 
 .banner-content {
-  top: 4%;
+  top: 70%;
   padding: 0 8px 0 8px;
   border-radius: 16px;
 }
@@ -377,7 +380,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 8px 8px 8px;
+  padding: 8px;
   background-color:rgba(255, 255, 255, 0.25);
   border-radius: 8px;
+}
+
+.banner-buttons .btn:hover {
+  background-color: white;
+  color: #272757 !important;
+  transition: background-color 0.3s ease !important;
 }

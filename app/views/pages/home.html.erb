@@ -1,11 +1,8 @@
 <body>
-  <div class="w-100 bg-dark-blue roadie-header">
-    <h1 class="roadie-title">Roadie</h1>
-  </div>
   <!-- Banner -->
   <section class="banner position-relative">
   <!-- Carousel Background -->
-    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))" >
       <div class="carousel-inner">
         <div class="carousel-item active">
           <%= image_tag "singer_studio_chap.jpg", class: "d-block w-100 banner-image", alt: "singer studio" %>
@@ -26,13 +23,12 @@
       <!-- Overlay Content -->
     <div class="banner-content position-absolute start-50 translate-middle text-center text-white">
       <div class="title-wrapper">
-        <div class="banner-buttons d-flex justify-content-center gap-5">
-          <div class="button-wrapper">
-            <%= link_to "Join a Band", bands_path, class: "btn btn-outline-light custom-dark-outline" %>
+          <div class="w-100 roadie-header">
+            <h1 class="roadie-title">Roadie</h1>
           </div>
-          <div class="button-wrapper">
-            <%= link_to "Find Your New Bandmate", users_path, class: "btn btn-outline-light" %>
-          </div>
+        <div class="banner-buttons d-flex justify-content-center gap-2">
+          <%= link_to "Join a Band", bands_path, class: "btn btn-outline-light custom-dark-outline" %>
+          <%= link_to "Find Your New Bandmate", users_path, class: "btn btn-outline-light custom-dark-outline" %>
         </div>
       </div>
     </div>
