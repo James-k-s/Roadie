@@ -70,6 +70,7 @@ input {
   border-radius: 16px !important;
   border: none !important;
   width: 100% !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 a {
@@ -83,6 +84,7 @@ a {
 .box-shadow-white {
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.4) !important;
 }
+
 
 .plus-button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
@@ -107,4 +109,10 @@ a {
 
 .vacancy-header {
   min-width: 100%;
+
+
+.back-arrow {
+  font-size: 30px;
+  padding-left: 8px;
+
 }

@@ -26,7 +26,6 @@
             <ul class="no-bullet d-flex flex-column align-items-center">
               <%= link_to "My band", band_path(BandMember.find_by(user_id: current_user.id).band.id), class: "nav-links text-white" %>
               <%= link_to "My profile", user_path(current_user), class: "nav-links text-white" %>
-              <%= link_to "Inspiration", inspiration_path, class: "nav-links text-white" %>
               <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links text-white" %>
             </ul>
 

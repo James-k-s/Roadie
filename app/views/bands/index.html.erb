@@ -1,7 +1,7 @@
 <div class="body-container bg-dark-blue">
   <div class="left-side-container">
     <%= link_to root_path do %>
-      <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+      <i class="fa-solid fa-arrow-left text-white back-arrow"></i>
     <% end %>
     <div class="filter-bands me-3">
       <%= form_with url: bands_path, method: :get, local: true do |f|%>
@@ -33,7 +33,7 @@
     <div class="band-cards">
       <% @bands.each do |band| %>
         <%= link_to band_path(band), class: "text-decoration-none" do %>
-        <div class="band-card">
+        <div class="band-card new-card-style">
           <%= cl_image_tag band.photo.key, class: "band-card-img" %>
           <div class="band-card-info">
             <h3><%= band.name %></h3>

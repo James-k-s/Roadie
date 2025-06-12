@@ -1,9 +1,9 @@
 <%= link_to root_path do %>
-  <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+  <i class="fa-solid fa-arrow-left text-white back-arrow"></i>
 <% end %>
 <div class="sharing">
   <h3>Fancy sharing a post?</h3>
-  <button type="button" class="create-post-button" id="create-button" data-bs-toggle="modal" data-bs-target="#createPost">
+  <button type="button" class="create-post-button bg-light-blue" id="create-button" data-bs-toggle="modal" data-bs-target="#createPost">
     Create a Post
   </button>
 </div>
@@ -28,23 +28,24 @@
   </div>
 </div>
 
+<div class="main-container" id="body-container">
 
-<div class="body-container">
 <div class="posts">
+  <h1 class="text-white">Musician feed</h1>
   <% @posts.each do |post| %>
-    <div class="post">
+    <div class="post new-card-style bg-white text-char">
       <% if post.band_id %>
         <%= link_to band_path(post.band.id), class: "path-link" do %>
           <div class="who-post">
             <%= cl_image_tag post.band.photo.key, class: "post-avatar-image object-fit-cover" %>
-            <h3><%= post.band.name %></h3>
+            <h3 class="text-char" ><%= post.band.name %></h3>
           </div>
         <% end %>
       <% else %>
         <%= link_to user_path(current_user.id), class: "path-link" do %>
         <div class="who-post">
           <%= cl_image_tag post.user.photo.key, class: "post-avatar-image object-fit-cover" %>
-          <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
+          <h3 class="text-char"><%= post.user.first_name %> <%= post.user.last_name %></h3>
         </div>
         <% end %>
       <% end %>
@@ -64,5 +65,6 @@
     </div>
   <% end %>
 </div>
+
 
 </div>
