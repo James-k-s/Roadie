@@ -24,12 +24,13 @@
 
 .sharing {
   position: absolute;
-  width: 233px;
+  width: 333px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  right: 66px;
+  right:16px;
   margin-top: 54px;
+  color: white;
 }
 
 .post-text {
@@ -39,7 +40,7 @@
 
 .path-link {
   text-decoration: none;
-  color: #96320E;
+
 }
 
 #create-button {
@@ -48,9 +49,10 @@
   border: none;
   padding: 8px;
   border-radius: 8px;
+  width: 250px;
 }
 
-.body-container {
+#body-container {
   display: flex;
   flex-direction: center;
   justify-content: center;
@@ -59,7 +61,7 @@
 .posts {
   padding: 24px;
   border-radius: 8px;
-  width: 620px;
+  width: 720px;
 }
 
 .like-button {
@@ -84,7 +86,7 @@
   border-radius: 8px;
   justify-content: center;
   .post-photo {
-    width: 500px;
+    width: 600px;
     height: 400px;
     object-fit: cover;
   }
