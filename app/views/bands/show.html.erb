@@ -162,13 +162,13 @@
             <div class="modal fade" id="viewingApplicationsModal_<%= vacancy.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                  <div class="modal-header">
+                  <div class="modal-header new-modal">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Applications for this position</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body new-modal">
                     <% vacancy.applications.each do |application| %>
-                      <div class="application">
+                      <div class="application new-card-style">
                       <% if application.pitch == nil %>
                         <p>No applications yet for this position.</p>
                       <% else %>
@@ -181,10 +181,7 @@
                       </div>
                     <% end %>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -195,11 +192,11 @@
             <div class="modal fade" id="createVacancyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                  <div class="modal-header">
+                  <div class="modal-header new-modal">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new vacancy listing</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body new-modal">
                     <%= simple_form_for [ @band, @vacancy ] do |f| %>
                       <%= f.input :instrument %>
                       <%= f.input :description, class: "typing" %>
@@ -207,11 +204,10 @@
                       <%= f.input :availability %>
                       <%= f.input :confidence %>
 
-                      <%= f.submit class: "submit-button" %>
+                      <%= f.submit class: "bg-light-blue height" %>
                     <% end %>
                   </div>
-                  <div class="modal-footer" id="footer-bg">
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -221,12 +217,12 @@
           <!-- Modal for application form -->
           <div class="modal fade" id="applicationModal<%= vacancy.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
+              <div class="modal-content ">
+                <div class="modal-header new-modal">
                   <h1 class="modal-title fs-5" id="staticBackdropLabel">Application for <%= @band.name %></h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body application-new">
+                <div class="modal-body new-modal application-new">
                   <h3>What makes you the one?</h3>
                   <%= simple_form_for [ vacancy, @application ] do |f| %>
                     <%= f.input :pitch, class: "typing", label: false, placeholder: "e.g. experience, favourite bands, ambitions..." %>
@@ -235,9 +231,6 @@
                     <% end %>
                   <% end %>
                 </div>
-                <div class="modal-footer" id="footer-bg">
-
-                  </div>
 
                 </div>
               </div>
@@ -261,11 +254,11 @@
           <div class="modal fade" id="createVacancyModalEmpty" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                  <div class="modal-header">
+                  <div class="modal-header new-modal">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new vacancy listing</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body new-modal">
                     <%= simple_form_for [ @band, @vacancy ] do |f| %>
                       <%= f.input :instrument %>
                       <%= f.input :description, class: "typing" %>
@@ -275,8 +268,7 @@
                       <%= f.submit class: "submit-button" %>
                     <% end %>
                   </div>
-                  <div class="modal-footer" id="footer-bg">
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -306,20 +298,18 @@
     <div class="modal fade" id="addSongModaBand" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <div class="modal-header new-modal">
+
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body new-modal">
               <%= simple_form_for [@band, @song] do |f| %>
                 <%= f.input :title %>
                 <%= f.input :song %>
-                <%= f.submit %>
+                <%= f.submit class: "bg-light-blue height"%>
               <% end %>
             </div>
-            <div class="modal-footer" id="modal-footerr">
 
-            </div>
           </div>
         </div>
       </div>
