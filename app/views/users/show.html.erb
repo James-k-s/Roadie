@@ -28,11 +28,11 @@
         <p><%= @user.bio %></p>
       </div>
 
-        <div class="user-songs bg-white text-char box-shadow-white">
-          <div class="my-songs">
-            <h3 class="text-dark-blue">My Songs</h3>
+        <div class="band-songs no-hover-card bg-white text-char box-shadow-white text-char">
+          <div class="my-band-songs">
+            <h3 class="text-char m-0">Songs</h3>
             <% if current_user == @user %>
-              <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#addSongModal"></i>
+              <i class="fa-solid fa-plus text-char plus-button bg-dark-blue text-white" data-bs-toggle="modal" data-bs-target="#addSongModal"></i>
             <% end %>
           </div>
 
@@ -41,9 +41,9 @@
           <% if @user.songs %>
             <% @user.songs.each do |song| %>
               <div class="song-item">
-                <ul>
-                  <li>
-                      <h5><%= song.title %></h5>
+                <ul class="no-bullet d-flex flex-column align-items-center">
+                  <li class="d-flex align-items-center justify-content-center w-100">
+                      <h5 class="m-0 w-50 text-char"><%= song.title %></h5>
                       <audio controls class="user-song">
                           <source src= "<%= url_for(song.song.attachment) %>">
                       </audio>
@@ -51,6 +51,10 @@
                 </ul>
               </div>
             <% end %>
+          <% else %>
+            <div class="no-songs bg-white">
+              <h4>Add one of your tunes</h4>
+            </div>
           <% end %>
          </div>
 
@@ -72,9 +76,9 @@
         <% if current_user.id == @user.id %>
           <% current_user.applications.each do |application| %>
             <div class="applications">
-              <div class="my-application">
+              <div class="my-application bg-white box-shadow new-card-style">
                 <%= link_to band_path(application.vacancy.band.id), class: "text-decoration-none" do %>
-                  <h5 class="application-band-title"><%= application.vacancy.band.name %></h5>
+                  <h5 class="application-band-title text-dark-blue"><%= application.vacancy.band.name %></h5>
                 <% end %>
                 <p><strong>Position:</strong> <%= application.vacancy.instrument %></p>
                 <p><strong>Your message: </strong><%= application.pitch %></p>
