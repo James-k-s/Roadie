@@ -1,5 +1,5 @@
 <%= link_to root_path do %>
-  <%= image_tag "back-button.png", alt: "Back button", class: "back-button" %>
+  <i class="fa-solid fa-arrow-left text-white back-arrow"></i>
 <% end %>
 <div class="sharing">
   <h3>Fancy sharing a post?</h3>
@@ -31,6 +31,7 @@
 <div class="main-container" id="body-container">
 
 <div class="posts">
+  <h1 class="text-white">Musician feed</h1>
   <% @posts.each do |post| %>
     <div class="post new-card-style bg-white text-char">
       <% if post.band_id %>

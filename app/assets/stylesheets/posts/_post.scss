@@ -62,6 +62,10 @@
   padding: 24px;
   border-radius: 8px;
   width: 720px;
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .like-button {
