@@ -127,11 +127,15 @@
 }
 
 .dropdown-menu {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   border: none, !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   align-items: center;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
 }
 
 #navbarDropdown {
