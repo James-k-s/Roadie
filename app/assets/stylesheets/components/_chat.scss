@@ -7,6 +7,7 @@
   justify-content: space-between;
   flex-grow: 1;
   border-radius: 8px;
+  width: 50% !important;
 
   h1 {
     border-bottom: 1px solid $gray-200;
@@ -63,4 +64,5 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  margin-top: 16px;
 }
