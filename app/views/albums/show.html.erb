@@ -3,7 +3,7 @@
 <% end %>
 <div class="album-result">
   <div class="album-content">
-    <h1><%= @album.name %></h1>
+    <h1 class="text-white"><%= @album.name %></h1>
     <%= cl_image_tag @album.photo.key, alt: "AI-generated image of an album" if @album.photo.attached? %>
   </div>
 </div>

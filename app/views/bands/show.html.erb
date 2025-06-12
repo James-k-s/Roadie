@@ -172,7 +172,9 @@
                       <% if application.pitch == nil %>
                         <p>No applications yet for this position.</p>
                       <% else %>
+                        <%= link_to user_path(application.user) do %>
                         <h5><%= application.user.first_name%>  <%=application.user.last_name%> </h5>
+                        <% end %>
                         <p><%= application.pitch %></p>
                         <p>Submitted on: <%= application.created_at.strftime("%d %b %y") %> </p>
                       <% end %>
