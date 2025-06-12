@@ -97,8 +97,12 @@
             <% @albums.each do |album| %>
                 <%= link_to album_path(album) do %>
                   <div class="album-div new-card-style ">
-                    <li class="band-member text-char"><div><%= cl_image_tag album.photo.key, class: "band-member-image object-fit-cover"%><span><%= album.name%></span></div></li>
+                    <% if album.photo.attached? %>
+                        <li class="band-member text-char"><div><%= cl_image_tag album.photo.key, class: "band-member-image object-fit-cover"%><span><%= album.name%></span></div></li>
+                    <% else %>
+                      <p>Your image is being generated</p>
                     <% end %>
+                  <% end %>
                   </div>
               <% end %>
 

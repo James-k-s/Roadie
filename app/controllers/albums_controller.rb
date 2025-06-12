@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
 
     @album.band = @band
     if @album.save!
-      redirect_to band_path(@band), notice: "Album cover successfully created."
+      redirect_to band_path(@band), notice: "Your album is being created, this could take a second."
     else
       redirect_to band_path(@band), alert: "Failed to create Album cover. Please try again."
     end
