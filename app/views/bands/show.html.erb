@@ -67,6 +67,51 @@
         <% end %>
         </ul>
       </div>
+
+      <% if @is_member %>
+        <div class="albums">
+
+            <h3>Album generator</h3>
+
+          <div class="albumBody">
+            <div class="generateAlbums">
+                <%= simple_form_for [@band, @album] do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+                  <div class="form-inputs">
+                    <%= f.input :name, placeholder: "Spicy peanuts...", label: "Name of album" %>
+                    <%= f.input :prompt, placeholder: 'Mexican peanuts dancing with tequila...', label: "What are you looking for?" %>
+                  </div>
+
+                  <div class="form-actions">
+                    <%= f.button :button, id: "generate-button" do %>
+                      Make the magic happen
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+
+            <div class="youralbums">
+
+            <% @albums.each do |album| %>
+                <%= link_to album_path(album) do %>
+                  <div class="album-div">
+                    <li class="band-member"><div><%= cl_image_tag album.photo.key, class: "band-member-image object-fit-cover"%><span><%= album.name%></span></div></li>
+                    <% end %>
+                  </div>
+              <% end %>
+
+
+              </div>
+
+
+              <p><%= @content %></p>
+          </div>
+        </div>
+      <% end %>
+
+
     </div>
     <div class="right-side">
       <div class="vacancies">
@@ -192,7 +237,7 @@
           <% end %>
           <% if  @band.band_members.exists?(user_id: current_user.id) %>
             <button type="button" class="find-bands" data-bs-toggle="modal" data-bs-target="#createVacancyModal">
-              Create a new vancancy
+              Summon Talent
             </button>
           <% end %>
 
@@ -200,7 +245,7 @@
 
           <% if  @band.band_members.exists?(user_id: current_user.id) %>
             <button type="button" class="find-bands" data-bs-toggle="modal" data-bs-target="#createVacancyModalEmpty">
-              Create a new vancancy
+              Summon Talent
             </button>
           <% end %>
 

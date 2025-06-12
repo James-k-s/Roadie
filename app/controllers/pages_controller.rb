@@ -9,9 +9,5 @@ class PagesController < ApplicationController
     @events = Event.all
   end
 
-  def inspiration
-    @albums = Album.all
-    @album = Album.new
-    @user = current_user
-  end
+
 end

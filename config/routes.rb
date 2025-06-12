@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :chats, only: [:create]
     resources :songs, only: [:create]
     resources :posts, only: [:create]
-
     resources :events, only: [:index, :create, :destroy]
 
 
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
     resources :vacancies, only: [:create, :destroy]
     resources :chats, only: [:create]
     resources :songs, only: [:create]
+    resources :albums, only: [:create]
   end
 
   resources :chats, only: [:index, :show] do
@@ -34,11 +34,11 @@ Rails.application.routes.draw do
 
   get "inspiration", to: "pages#inspiration"
 
-  resources :albums, only: [:index, :create, :show]
 
   get "calendar", to: "pages#calendar"
   root to: "pages#home"
 
+  resources :albums, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

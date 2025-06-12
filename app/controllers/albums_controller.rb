@@ -3,12 +3,14 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     @album.user_id = current_user.id
 
-    if @album.save!
-      redirect_to inspiration_path, notice: "Album cover successfully created."
-    else
-      redirect_to root_path, alert: "Failed to create Album cover. Please try again."
-    end
+    @band = Band.find(params[:band_id])
 
+    @album.band = @band
+    if @album.save!
+      redirect_to band_path(@band), notice: "Album cover successfully created."
+    else
+      redirect_to band_path(@band), alert: "Failed to create Album cover. Please try again."
+    end
   end
 
   def album_params
@@ -18,5 +20,4 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
   end
-
 end
