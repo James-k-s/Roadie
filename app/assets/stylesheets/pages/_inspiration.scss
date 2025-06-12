@@ -1,11 +1,18 @@
 .albums {
-  width: 60%;
+  width: 100%;
   min-height: 350px;
   background-color: #FFF9ED;
   border: 2px solid #763117;
   border-radius: 8px;
-  margin-left: 16px;
+
   margin-top: 32px;
+  h3 {
+  margin-top: 16px;
+  margin-left: 16px;
+  color: #763117;
+  margin-bottom: 16px;
+  font-size: 32px;
+  }
 }
 
 .album-content {
@@ -39,16 +46,8 @@
 
 }
 
-.album-heading {
-  margin-top: 16px;
-  width: 100%;
-  color: #763117;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-}
 .youralbums {
-  width: 280px;
+  width: 80%;
   height: 100%;
   color: #763117;
   h5 {
@@ -59,15 +58,32 @@
   }
 }
 
+.album-div {
+  width: 100%;
+  background-color: white;
+  padding: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 2px solid #763117;
+  span {
+    font-size: larger;
+
+  }
+  a {
+    text-decoration: none;
+
+  }
+
+}
 
 .albumBody {
-  display: flex;
-  justify-content:space-between;
-  margin-left: 65px;
+  margin-left: 16px;
+  width: 100%;
 }
 
 .generateAlbums {
-  width: 280px;
+  width: 80%;
   height: 100%;
   color: #763117;
   h5 {
