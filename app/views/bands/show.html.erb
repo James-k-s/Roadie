@@ -135,11 +135,11 @@
                 <% end %>
               </div>
               <p class="text-char "><%= vacancy.description %></p>
-              <h5 class="text-dark-blue fw-bold">Requirements:</h5>
-              <ul class="no-bullet d-flex flex-column align-items-center w-100">
-                <li class="text-light-blue w-75 d-flex justify-content-between"><strong class="text-dark-blue"><i class="fa-solid fa-star text-dark-blue"></i>: </strong>  <%= vacancy.years_of_experience %>+ years</li>
-                <li class="text-light-blue w-75 d-flex justify-content-between"><strong class="text-dark-blue"><i class="fa-solid fa-calendar-days text-dark-blue"></i>: </strong>  <%= vacancy.availability %></li>
-                <li class="text-light-blue w-75 d-flex justify-content-between"><strong class="text-dark-blue"><i class="fa-solid fa-hand-fist text-dark-blue"></i>: </strong><span class="confi"><%= vacancy.confidence %></span></li>
+              <h4 class="text-dark-blue fw-bold">Requirements:</h4>
+              <ul class="no-bullet d-flex flex-column align-items-start w-100">
+                <li class="text-light-blue w-100 d-flex justify-content-between mb-3"><strong class="text-dark-blue"><i class="fa-solid fa-star text-dark-blue"></i> :</strong>  <%= vacancy.years_of_experience %>+ years</li>
+                <li class="text-light-blue w-100 d-flex justify-content-between  mb-3"><strong class="text-dark-blue"><i class="fa-solid fa-calendar-days text-dark-blue"></i> :</strong>  <%= vacancy.availability %></li>
+                <li class="text-light-blue w-100 d-flex justify-content-between"><strong class="text-dark-blue"><i class="fa-solid fa-hand-fist text-dark-blue"></i> :</strong><span class="confi"><%= vacancy.confidence %></span></li>
               </ul>
 
               <!-- Button for viewing applications-->
