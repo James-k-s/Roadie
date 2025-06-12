@@ -19,7 +19,7 @@
       <div class="modal-body" id="modalbody">
         <%= simple_form_for [@user, @post] do |f| %>
           <%= f.input :title, label: "Title", input_html: { class: "form-control" } %>
-          <%= f.input :content, label: "Content", input_html: { class: "form-control" } %>
+          <%= f.input :content, label: "Content", as: :text, input_html: { class: "form-control", rows: 5, maxlength: 300, placeholder: "Write up to 300 characters..."} %>
           <%= f.input :photo, as: :file, required: :true %>
           <%= f.button :submit, id: "create-button" %>
         <% end %>
