@@ -4,6 +4,7 @@
   background-color: #FFF9ED;
   border: 2px solid #763117;
   border-radius: 8px;
+  padding: 8px;
 
   margin-top: 32px;
   h3 {
@@ -34,6 +35,10 @@
   text-align: center;
   margin-bottom: 24px;
 
+}
+
+.albums-inputs {
+  background-color: white;
 }
 
 
@@ -68,7 +73,6 @@
   border: 2px solid #763117;
   span {
     font-size: larger;
-
   }
   a {
     text-decoration: none;
@@ -76,11 +80,20 @@
   }
 
 }
+.album-btn {
+  margin-bottom: 8px;
+}
+
 
 .albumBody {
   margin-left: 16px;
   width: 100%;
+
 }
+
+
+
+
 
 .generateAlbums {
   width: 80%;

@@ -66,10 +66,11 @@ body {
 }
 
 input {
-  background-color: #FFF9ED !important;
+  background-color: white !important;
   border-radius: 16px !important;
   border: none !important;
   width: 100% !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 a {
