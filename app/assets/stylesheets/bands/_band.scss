@@ -47,11 +47,18 @@
   justify-content: center;
   width: 208px;
   height: 64px;
-  background-color: #FFF9ED;
+  background-color: white;
+  color: #272757;
   font-size: 20px;
   font-weight: 700;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button:hover {
+  background-color: #5555BD;
+  color: white;
+  transition:  background-color 0.3s ease, color 0.3s ease;
 }
 
 .contact-button p {
