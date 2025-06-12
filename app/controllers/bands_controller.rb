@@ -5,7 +5,8 @@ class BandsController < ApplicationController
       {
         lat: band.latitude,
         lng: band.longitude,
-        info_window_html: render_to_string(partial: "bands/band_info_window", locals: { band: band })
+        info_window_html: render_to_string(partial: "bands/band_info_window", locals: { band: band }),
+        marker_html: render_to_string(partial: "shared/marker")
       }
     end
   end

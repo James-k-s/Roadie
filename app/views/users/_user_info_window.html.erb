@@ -1,7 +1,7 @@
 <%= link_to user_path(user), class: "d-flex user-pop-up" do %>
-    <div class="user-photo object-fit-cover " style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('<%= cl_image_path user.photo.key %>')">
+    <div class="user-photo object-fit-cover px-4" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path user.photo.key %>')">
     <div>
-      <h3><%= user.first_name %><%= user.last_name%></h3>
+      <h3><%= user.first_name %> <%= user.last_name%></h3>
       <h5><%= user.address %></h5>
     </div>
 <% end %>
