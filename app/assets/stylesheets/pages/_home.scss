@@ -192,13 +192,12 @@
 
 
 .roadie-float {
-  width: 180px;
-  height: 130px;
-  margin-bottom: 20px;
   border-radius: 8px;
-  object-fit: cover;
-  object-position: 120% 100%;
-  margin-right: 162px;
+  width: 362px;
+  height: auto;
+  position: relative;
+  top: 0;
+  right: -39px;
 }
 .frame-layer {
   position: absolute;
@@ -389,4 +388,14 @@
   background-color: white;
   color: #272757 !important;
   transition: background-color 0.3s ease !important;
+}
+
+.roadie-gradient {
+  background: linear-gradient(to bottom, rgba(39, 39, 87, 0) 50%, rgba(39, 39, 87, 1));
+  z-index: 1000;
+  position: absolute;
+  height: 300px;
+  width: 362px;
+  top: 105px;
+  right: 0;
 }
