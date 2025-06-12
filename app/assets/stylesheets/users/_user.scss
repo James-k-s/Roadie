@@ -5,8 +5,8 @@
   width: 330px;
 }
 .typing input::placeholder {
-  color: hsl(0, 30%, 98%);  
-  opacity: 0.2;      
+  color: hsl(0, 30%, 98%);
+  opacity: 0.2;
 }
 
 .no-applications {
@@ -42,8 +42,8 @@ width: 800px;
 
   audio::-webkit-media-controls-play-button,
   audio::-webkit-media-controls-panel {
-  background-color: #EB6937;
-  color: #a0276e;
+  background-color: 5555BD;
+  color: white;
   }
   h3 {
     color: #763117;
@@ -53,8 +53,8 @@ width: 800px;
     align-items: center;
   .fa-plus {
     margin-left: 8px;
-    border: 2px solid #763117;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   }
 }
@@ -95,12 +95,12 @@ width: 800px;
 }
 
 .submit-button {
-  padding: 5px 8px;   
-  width: auto;        
-  height: auto;      
-  min-width: 0;      
-  display: inline-flex;   
-  align-items: center;  
-  justify-content: center; 
-  border-radius: 4px;  
+  padding: 5px 8px;
+  width: auto;
+  height: auto;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
 }

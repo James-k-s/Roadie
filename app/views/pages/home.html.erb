@@ -1,116 +1,168 @@
 <body>
+  <div class="w-100 bg-dark-blue roadie-header">
+    <h1 class="roadie-title">Roadie</h1>
+  </div>
   <!-- Banner -->
   <section class="banner position-relative">
   <!-- Carousel Background -->
-<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag "singer_studio_chap.jpg", class: "d-block w-100 banner-image", alt: "singer studio" %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "orchestra_gilrs.jpg", class: "d-block w-100 banner-image", alt: "Banner Image 2" %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "guitarist_young_chap.jpg", class: "d-block w-100 banner-image", alt: "Banner Image 3" %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "band_lady_bloke.jpg", class: "d-block w-100 banner-image", alt: "Banner Image 4" %>
-    </div>
-  </div>
-</div>
-
-
-  <!-- Overlay Content -->
-  <div class="banner-content position-absolute top-50 start-50 translate-middle text-center text-white">
-    <div class="title-wrapper">
-      <h1 class="title">Roadie</h1>
-      <p class="lead">Meet Your Perfect Bandmate</p>
-    </div>
-    <div class="banner-buttons d-flex justify-content-center gap-3 mt-3">
-      <%= link_to "Find Bands", bands_path, class: "btn btn-outline-light custom-dark-outline" %>
-      <%= link_to "Find Musicians", users_path, class: "btn btn-outline-light" %>
-    </div>
-  </div>
-</section>
-
-
-    <!-- 4 Cards inside banner -->
-    <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
-      <div class="card" style="width: 16rem;">
-        <div class="img-container">
-          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749214755/electric-guitar_ybxodb.png", class: "card-img-top") %>
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "singer_studio_chap.jpg", class: "d-block w-100 banner-image", alt: "singer studio" %>
         </div>
-        <div class="card-body">
-          <p class="card-text">Explore indie bands in your area.</p>
+        <div class="carousel-item">
+          <%= image_tag "orchestra_gilrs.jpg", class: "d-block w-100 banner-image", alt: "Banner Image 2" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "guitarist_young_chap.jpg", class: "d-block w-100 banner-image", alt: "Banner Image 3" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "band_lady_bloke.jpg", class: "d-block w-100 banner-image", alt: "Banner Image 4" %>
         </div>
       </div>
-      <div class="card" style="width: 16rem;">
-        <div class="img-container">
-          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749213725/piano_lqmvdr.png", class: "card-img-top") %>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Join a jazz ensemble or blues group.</p>
-        </div>
-      </div>
-      <div class="card" style="width: 16rem;">
-        <div class="img-container">
-          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749214755/drum_srtv6x.png", class: "card-img-top") %>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Find rock and metal groups nearby.</p>
-        </div>
-      </div>
-      <div class="card" style="width: 16rem;">
-        <div class="img-container">
-          <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749214757/microphone_ff172t.png", class: "card-img-top") %>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Discover singer-songwriters and duos.</p>
+    </div>
+
+
+      <!-- Overlay Content -->
+    <div class="banner-content position-absolute start-50 translate-middle text-center text-white">
+      <div class="title-wrapper">
+        <div class="banner-buttons d-flex justify-content-center gap-5">
+          <div class="button-wrapper">
+            <%= link_to "Join a Band", bands_path, class: "btn btn-outline-light custom-dark-outline" %>
+          </div>
+          <div class="button-wrapper">
+            <%= link_to "Find Your New Bandmate", users_path, class: "btn btn-outline-light" %>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Why Choose Roadie -->
-  <div class="container my-5">
-    <h2 class="text-center mb-4 why-roadie-title">Why Choose Roadie?</h2>
-    <div class="row text-center">
-      <div class="d-flex justify-content-between">
-      <div class="col-md-3">
-        <div class="card h-100">
+    <!-- 4 Cards inside banner -->
+  <div class="section-gradient-bottom">
+    <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
           <div class="img-container">
-            <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749216152/pngtree-two-people-in-a-circle-icon-vector-png-image_6991516_jxuzwv.png", class: "card-img-top") %>
+            <%= image_tag "electric-guitar.png"%>
           </div>
-            <h5 class="card-title">Easy Matching</h5>
-            <p class="card-text">Our platform quickly matches musicians and bands based on genre, location, and availability.</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card h-100">
-            <div class="img-container">
-              <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749216099/pngtree-tick-vector-icon-png-image_696437_p3zyg7.jpg", class: "card-img-top") %>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Verified Profiles</h5>
-              <p class="card-text">Only real musicians and serious bands — no spam, just jam.</p>
-            </div>
+          <div class="card-body">
+            <p class="card-text text-char">Explore indie bands in your area.</p>
           </div>
         </div>
+      <% end %>
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
+          <div class="img-container">
+            <%= image_tag "piano.png"%>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-char">Join a jazz ensemble or blues group.</p>
+          </div>
+        </div>
+      <% end %>
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
+          <div class="img-container">
+            <%= image_tag "drum.png"%>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-char">Find rock and metal groups nearby.</p>
+          </div>
+        </div>
+      <% end %>
+      <%= link_to bands_path do  %>
+        <div class="card new-card-style" style="width: 16rem;">
+          <div class="img-container">
+            <%= image_tag "microphone.png"%>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-char">Discover singer-songwriters and duos.</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Why Choose Roadie -->
+    <div class="container my-5">
+      <h2 class="text-center mb-4 why-roadie-title text-white">Why Choose Roadie?</h2>
+      <div class="row text-center">
+        <div class="d-flex justify-content-between">
         <div class="col-md-3">
-          <div class="card h-100">
+          <div class="card new-card-style h-100">
             <div class="img-container">
-              <%= cl_image_tag("https://res.cloudinary.com/dwjvf6bwq/image/upload/v1749216033/musical-note-black-icon-symbol-transparent-png-7017516950335268jb4vzed5z_wurzdr.png", class: "card-img-top") %>
+              <%= image_tag "group-users.png"%>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Built for Artists</h5>
-              <p class="card-text">Designed with musicians in mind — intuitive tools, clean UI, and creative community.</p>
+              <h5 class="card-title text-dark-blue">Easy Matching</h5>
+              <p class="card-text text-char">Our platform quickly matches musicians and bands based on genre, location, and availability.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card new-card-style h-100">
+              <div class="img-container">
+                <%= image_tag "verified.png"%>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-dark-blue">Verified Profiles</h5>
+                <p class="card-text text-char">Only real musicians and serious bands — no spam, just jam.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card new-card-style h-100">
+              <div class="img-container">
+                <%= image_tag "brush.png"%>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-dark-blue">Built for Artists</h5>
+                <p class="card-text text-char">Designed with musicians in mind — intuitive tools, clean UI, and creative community.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!--  How It Works Section -->
+    <div class="how-it-works-section">
+      <h3 class="text-dark-blue">How It Works</h3>
+      <p class="text-light-blue">Getting connected with your musical partners is simple and straightforward</p>
+      <div class="steps-container">
+        <div class="step new-card-style py-4">
+          <h4 class="step-number">1</h4>
+          <h6>Create Your Profile</h6>
+          <p class="text-char">Share your musical background, songs, and what you're looking for</p>
+        </div>
+        <div class="step new-card-style py-4">
+          <h4 class="step-number">2</h4>
+          <h6>Browse & Connect</h6>
+          <p class="text-char">Discover compatible musicians and bands in your area and style</p>
+        </div>
+        <div class="step new-card-style py-4">
+          <h4 class="step-number">3</h4>
+          <h6>Make Music Together</h6>
+          <p class="text-char">Start jamming, collaborating, and creating amazing music</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
+  <!--  About Us Section -->
+  <div class="frame-layer">
+    <div class="vertical-title ">About Us</div>
+    <%# <div class="shape shape1"></div> %>
+    <%# <div class="shape shape2"></div> %>
+    <%# <div class="shape shape3"></div> %>
+    <%# <div class="shape shape4"></div> %>
+  </div>
+  <div class="content-container">
+    <div class="d-flex">
+      <div class="main-text">
+        <h2 class="text-white">Why We Started Roadie</h2>
+        <p class="text-white">Music is built on connection — between rhythms, voices, instruments, and above all, people. Yet finding the right collaborators can often feel harder than writing the perfect hook. That is why we created Roadie — a platform designed to help musicians, vocalists, producers, and bands discover each other with ease and purpose.
+            Behind the scenes, we are a trio of music lovers and tech entrepreneurs — James, Milo, and Admir — who built this platform under the guidance and mentorship of Le Wagon London. Our mission is simple: to empower creatives to connect, collaborate, and make music happen.
+          Whether you're in your bedroom studio or selling out gigs, there's a space for you here.
+        </p>
+      </div>
+      <%= image_tag "the_roadie_boys.png" , class: "roadie-float" %>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

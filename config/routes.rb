@@ -36,8 +36,6 @@ Rails.application.routes.draw do
 
   resources :albums, only: [:index, :create, :show]
 
-
-  get "about", to: "pages#about"
   get "calendar", to: "pages#calendar"
   root to: "pages#home"
 

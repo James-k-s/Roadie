@@ -1,7 +1,9 @@
-<div class="d-flex">
-  <div class="band-photo object-fit-cover " style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('<%= cl_image_path band.photo.key %>')">
-  <div>
-    <h3><%= band.name %></h3>
-    <h5><%= band.genre %></h5>
+<%= link_to band_path(band), class: "d-flex user-pop-up" do %>
+  <div class="d-flex">
+    <div class="band-photo object-fit-cover px-4" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= cl_image_path band.photo.key %>')">
+    <div>
+      <h3><%= band.name %></h3>
+      <h5><%= band.genre %></h5>
+    </div>
   </div>
-</div>
+<% end %>

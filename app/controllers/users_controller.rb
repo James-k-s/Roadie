@@ -6,7 +6,8 @@ class UsersController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude,
-        info_window_html: render_to_string(partial: "users/user_info_window", locals: { user: user })
+        info_window_html: render_to_string(partial: "users/user_info_window", locals: { user: user }),
+        marker_html: render_to_string(partial: "shared/marker")
       }
     end
   end

@@ -828,7 +828,7 @@ the_rockers_song2 = Song.new(
   band_id: Band.find_by(name: "The Rockers").id
 )
 
-the_rockers_song2.song.attach(io: File.open(Rails.root.join("app/assets/songs/sparks.mp3")), filename: "sparks.mp3", content_type: "song/mp3")
+the_rockers_song2.song.attach(io: File.open(Rails.root.join("app/assets/songs/Sparks.mp3")), filename: "Sparks.mp3", content_type: "song/mp3")
 
 the_rockers_song2.save
 fifth_elephant.save
