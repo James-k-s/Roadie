@@ -28,23 +28,23 @@
   </div>
 </div>
 
+<div class="main-container" id="body-container">
 
-<div class="body-container">
 <div class="posts">
   <% @posts.each do |post| %>
-    <div class="post">
+    <div class="post new-card-style bg-white text-char">
       <% if post.band_id %>
         <%= link_to band_path(post.band.id), class: "path-link" do %>
           <div class="who-post">
             <%= cl_image_tag post.band.photo.key, class: "post-avatar-image object-fit-cover" %>
-            <h3><%= post.band.name %></h3>
+            <h3 class="text-char" ><%= post.band.name %></h3>
           </div>
         <% end %>
       <% else %>
         <%= link_to user_path(current_user.id), class: "path-link" do %>
         <div class="who-post">
           <%= cl_image_tag post.user.photo.key, class: "post-avatar-image object-fit-cover" %>
-          <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
+          <h3 class="text-char"><%= post.user.first_name %> <%= post.user.last_name %></h3>
         </div>
         <% end %>
       <% end %>
@@ -64,5 +64,6 @@
     </div>
   <% end %>
 </div>
+
 
 </div>
