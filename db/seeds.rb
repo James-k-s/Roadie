@@ -479,10 +479,7 @@ dolce_capella.photo.attach(io: File.open(Rails.root.join("app/assets/images/dolc
 fifth_elephant = Band.new(
   name: "Fifth Elephant",
   address: "Camden, London, UK",
-  bio: "We are The Fifth Elephant — a gritty four-piece rock band based in Camden, forged in the heart of London’s underground scene and raised on power chords, distortion, and late-night gigs. Our sound blends raw alt-rock energy with punk spirit and grunge edge, channeling chaos into catharsis at every show.
-    We have been tearing through rock bars and festivals across the UK, building a loyal following and sharpening our sound in the studio we call home. The name, inspired by \"The Fifth Elephant\" - the title of the 24th novel in Terry Pratchett’s Discworld series. The name comes from an old Discworld myth.
-    We're currently looking for a female lead vocalist — someone with a killer voice, presence, and fire to match our sound. If you can command a crowd, write with soul, and love the thrill of the stage (and a bit of Discworld magic wouldn’t hurt), let’s make some noise together.
-    Drop us a message. Let’s melt some amps.",
+  bio: "We are The Fifth Elephant — a raw alt-rock band from Camden, shaped by London’s underground scene. Our sound fuses punk energy, grunge edge, and pure distortion. Named after a Discworld novel, we’ve been tearing up UK venues and honing our sound.",
   genre: "Alt Rock/Punk/Grunge",
   user_id: User.find_by(first_name: "Jack").id
 )
@@ -840,13 +837,12 @@ Vacancy.create!(
 )
 Vacancy.create!(
   instrument: "Lead Vocalist",
-  description: "We're currently looking for a female lead vocalist — someone with a killer voice, presence, and fire to match our sound. If you can command a crowd, write with soul, and love the thrill of the stage (and a bit of Discworld magic wouldn’t hurt), let’s make some noise together.
-    Drop us a message. Let’s melt some amps.",
+  description: "We’re after a female lead vocalist with a killer voice, presence, and fire. If you can own a stage, write with soul, and dig a bit of Discworld magic, get in touch. Let’s melt some amps.",
   filled: false,
   band_id: Band.find_by(name: "Fifth Elephant").id,
   years_of_experience: 4,
   availability: "Weekends",
-  confidence: "Comfortable performing in front of an audience"
+  confidence: "Loves the spotlight"
 )
 
 puts "Created #{Vacancy.count} vacancies."
