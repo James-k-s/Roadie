@@ -1,0 +1,20 @@
+
+<div class="container d-flex flex-column align-items-center justify-content-center">
+  <h2 class="text-white my-4 fw-bold">Chats</h5>
+  <div class="chats-container no-hover-no-shadow-card w-50 p-4 roundedtext-center">
+    <% if @chats.nil? %>
+      <h3>No chats available. Start a new conversation!</p>
+    <% else %>
+      <div class="chat-list">
+        <% @chats.each do |chat| %>
+          <% other_user = current_user == chat.user2 ? chat.user1 : chat.user2 %>
+          <div class="chat-item w-100 d-flex justify-content-between align-items-center mb-4 box-shadow-white bg-white">
+            <%= cl_image_tag other_user.photo.key, class: "avatar" %>
+            <strong class="ps-3"><%= other_user.first_name %> <%= other_user.last_name %></strong>   <em class="sub-sup-font-size text-muted"><%= chat.updated_at.strftime("%H:%M - %d %b %Y") %></em>
+            <button type="button" class="submit-button">Chat</button>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

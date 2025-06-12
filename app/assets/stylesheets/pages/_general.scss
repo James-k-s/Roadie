@@ -99,6 +99,11 @@ a {
   justify-content: center !important;
   line-height: 32px !important;
 }
+.plus-button:hover {
+  background-color: #5555BD !important;
+  color: white !important;
+  cursor: pointer !important;
+}
 
 .delete-button {
   color: red;
@@ -115,4 +120,29 @@ a {
   font-size: 30px;
   padding-left: 8px;
 
+}}
+
+.chats-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.chat-item {
+  border-radius: 40px !important;
+  height: 80px !important;
+}
+
+.chat-item img {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50% !important;
+}
+
+.chat-item button {
+  height: 80px !important;
+  border-radius: 40px !important;
+  padding-right: 32px !important;
+  padding-left: 32px !important;
 }
