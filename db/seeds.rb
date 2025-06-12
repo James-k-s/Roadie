@@ -342,6 +342,54 @@ dylan = User.new(
 )
 dylan.photo.attach(io: File.open(Rails.root.join("app/assets/images/dylan_cray.jpg")), filename: "dylan_cray.jpg", content_type: "image/jpg")
 
+max = User.new(
+  email: "max@hotmail.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "Max",
+  last_name: "Ali",
+  username: "max",
+  bio: "I am Max Ali, a 25-year-old singer and electronic music producer from Bishkek, now based in London. I have been creating and performing music for over 6 years, blending vocals with deep, atmospheric electronic sounds. My style is emotional and immersive: perfect for late-night sets and intimate venues. I draw inspiration from both underground electronica and Central Asian melodies, bringing a unique edge to every track I make.",
+  address: "Mayfair, London, UK"
+)
+max.photo.attach(io: File.open(Rails.root.join("app/assets/images/Max_Ali.jpg")), filename: "Max_Ali.jpg", content_type: "image/jpg")
+
+daniiar = User.new(
+  email: "daniiar@hotmail.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "Daniiar",
+  last_name: "Dzhumanazarov",
+  username: "daniiar",
+  bio: "I am Daniiar Dzhumanazarov - the lead guitarist and vocalist of The Rolls, a renowned rock band from Bishkek. With a deep passion for classic British and American rock, I bring precision, flair, and soulful energy to the band’s sound. My guitar work is rooted in the timeless styles of the 60s and 70s, making it a driving force behind The Rolls’ authentic tribute to rock legends.",
+  address: "Hackney, London, UK"
+)
+daniiar.photo.attach(io: File.open(Rails.root.join("app/assets/images/Daniiar_Dzhumanazarov.jpg")), filename: "Daniiar_Dzhumanazarov.jpg", content_type: "image/jpg")
+
+jamie = User.new(
+  email: "jamie@hotmail.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "Jamie",
+  last_name: "Cole",
+  username: "jamie",
+  bio: "I am Jamie Cole - the frontman of Marmalade Thieves, known for my charismatic stage presence and signature drawl. Raised in a fishing town just outside St Ives, I grew up on a mix of Beatles records and Cornish poetry, shaping my lyrical style into something both intimate and anthemic. My songwriting captures everyday British life with wit, melancholy, and heart - earning him comparisons to Damon Albarn and Alex Turner.",
+  address: "Paddington, London, UK"
+)
+jamie.photo.attach(io: File.open(Rails.root.join("app/assets/images/Jamie_Cole.jpg")), filename: "Jamie_Cole.jpg", content_type: "image/jpg")
+
+sora = User.new(
+  email: "sora@hotmail.com",
+  password: "password",
+  password_confirmation: "password",
+  first_name: "Sora",
+  last_name: "Kim",
+  username: "sora",
+  bio: "I am Sora Kim - the lead vocalist and lyricist of the duo, born in Seoul and raised in London. My voice blends delicate emotion with powerful presence, drawing on her bicultural heritage to craft lyrics that speak across borders. Inspired by both Korean ballads and British indie legends, my songwriting is heartfelt and deeply personal, making the duo’s unique sound.",
+  address: "Putney, London, UK"
+)
+sora.photo.attach(io: File.open(Rails.root.join("app/assets/images/Sora_Kim.jpg")), filename: "Sora_Kim.jpg", content_type: "image/jpg")
+
 milo.save!
 james.save!
 admir.save!
@@ -366,6 +414,11 @@ jack.save!
 theo.save!
 eliza.save!
 dylan.save!
+max.save! 
+daniiar.save!
+jamie.save!
+sora.save!
+
 
 puts "Created #{User.count} users."
 
@@ -434,12 +487,53 @@ fifth_elephant = Band.new(
 )
 fifth_elephant.photo.attach(io: File.open(Rails.root.join("app/assets/images/the_fifth_elephant.jpg")), filename: "the_fifth_elephant.jpg", content_type: "image/jpeg")
 
+nomad_sons = Band.new(
+  name: "Nomad Sons",
+  address: "Mayfair, London, UK",
+  bio: "We are Nomad Sons -  a musical duo blending modern electronic sounds with raw, soulful vocals and nomadic roots. Inspired by the rhythms of the road and the spirit of home, our music carries echoes of distant lands, late nights, and stories untold. Atmospheric, emotional, and deeply human: we, Nomad Sons create soundscapes for the modern wanderer.",
+  genre: "Electronic",
+  user_id: User.find_by(first_name: "Max").id
+)
+nomad_sons.photo.attach(io: File.open(Rails.root.join("app/assets/images/Nomad_Sons.jpg")), filename: "nomad_sons.jpg", content_type: "image/jpeg")
+
+the_rolls = Band.new(
+  name: "The Rolls",
+  address: "Hackney, London, UK",
+  bio: "We are The Rolls - a six-piece band from Bishkek, Kyrgyz Republic, founded in 2010 and renowned for our authentic renditions of British and American rock from the 1960s and '70s. As the only band of its kind in the Kyrgyz Republic, The Rolls have earned recognition both locally and internationally, making history as the first Kyrgyz band to play at Liverpool’s prestigious International Beatleweek in 2024.",
+  genre: "Rock",
+  user_id: User.find_by(first_name: "Daniiar").id
+)
+the_rolls.photo.attach(io: File.open(Rails.root.join("app/assets/images/The_Rolls.jpg")), filename: "the_rolls.jpg", content_type: "image/jpeg")
+
+marmalade_thieves = Band.new(
+  name: "Marmalade Thieves",
+  address: "Paddington, London, UK",
+  bio: "We are the Marmalade Thieves - a Britpop band from the windswept coast of Cornwall, blending jangly guitars, sharp lyrics, and seaside nostalgia. Inspired by the golden age of 90s British rock, our music is a modern love letter to bands like Blur, Suede, and early Coldplay - equal parts grit, charm, and melody.",
+  genre: "Britpop",
+  user_id: User.find_by(first_name: "Jamie").id
+)
+marmalade_thieves.photo.attach(io: File.open(Rails.root.join("app/assets/images/Marmalade_Thieves.jpg")), filename: "Marmalade_Thieves.jpg", content_type: "image/jpeg")
+
+seoulshire = Band.new(
+  name: "Seoulshire",
+  address: "Putney, London, UK",
+  bio: "We are Seoulshire - a British-Korean musical duo blending soulful vocals and sleek electronic production. Our sound fuses K-pop’s polished energy with British indie sensibilities, creating vibrant, emotional tracks that explore identity, love, and self-discovery. With harmonies that captivate and beats that move, we bring a fresh voice to the modern music scene.",
+  genre: "K-pop",
+  user_id: User.find_by(first_name: "Sora").id
+)
+seoulshire.photo.attach(io: File.open(Rails.root.join("app/assets/images/Seoulshire.jpg")), filename: "Seoulshire.jpg", content_type: "image/jpeg")
+
 rockers.save
 jazzers.save
 starlynx.save
 moonlit_roses.save
 dolce_capella.save
 fifth_elephant.save
+nomad_sons.save
+the_rolls.save
+marmalade_thieves.save
+seoulshire.save 
+
 
 puts "Created #{Band.count} bands."
 
