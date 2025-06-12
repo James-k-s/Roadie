@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-custom section-gradient-top navbar-container-height">
   <div class="container-fluid">
   <%= link_to image_tag("RoadieTemporaryLogo.png", width: "55px"), root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -7,9 +7,12 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
 
-        <li class="nav-item"><%= link_to "Bands", bands_path, class: "nav-links" %></li>
-        <li class="nav-item"><%= link_to "Musicians", users_path, class: "nav-links" %></li>
-        <li class="nav-item"><%= link_to "Posts", posts_path, class: "nav-links" %></li>
+        <li class="nav-item"><%= link_to "Bands", bands_path, class: "nav-links text-white" %></li>
+        <li class="nav-item"><%= link_to "Musicians", users_path, class: "nav-links text-white" %></li>
+        <li class="nav-item"><%= link_to "Posts", posts_path, class: "nav-links text-white" %></li>
+        <% if user_signed_in? %>
+        <li class="nav-item"><button class="nav-links text-white chat-button" data-bs-toggle="modal" data-bs-target="#viewingChatsModal">Chats</button></li>
+        <% end %>
 
       <% if user_signed_in? %>
         <%if current_user.photo.key == nil %>
@@ -18,25 +21,26 @@
           <%= cl_image_tag current_user.photo.key, alt: "dropdown menu", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
 
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu dropdown-menu-end bg-light-blue" aria-labelledby="navbarDropdown">
           <% if user_signed_in? && BandMember.find_by(user_id: current_user.id) %>
-
-            <%= link_to "My band", band_path(BandMember.find_by(user_id: current_user.id).band.id), class: "nav-links" %>
-            <%= link_to "My profile", user_path(current_user), class: "nav-links" %>
-            <%= link_to "Inspiration", inspiration_path, class: "nav-links" %>
-            <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links" %>
+            <ul class="no-bullet d-flex flex-column align-items-center">
+              <%= link_to "My band", band_path(BandMember.find_by(user_id: current_user.id).band.id), class: "nav-links text-white" %>
+              <%= link_to "My profile", user_path(current_user), class: "nav-links text-white" %>
+              <%= link_to "Inspiration", inspiration_path, class: "nav-links text-white" %>
+              <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links text-white" %>
+            </ul>
 
           <% elsif user_signed_in? %>
-            <ul>
-              <li><%= link_to "Create Band", new_user_band_path(current_user), class: "nav-links" %></li>
-              <li><%= link_to "My profile", user_path(current_user), class: "nav-links" %></li>
-              <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links log" %></li>
+            <ul class="no-bullet d-flex flex-column align-items-center">
+              <li><%= link_to "Create Band", new_user_band_path(current_user), class: "nav-links text-white" %></li>
+              <li><%= link_to "My profile", user_path(current_user), class: "nav-links text-white" %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-links text-white" %></li>
             </ul>
           <% end %>
         </div>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class: "nav-links log" %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "nav-links log" %>
+        <%= link_to "Login", new_user_session_path, class: "nav-links text-white" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "nav-links text-white" %>
       <% end %>
       </ul>
     </div>

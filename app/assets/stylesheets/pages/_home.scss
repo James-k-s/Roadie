@@ -66,11 +66,13 @@
 
     }
     .banner-buttons {
-      margin-top: 20px;
+      margin: 8px 0;
     }
     .banner-buttons .btn {
       padding: 14px 32px;
       font-size: 1.1rem;
+      width: 300px;
+      border: rgba(255, 255, 255, 0.6) solid 1px;
     }
     .card img {
       height: 200px;
@@ -117,18 +119,19 @@
 }
 
 .nav-links{
-  color: #96320E;
   text-decoration: none;
   text-align: center;
   font-size: 16px;
-  padding-left: 16px;
-
+  list-style: none;
+  padding: 8px;
 }
 
 .dropdown-menu {
   display: flex;
   flex-direction: column;
-  background-color: #FFF9ED;
+  border: none, !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
 }
 
 #navbarDropdown {
@@ -137,7 +140,6 @@
 
 .log {
   padding: 8px;
-  border: #96320E 1px solid;
   margin: 8px;
   border-radius: 8px;
 }
@@ -156,8 +158,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: 16px;
+  padding: 16px 16px 0 16px;
+}
+
+.img-container img {
+  width: 100px;
+  height: 100px;
 }
 
 .card-text {
@@ -168,6 +174,7 @@
   height: 40px;
   margin-top: 16px;
   margin-left: 16px;
+  color: white;
 }
 
 
@@ -199,7 +206,7 @@
 }
 
 .shape1 {
-  background-color: #96320E;
+  background-color: #5555BD;
   top: 0;
   left: 0;
   width: 180px;
@@ -208,7 +215,7 @@
 }
 
 .shape2 {
-  background-color: #EB6937;
+  background-color: white;
   top: 0;
   right: 0;
   width: 260px;
@@ -218,23 +225,25 @@
 }
 
 .shape3 {
-  background-color: #F18A60;
+  background-color: #5555BD;
   bottom: 0;
   left: 180px;
   width: calc(100% - 440px);
   height: 40px;
   --clip: 0 10%, 100% 0%, 100% 100%, 0% 100%;
   --rotate: 0deg;
+  opacity: 0.8;
 }
 
 .shape4 {
-  background-color: #FAD6C7;
+  background-color: white;
   top: 20px;
   left: 160px;
   width: calc(100% - 180px);
   height: 60px;
   --clip: 0 0, 100% 0, 85% 100%, 0% 80%;
   --rotate: 0deg;
+  opacity: 0.5;
 }
 
 .content-container {
@@ -266,7 +275,7 @@
 }
 
 .how-it-works-section {
-  background-color: #FFF9ED;
+  background-color: white;
   padding: 60px 0;
   display: flex;
   flex-direction: column;
@@ -289,7 +298,7 @@
 }
 
 .step h4 {
-  background-color: #96320E;
+  background-color: #5555BD;
   color: white;
   padding: 10px;
   border-radius: 50%;
@@ -299,7 +308,7 @@
 }
 .step h6 {
   margin-top: 10px;
-  color: #96320E;
+  color: #5555BD;
 }
 .step p {
   margin-top: 10px;
@@ -320,5 +329,45 @@
 
 .title-wrapper {
   position: relative;
-  bottom: 65px;
+}
+
+.text-char {
+  color: #36454F !important;
+}
+
+.bg-char {
+  background-color: #36454F !important;
+  color: white !important;
+}
+
+.roadie-header {
+  height : 64px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.roadie-title {
+  font-size: 80px;
+  font-weight: 900;
+  position: relative;
+  width: fit-content;
+  top: -48px;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(255,255,255,0.25);
+}
+
+.banner-content {
+  top: 4%;
+  padding: 0 8px 0 8px;
+  border-radius: 16px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 8px 8px 8px;
+  background-color:rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
 }
