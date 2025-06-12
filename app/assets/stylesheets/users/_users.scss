@@ -10,7 +10,16 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 32px !important;
+  border: none !important;
+  background-color: #272757 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.submit-button:hover {
+  background-color: #5555BD !important;
+  transition: background-color 0.3s ease !important;
 }
 
 .filter-bands {

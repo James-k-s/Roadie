@@ -11,7 +11,7 @@
   </div>
   <div class="band-details">
     <div class="band-info">
-      <i class="fa-solid fa-music me-2 text-char" ></i>
+      <i class="fa-solid fa-music me-2 text-white" ></i>
       <p class="text-white"><%= @band.genre %></p>
     </div>
     <div class="band-info">
@@ -37,9 +37,9 @@
 
       <div class="band-songs no-hover-card bg-white text-char box-shadow-white text-char">
         <div class="my-band-songs">
-          <h3 class="text-char">My Songs</h3>
+          <h3 class="text-char m-0">My Songs</h3>
           <% if @is_member %>
-            <i class="fa-solid fa-plus text-char" data-bs-toggle="modal" data-bs-target="#addSongModaBand"></i>
+            <i class="fa-solid fa-plus text-char plus-button bg-dark-blue text-white" data-bs-toggle="modal" data-bs-target="#addSongModaBand"></i>
           <% end %>
         </div>
           <% @band.songs.each do |song| %>
@@ -57,7 +57,7 @@
           <% end %>
         </div>
 
-      <div class="band-members">
+      <div class="band-members bg-white text-char box-shadow-white">
         <h3>Meet the Band</h3>
         <ul class="members-list">
         <% @band.band_members.each do |member| %>
@@ -69,29 +69,31 @@
       </div>
     </div>
     <div class="right-side">
-      <div class="vacancies">
-        <h3>Open Positions:</h3>
+      <div class="vacancies bg-light-blue text-char box-shadow-white">
+        <h3 class="text-white">Open Positions:</h3>
         <p>Join our musical journey...</p>
         <% if @band.vacancies.any? %>
 
           <% @band.vacancies.each do |vacancy| %>
-            <div class="vacancy d-flex flex-column align-items-center">
-                <h4><%= vacancy.instrument %></h4>
-              <div class="d-flex justify-content-between">
-                <%= link_to "Delete Vacancy", band_vacancy_path(@band, vacancy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <div class="vacancy d-flex flex-column align-items-center no-hover-card w-100">
+              <div class="d-flex w-100 align-items-center justify-content-between">
+                <h4 class="text-dark-blue fw-bolder"><%= vacancy.instrument %></h4>
+                <%= link_to band_vacancy_path(@band, vacancy), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="fa-solid fa-trash-can text-red delete-button mb-4"></i>
+                <% end %>
               </div>
-              <p><%= vacancy.description %></p>
-              <h5>Requirements:</h5>
+              <p class="text-char"><%= vacancy.description %></p>
+              <h5 class="text-dark-blue fw-bold">Requirements:</h5>
               <ul class="no-bullet d-flex flex-column align-items-center">
-                <li><strong>Experience:</strong>  <%= vacancy.years_of_experience %>+ years</li>
-                <li><strong>Availability:</strong>  <%= vacancy.availability %></li>
-                <li><strong>Confidence: </strong><%= vacancy.confidence %></li>
+                <li class="text-light-blue"><strong>Experience:</strong>  <%= vacancy.years_of_experience %>+ years</li>
+                <li class="text-light-blue"><strong>Availability:</strong>  <%= vacancy.availability %></li>
+                <li class="text-light-blue"><strong>Confidence: </strong><%= vacancy.confidence %></li>
               </ul>
 
               <!-- Button for viewing applications-->
               <% if  @band.band_members.exists?(user_id: current_user.id) %>
                 <button type="button" class="submit-button" data-bs-toggle="modal" data-bs-target="#viewingApplicationsModal_<%= vacancy.id %>">
-                  View Applications for this position
+                  See Who's Applied
                 </button>
               <% else %>
                 <!-- Button for applying to vacancy -->
