@@ -32,18 +32,24 @@
 
 
     .find-bands {
-      background-color: #FFF9ED;
-      color: #96320E;
-      padding: 20px;
-      border-radius: 5px;
+      background-color: white;
+      color: #272757 !important;
+      font-weight: bold !important;
+      padding: 5px 8px;
+      width: 100%;
+      border-radius: 32px !important;
+      border: none !important;
       text-align: center;
-      border-radius: 8px;
       text-decoration: none;
       box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
       margin: 4px;
-
     }
 
+    .find-bands:hover {
+      background-color: #272757 !important;
+      transition: background-color 0.3s ease !important;
+      color: white !important;
+    }
     .navbar-nav {
       align-items: center;
 

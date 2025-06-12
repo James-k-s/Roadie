@@ -23,6 +23,7 @@
 .my-band-songs {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   .fa-plus {
     margin-left: 8px;
     border: 2px solid #763117;
@@ -78,19 +79,28 @@ body {
   background-color: #FFF9ED;
   border: 2px solid #763117;
   border-radius: 8px;
-  padding: 16px;
   margin-top: 2rem;
-
-  h3 {
-    color: #763117;
-  }
+  padding: 16px;
 
   audio::-webkit-media-controls-play-button,
   audio::-webkit-media-controls-panel {
-  background-color: #EB6937;
-  color: #a0276e;
+  background-color: #5555BD;
+  color: white;
+  }
+  h3 {
+    color: #763117;
+  }
+  .my-songs {
+    display: flex;
+    align-items: center;
+  .fa-plus {
+    margin-left: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  }
 }
-}
+
 
 
 
@@ -114,7 +124,6 @@ body {
 .band-members {
   width: 100%;
   background-color: #FFF9ED;
-  border: 2px solid #763117;
   border-radius: 8px;
   padding: 16px;
   margin-top: 2rem;
@@ -180,7 +189,6 @@ body {
   width: 400px;
   height:fit-content;
   background-color: #FAD6C7;
-  border: 2px solid #763117;
   border-radius: 16px;
   padding: 32px 40px;
   display: flex;
@@ -203,10 +211,10 @@ body {
 
 .vacancy {
   width: 100%;
-  background-color: #FFF9ED;
+  background-color: white;
   border-radius: 8px;
   margin-bottom: 16px;
-  padding: 16px;
+  padding: 16px 32px;
 }
 
 .vacancy h4 {
