@@ -19,13 +19,10 @@ class BandsController < ApplicationController
     @is_member = @band.member?(current_user)
     @application = Application.new
     @vacancy = Vacancy.new
-    if Chat.find_by(band: @band, user1: current_user)
-      @chat = Chat.find_by(band: @band, user1: current_user)
-    else
-      @chat = Chat.new(band: @band, user1: current_user)
-      @chat.save
-    end
-    @chats = @band.chats.where(user1: current_user)
+    @user = @band.user
+    @chat = Chat.find_by(user1: @user, user2: current_user) ||
+            Chat.find_by(user1: current_user, user2: @user) ||
+            Chat.create(user1: current_user, user2: @user)
     @event = Event.new
     if @band.band_members.exists?(user: current_user)
       @events = @band.events

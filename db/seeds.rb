@@ -150,9 +150,7 @@ zawadi = User.new(
   first_name: "Zawadi",
   last_name: "Nyongo'o",
   username: "zawadi",
-  bio: "I am Zawadi, born and raised in South London with deep Kenyan roots and a sound that’s as layered as my playlists — grunge guitars, indie angst, and the raw edge of East African rhythm. I have spent the past few years writing, gigging, and fronting small projects, but I am now on the hunt for a serious band to grow with, create with, and blow the roof off venues with.
-  I am drawn to gritty alt-rock, moody indie textures, and punk energy with a twist — something that hits hard but stays smart. My voice is husky and powerful, perfect for both razor-sharp anthems and stripped-back, soul-cutting verses.
-  ",
+  bio: "I’m Zawadi, South London-born with Kenyan roots and a sound that blends grunge, indie angst, and East African rhythm. After years of writing, gigging, and fronting small projects, I’m now seeking a serious band to create and grow with. I’m drawn to gritty alt-rock, moody textures, and smart punk energy. My voice is husky and powerful — built for both anthems and raw, stripped-back verses.",
   address: "South London, UK"
 )
 zawadi.photo.attach(io: File.open(Rails.root.join("app/assets/images/zawadi_nyongoo.jpg")), filename: "zawadi_nyongoo.jpg", content_type: "image/jpg")

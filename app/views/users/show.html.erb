@@ -17,7 +17,7 @@
     <% if @user.genres.any? %>
       <div class="band-info">
         <i class="fa-solid fa-location-dot me-2 text-white"></i>
-        <p class="text-white"><%= @user.genres.first %></p>
+        <p class="text-white"><%= @user.genres.first.name %></p>
       </div>
     <% end %>
     <div class="band-info">
