@@ -30,7 +30,7 @@
     <div class="band-cards">
       <% @bands.each do |band| %>
         <%= link_to band_path(band), class: "text-decoration-none" do %>
-        <div class="band-card new-card-style">
+        <div class="band-card new-card-style bg-white box-shadow-white text-dark-blue">
           <%= cl_image_tag band.photo.key, class: "band-card-img" %>
           <div class="band-card-info">
             <h3><%= band.name %></h3>

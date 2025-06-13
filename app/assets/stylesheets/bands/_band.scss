@@ -199,8 +199,12 @@ body {
   flex-direction: column;
   align-items: center;
   margin-bottom: 32px;
+  font-size: 24px !important;
 }
 
+.vacancies h3 {
+  font-size: 32px !important;
+}
 
 
 .vacancy {
@@ -211,6 +215,10 @@ body {
   padding: 16px 32px;
 }
 
+.vacancy h4 {
+  font-weight: 700;
+  font-size: 28px;
+}
 
 
 

@@ -10,6 +10,7 @@
 
 puts "Clearing existing records..."
 
+Album.destroy_all
 Event.destroy_all
 UserGenre.destroy_all
 Message.destroy_all
@@ -149,9 +150,7 @@ zawadi = User.new(
   first_name: "Zawadi",
   last_name: "Nyongo'o",
   username: "zawadi",
-  bio: "I am Zawadi, born and raised in South London with deep Kenyan roots and a sound that’s as layered as my playlists — grunge guitars, indie angst, and the raw edge of East African rhythm. I have spent the past few years writing, gigging, and fronting small projects, but I am now on the hunt for a serious band to grow with, create with, and blow the roof off venues with.
-  I am drawn to gritty alt-rock, moody indie textures, and punk energy with a twist — something that hits hard but stays smart. My voice is husky and powerful, perfect for both razor-sharp anthems and stripped-back, soul-cutting verses.
-  ",
+  bio: "I’m Zawadi, South London-born with Kenyan roots and a sound that blends grunge, indie angst, and East African rhythm. After years of writing, gigging, and fronting small projects, I’m now seeking a serious band to create and grow with. I’m drawn to gritty alt-rock, moody textures, and smart punk energy. My voice is husky and powerful — built for both anthems and raw, stripped-back verses.",
   address: "South London, UK"
 )
 zawadi.photo.attach(io: File.open(Rails.root.join("app/assets/images/zawadi_nyongoo.jpg")), filename: "zawadi_nyongoo.jpg", content_type: "image/jpg")
@@ -414,7 +413,7 @@ jack.save!
 theo.save!
 eliza.save!
 dylan.save!
-max.save! 
+max.save!
 daniiar.save!
 jamie.save!
 sora.save!
@@ -478,10 +477,7 @@ dolce_capella.photo.attach(io: File.open(Rails.root.join("app/assets/images/dolc
 fifth_elephant = Band.new(
   name: "Fifth Elephant",
   address: "Camden, London, UK",
-  bio: "We are The Fifth Elephant — a gritty four-piece rock band based in Camden, forged in the heart of London’s underground scene and raised on power chords, distortion, and late-night gigs. Our sound blends raw alt-rock energy with punk spirit and grunge edge, channeling chaos into catharsis at every show.
-    We have been tearing through rock bars and festivals across the UK, building a loyal following and sharpening our sound in the studio we call home. The name, inspired by \"The Fifth Elephant\" - the title of the 24th novel in Terry Pratchett’s Discworld series. The name comes from an old Discworld myth.
-    We're currently looking for a female lead vocalist — someone with a killer voice, presence, and fire to match our sound. If you can command a crowd, write with soul, and love the thrill of the stage (and a bit of Discworld magic wouldn’t hurt), let’s make some noise together.
-    Drop us a message. Let’s melt some amps.",
+  bio: "We are The Fifth Elephant — a raw alt-rock band from Camden, shaped by London’s underground scene. Our sound fuses punk energy, grunge edge, and pure distortion. Named after a Discworld novel, we’ve been tearing up UK venues and honing our sound.",
   genre: "Alt Rock/Punk/Grunge",
   user_id: User.find_by(first_name: "Jack").id
 )
@@ -532,7 +528,7 @@ fifth_elephant.save
 nomad_sons.save
 the_rolls.save
 marmalade_thieves.save
-seoulshire.save 
+seoulshire.save
 
 
 puts "Created #{Band.count} bands."
@@ -839,13 +835,12 @@ Vacancy.create!(
 )
 Vacancy.create!(
   instrument: "Lead Vocalist",
-  description: "We're currently looking for a female lead vocalist — someone with a killer voice, presence, and fire to match our sound. If you can command a crowd, write with soul, and love the thrill of the stage (and a bit of Discworld magic wouldn’t hurt), let’s make some noise together.
-    Drop us a message. Let’s melt some amps.",
+  description: "We’re after a female lead vocalist with a killer voice, presence, and fire. If you can own a stage, write with soul, and dig a bit of Discworld magic, get in touch. Let’s melt some amps.",
   filled: false,
   band_id: Band.find_by(name: "Fifth Elephant").id,
   years_of_experience: 4,
   availability: "Weekends",
-  confidence: "Comfortable performing in front of an audience"
+  confidence: "Loves the spotlight"
 )
 
 puts "Created #{Vacancy.count} vacancies."

@@ -11,6 +11,7 @@
 
 .no-applications {
   background-color: #FAD6C7;
+  font-size: 24px !important;
 }
 
 .my-application {
@@ -87,10 +88,15 @@ width: 800px;
 }
 
 .user-pop-up{
-  color:#FFF9ED;
+  color:white;
   text-decoration: none;
   font-weight: bold;
+  width: 320px;
+  text-shadow:  1px 1px 2px black;
+  background-color: rgba(0, 0, 0, 0.5);
 }
+
+
 
 .submit-button {
   padding: 5px 8px;
