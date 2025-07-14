@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     @album.user_id = current_user.id
 
+
     @band = Band.find(params[:band_id])
 
     @album.band = @band

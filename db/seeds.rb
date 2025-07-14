@@ -46,7 +46,7 @@ milo = User.new(
 milo.photo.attach(io: File.open(Rails.root.join("app/assets/images/milo_vingoe.jpg")), filename: "milo_vingoe.jpg", content_type: "image/jpg")
 milo.user_genres.build(genre: Genre.all.sample)
 
-james =User.new(
+james = User.new(
   email: "james@james.com",
   password: "password",
   password_confirmation: "password",
