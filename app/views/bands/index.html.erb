@@ -11,12 +11,12 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <%= f.label "Genre:", class: "text-white mb-2", placeholder: "e.g. Britpop, Jazz, Rock..." %>
-              <%= f.text_field :genre, class: "bg-white" %>
+              <%= f.label "Genre:", class: "text-white mb-2"%>
+              <%= f.text_field :genre, class: "bg-white", value: params[:genre], placeholder: "Filter Genre"  %>
             </div>
             <div class="form-group">
-              <%= f.label "Location:", class: "text-white mb-2", placeholder: "e.g. Chelsea, Mayifair, Shoreditch..." %>
-              <%= f.text_field :location, class: "bg-white" %>
+              <%= f.label "Location:", class: "text-white mb-2"%>
+              <%= f.text_field :location, class: "bg-white", value: params[:location], placeholder: "Filter Location"  %>
             </div>
 
           </div>

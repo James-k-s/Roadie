@@ -1,6 +1,8 @@
 class BandsController < ApplicationController
   def index
     @bands = Band.all
+    @bands = @bands.where("genre ILIKE ?", "%#{params[:genre]}%") if params[:genre].present?
+    @bands = @bands.where("address ILIKE ?", "%#{params[:location]}%") if params[:location].present?
     @markers = @bands.geocoded.map do |band|
       {
         lat: band.latitude,
