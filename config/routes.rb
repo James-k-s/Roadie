@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:create]
     resources :events, only: [:index, :create, :destroy]
 
-
-
   end
 
   resources :bands, only: [:show, :index] do

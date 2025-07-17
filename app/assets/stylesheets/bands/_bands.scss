@@ -55,6 +55,9 @@
 .filter-bands {
   display: flex;
   justify-content: center;
+  input {
+    padding: 8px;
+  }
 }
 
 .right-side-container {

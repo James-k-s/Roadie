@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @user = User.all
     @users = User.all
-    @markers = @user.map do |user|
+    @users = @users.joins(:instruments).where("instruments.name ILIKE ?", "%#{params[:instrument]}%") if params[:instrument].present?
+    @users = @users.where("address ILIKE ?", "%#{params[:location]}%") if params[:location].present?
+
+    @markers = @users.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
@@ -15,17 +17,17 @@ class UsersController < ApplicationController
   def show
     @song = Song.new
     @user = User.find(params[:id])
-    @chat = Chat.find_by(user1: @user, user2: current_user) ||
-            Chat.find_by(user1: current_user, user2: @user) ||
-            Chat.create(user1: current_user, user2: @user)
+    @chat = Chat.find_by(user1: @users, user2: current_user) ||
+            Chat.find_by(user1: current_user, user2: @users) ||
+            Chat.create(user1: current_user, user2: @users)
     @event = Event.new
-    @user_band = @user.bands.first
+    @user_band = @users.bands.first
     if @user_band
-      @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id)).or(Event.where(band_id: @user_band.id))
+      @events = Event.where(user1_id: @users.id).or(Event.where(user2_id: @users.id)).or(Event.where(band_id: @user_band.id))
     else
-      @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id))
+      @events = Event.where(user1_id: @users.id).or(Event.where(user2_id: @user.id))
     end
-    if current_user != @user
+    if current_user != @users
       public_events = @events.select { |event| event.status == "gig" || event.status == "tour" }
       @events = public_events
     end
