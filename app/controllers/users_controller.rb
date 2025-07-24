@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     else
       @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id))
     end
-    if current_user != @users
+    if current_user != @user
       public_events = @events.select { |event| event.status == "gig" || event.status == "tour" }
       @events = public_events
     end
