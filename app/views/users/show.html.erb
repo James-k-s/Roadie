@@ -5,13 +5,16 @@
   <div class="d-flex justify-content-between align-items-center">
     <h2 class="band-name text-white"><%= @user.first_name %> <%= @user.last_name %></h2>
     <% if current_user == @user %>
-    <%# <%= link_to "Update Profile", edit_user_registration_path(current_user), class: "nav-links log text-decoration-none" %>
-  <% else %>
-    <%= link_to chat_path(@chat), class: "contact-button text-decoration-none" do %>
-      <i class="fa-solid fa-envelope"></i>
-      <p>Chat with User</p>
+      <%= link_to edit_user_registration_path(current_user), class: "contact-button text-decoration-none" do %>
+        <i class="fa-solid fa-pencil"></i>
+        <p>Edit Profile</p>
+      <% end %>
+    <% else %>
+      <%= link_to chat_path(@chat), class: "contact-button text-decoration-none" do %>
+        <i class="fa-solid fa-envelope"></i>
+        <p>Chat with User</p>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
   <div class="band-details">
     <% if @user.genres.any? %>
@@ -131,24 +134,49 @@
       </div>
 -->
       <div class="events new-card-style bg-white align-items-center justify-content-center text-char box-shadow-white w-100 p-3">
-          <h3 class="text-dark-blue" >Events:</h3>
-        <% if @events.any? %>
-          <ul class="event-list">
-            <% @events.each do |event| %>
-              <br>
-              <li class="event">
-                <strong><%= event.title %></strong> - <%= event.start_time.strftime("%H:%M - %d %b %Y") %> - <%= event.end_time.strftime("%H:%M - %d %b %Y") %> - <strong><%= event.status.capitalize %></strong>
-                <p><%= event.content %></p>
-                <%= event.user1.first_name %> <%= event.user1.last_name %>
-              </li>
-            <% end %>
-          </ul>
+        <h3 class="text-dark-blue" >Events:</h3>
+        <% if @events.empty? %>
+          <p class="text-align-center"><em>No upcoming events...</em></p>
         <% else %>
-          <div class="no-applications bg-white w-100">
-            <h4><em>No upcoming events...</em></h4>
-            <%= link_to "Find Local Musicians", bands_path, class: "submit-button w-75 my-3 lead-font-size" %>
-          </div>
+          <% @events.each do |event| %>
+            <div class="events vacancy d-flex flex-column align-items-center no-hover-card w-100">
+              <h3 class="text-dark-blue fw-bold"><%= event.status.capitalize %></h3>
+              <h4 class="text-dark-blue fw-bold"><%= event.title %></h4>
+              <p class="text-char"><%= event.start_time.strftime("%H:%M - %d %b %Y") %></p>
+              <p class="text-char"><%= event.end_time.strftime("%H:%M - %d %b %Y") %></p>
+              <p class="text-char"><%= event.address %></p>
+              <p class="text-char"><%= event.content %></p>
+            </div>
+          <% end %>
         <% end %>
+        <% if  @user == current_user %>
+          <button type="button" class="find-bands" data-bs-toggle="modal" data-bs-target="#addEventModal">
+            Add an Event
+          </button>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addEventModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header new-modal">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new vacancy listing</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body new-modal">
+            <%= simple_form_for [ @user, @event ] do |f| %>
+              <%= f.input :title %>
+              <%= f.input :content %>
+              <%= f.input :start_time %>
+              <%= f.input :end_time %>
+              <%= f.input :address %>
+              <%= f.input :status, collection: ["meeting", "gig", "practice", "tour"] %>
+              <%= f.submit class: "submit-button" %>
+            <% end %>
+          </div>
+
+        </div>
       </div>
     </div>
 
