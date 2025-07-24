@@ -21,11 +21,11 @@ class UsersController < ApplicationController
             Chat.find_by(user1: current_user, user2: @users) ||
             Chat.create(user1: current_user, user2: @users)
     @event = Event.new
-    @user_band = @users.bands.first
+    @user_band = @user.bands.first
     if @user_band
-      @events = Event.where(user1_id: @users.id).or(Event.where(user2_id: @users.id)).or(Event.where(band_id: @user_band.id))
+      @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id)).or(Event.where(band_id: @user_band.id))
     else
-      @events = Event.where(user1_id: @users.id).or(Event.where(user2_id: @user.id))
+      @events = Event.where(user1_id: @user.id).or(Event.where(user2_id: @user.id))
     end
     if current_user != @users
       public_events = @events.select { |event| event.status == "gig" || event.status == "tour" }
