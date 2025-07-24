@@ -296,6 +296,34 @@
             </div>
           <% end %>
         <% end %>
+        <% if  @band.band_members.exists?(user_id: current_user.id) %>
+          <button type="button" class="find-bands" data-bs-toggle="modal" data-bs-target="#addEventModal">
+            Add an Event
+          </button>
+        <% end %>
+
+        <div class="modal fade" id="addEventModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header new-modal">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a new vacancy listing</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body new-modal">
+                <%= simple_form_for [ @band, @event ] do |f| %>
+                  <%= f.input :title %>
+                  <%= f.input :content %>
+                  <%= f.input :start_time %>
+                  <%= f.input :end_time %>
+                  <%= f.input :address %>
+                  <%= f.input :status %>
+                  <%= f.submit class: "submit-button" %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

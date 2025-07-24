@@ -5,13 +5,16 @@
   <div class="d-flex justify-content-between align-items-center">
     <h2 class="band-name text-white"><%= @user.first_name %> <%= @user.last_name %></h2>
     <% if current_user == @user %>
-    <%= link_to "Update Profile", edit_user_registration_path(current_user), class: "nav-links log text-decoration-none" %>
-  <% else %>
-    <%= link_to chat_path(@chat), class: "contact-button text-decoration-none" do %>
-      <i class="fa-solid fa-envelope"></i>
-      <p>Chat with User</p>
+      <%= link_to edit_user_registration_path(current_user), class: "contact-button text-decoration-none" do %>
+        <i class="fa-solid fa-pencil"></i>
+        <p>Edit Profile</p>
+      <% end %>
+    <% else %>
+      <%= link_to chat_path(@chat), class: "contact-button text-decoration-none" do %>
+        <i class="fa-solid fa-envelope"></i>
+        <p>Chat with User</p>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
   <div class="band-details">
     <% if @user.genres.any? %>
